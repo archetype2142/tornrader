@@ -10,11 +10,15 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= render "layouts/navbar" %>
+  <body class="has-bg-lilac-10">
 
-    <%= flash_messages %>
-    <%= yield %>
+    <div id="wrapper">
+      <%= render "layouts/navbar" %>
+
+      <%= flash_messages %>
+      <%= yield %>    
+    </div>
+      <%= render "layouts/footer" %>
 
     <script>
       (document.querySelectorAll('.notification .delete') || []).forEach((del) => {

@@ -1,11 +1,11 @@
-<div class="has-bg-lilac-10">
-  <div class="container is-fullpage is-centered-middle is-flex-column">
-    <div class="box">
-      <h2 class="has-mb-48 is-size-2 is-size-5-mobile">Log In</h2>
+<div class="is-centered-middle is-flex-column">
+  <div class="container">
+    <div class="box has-mt-24">
+      <h2 class="has-mb-48 is-size-2 is-size-5-mobile">Sign In</h2>
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <div class="field">
-          <%= f.label "email / Torn ID" %>
+          <%= f.label "Torn ID" %>
           <div class="control">
             <%= f.text_field :login, autofocus: true, autocomplete: "email", class: "input" %>
           </div>
@@ -13,7 +13,9 @@
 
         <div class="field">
           <%= f.label :password %>
-          <%= f.password_field :password, autocomplete: "current-password", class: "input" %>
+          <div class="control">
+            <%= f.password_field :password, autocomplete: "current-password", class: "input" %>
+          </div>
         </div>
 
         <% if devise_mapping.rememberable? %>
