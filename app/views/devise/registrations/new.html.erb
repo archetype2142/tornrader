@@ -1,0 +1,74 @@
+<div class="has-bg-lilac-10">
+  <div class="container is-fullpage is-centered-middle is-flex-column">
+    <div class="box">
+      <h2 class="has-mb-48 is-size-2 is-size-5-mobile">Sign Up</h2>
+
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+
+        <div class="field">
+          <b><%= f.label "torn user id" %></b>
+          <em>(XID)</em>
+          <span id="tooltip-icon">
+            <i class="fas fa-question-circle"></i>
+            <%= image_tag "xid", id: "xid-tooltip", class: "hide-slow" %>
+          </span>
+          <div class="control">
+            <%= f.number_field :torn_user_id, autofocus: true, autocomplete: "torn_id", type: "integer", class: "input", required: "true" %>
+          </div>
+        </div>
+
+        <div class="field">
+          <b><%= f.label :torn_api_key %></b>
+          <a href="https://www.torn.com/preferences.php#tab=api" target="_blank">
+            <i class="fas fa-question-circle"></i>
+          </a>
+          <div class="control">      
+            <%= f.text_field :torn_api_key, autofocus: true, class: "input", required: "true" %>
+          </div>
+        </div>
+
+        <div class="field">
+          <b><%= f.label :password %></b>
+          <% if @minimum_password_length %>
+          <em class="has-text-muted">(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <div class="control">
+            <%= f.password_field :password, autocomplete: "new-password", class: "input", required: "true" %>
+          </div>
+        </div>
+
+        <div class="field">
+          <%= f.label :password_confirmation, class: "label" %>
+          <div class="control">
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "input", required: "true" %>
+          </div>
+        </div>
+
+        <div class="actions">
+          <div class="control">      
+            <%= f.submit "Sign up", class: "button is-primary" %>
+          </div>
+        </div>
+      <% end %>
+
+      <%= render "devise/shared/links" %>
+    </div>
+  </div>
+</div>
+
+<script>
+  var tooltip = document.getElementById("xid-tooltip");
+  var tooltip_icon = document.getElementById("tooltip-icon"); 
+  
+  tooltip_icon.addEventListener("mouseover", function( event ) {   
+    tooltip.classList.add("show");
+  });
+
+  tooltip_icon.addEventListener("mouseout", function( event ) {   
+    tooltip.classList.remove("show");
+  });
+
+</script>
+  
+

@@ -1,0 +1,527 @@
+.is-regular {
+  font-weight: 500;
+
+  &-touch {
+    @include touch {
+      font-weight: 500 !important;
+    }
+  }
+
+  &-tablet {
+    @include tablet {
+      font-weight: 500 !important;
+    }
+  }
+
+  &-mobile {
+    @include mobile {
+      font-weight: 500 !important;
+    }
+  }
+}
+
+.is-semibold {
+  font-weight: 600;
+
+  &-touch {
+    @include touch {
+      font-weight: 600 !important;
+    }
+  }
+
+  &-tablet {
+    @include tablet {
+      font-weight: 600 !important;
+    }
+  }
+
+  &-mobile {
+    @include mobile {
+      font-weight: 600 !important;
+    }
+  }
+}
+
+.is-bold {
+  font-weight: 700;
+
+  &-touch {
+    @include touch {
+      font-weight: 700 !important;
+    }
+  }
+
+  &-tablet {
+    @include tablet-only {
+      font-weight: 700 !important;
+    }
+  }
+
+  &-mobile {
+    @include mobile {
+      font-weight: 700 !important;
+    }
+  }
+}
+
+.is-heavy {
+  font-weight: 900;
+
+  &-touch {
+    @include touch {
+      font-weight: 900 !important;
+    }
+  }
+
+  &-tablet {
+    @include tablet-only {
+      font-weight: 900 !important;
+    }
+  }
+
+  &-mobile {
+    @include mobile {
+      font-weight: 900 !important;
+    }
+  }
+}
+
+.is-body-11 {
+  font-size: 11px;
+  line-height: 13px;
+  font-family: $text-body;
+
+  &-touch {
+    @include touch {
+      font-size: 11px !important;
+      line-height: 13px !important;
+      font-family: $text-body !important;
+      letter-spacing: normal !important;
+    }
+  }
+
+  &-tablet {
+    @include tablet {
+      font-size: 11px !important;
+      line-height: 13px !important;
+      font-family: $text-body !important;
+      letter-spacing: normal !important;
+    }
+  }
+
+  &-mobile {
+    @include mobile {
+      font-size: 11px !important;
+      line-height: 13px !important;
+      font-family: $text-body !important;
+      letter-spacing: normal !important;
+    }
+  }
+}
+
+.is-body-12 {
+  font-size: 12px;
+  line-height: 15px;
+  font-family: $text-body;
+
+  &-touch {
+    @include touch {
+      font-size: 12px !important;
+      line-height: 15px !important;
+      font-family: $text-body !important;
+      letter-spacing: normal !important;
+    }
+  }
+
+  &-tablet {
+    @include tablet {
+      font-size: 12px !important;
+      line-height: 15px !important;
+      font-family: $text-body !important;
+      letter-spacing: normal !important;
+    }
+  }
+
+  &-mobile {
+    @include mobile {
+      font-size: 12px !important;
+      line-height: 15px !important;
+      font-family: $text-body !important;
+      letter-spacing: normal !important;
+    }
+  }
+}
+
+.is-body-13 {
+  font-size: 13px;
+  line-height: 19px;
+  font-family: $text-body;
+
+  &-touch {
+    @include touch {
+      font-size: 13px !important;
+      line-height: 19px !important;
+      font-family: $text-body !important;
+      letter-spacing: normal !important;
+    }
+  }
+
+  &-tablet {
+    @include tablet {
+      font-size: 13px !important;
+      line-height: 19px !important;
+      font-family: $text-body !important;
+      letter-spacing: normal !important;
+    }
+  }
+
+  &-mobile {
+    @include mobile {
+      font-size: 13px !important;
+      line-height: 19px !important;
+      font-family: $text-body !important;
+      letter-spacing: normal !important;
+    }
+  }
+}
+
+.is-body-14 {
+  font-size: 14px;
+  line-height: 22px;
+  font-family: $text-body;
+
+  &-touch {
+    @include touch {
+      font-size: 14px !important;
+      line-height: 22px !important;
+      font-family: $text-body !important;
+      letter-spacing: normal !important;
+    }
+  }
+
+  &-tablet {
+    @include tablet {
+      font-size: 14px !important;
+      line-height: 22px !important;
+      font-family: $text-body !important;
+      letter-spacing: normal !important;
+    }
+  }
+
+  &-mobile {
+    @include mobile {
+      font-size: 14px !important;
+      line-height: 22px !important;
+      font-family: $text-body !important;
+      letter-spacing: normal !important;
+    }
+  }
+}
+
+.is-body-16 {
+  font-size: 16px;
+  line-height: 26px;
+  font-family: $text-body;
+
+  &-touch {
+    @include touch {
+      font-size: 16px !important;
+      line-height: 26px !important;
+      font-family: $text-body !important;
+      letter-spacing: normal !important;
+    }
+  }
+
+  &-tablet {
+    @include tablet {
+      font-size: 16px !important;
+      line-height: 26px !important;
+      font-family: $text-body !important;
+      letter-spacing: normal !important;
+    }
+  }
+
+  &-mobile {
+    @include mobile {
+      font-size: 16px !important;
+      line-height: 26px !important;
+      font-family: $text-body !important;
+      letter-spacing: normal !important;
+    }
+  }
+}
+
+.is-body-19 {
+  font-size: 19px;
+  line-height: 30px;
+  font-family: $text-body;
+
+  &-touch {
+    @include touch {
+      font-size: 19px !important;
+      line-height: 30px !important;
+      font-family: $text-body !important;
+      letter-spacing: normal !important;
+    }
+  }
+
+  &-tablet {
+    @include tablet {
+      font-size: 19px !important;
+      line-height: 30px !important;
+      font-family: $text-body !important;
+      letter-spacing: normal !important;
+    }
+  }
+
+  &-mobile {
+    @include mobile {
+      font-size: 19px !important;
+      line-height: 30px !important;
+      font-family: $text-body !important;
+      letter-spacing: normal !important;
+    }
+  }
+}
+
+.is-display-12 {
+  font-size: 12px;
+  line-height: 18px;
+  letter-spacing: 0;
+  font-family: $text-display;
+
+  &-touch {
+    @include touch {
+      font-size: 12px !important;
+      line-height: 18px !important;
+      letter-spacing: 0 !important;
+      font-family: $text-display !important;
+    }
+  }
+
+  &-tablet {
+    @include tablet {
+      font-size: 12px !important;
+      line-height: 18px !important;
+      letter-spacing: 0 !important;
+      font-family: $text-display !important;
+    }
+  }
+
+  &-mobile {
+    @include mobile {
+      font-size: 12px !important;
+      line-height: 18px !important;
+      letter-spacing: 0 !important;
+      font-family: $text-display !important;
+    }
+  }
+}
+
+.is-display-15 {
+  font-size: 15px;
+  line-height: 22px;
+  letter-spacing: 0;
+  font-family: $text-display;
+
+  &-touch {
+    @include touch {
+      font-size: 15px !important;
+      line-height: 22px !important;
+      letter-spacing: 0 !important;
+      font-family: $text-display !important;
+    }
+  }
+
+  &-tablet {
+    @include tablet {
+      font-size: 15px !important;
+      line-height: 22px !important;
+      letter-spacing: 0 !important;
+      font-family: $text-display !important;
+    }
+  }
+
+  &-mobile {
+    @include mobile {
+      font-size: 15px !important;
+      line-height: 22px !important;
+      letter-spacing: 0 !important;
+      font-family: $text-display !important;
+    }
+  }
+}
+
+.is-display-17 {
+  font-size: 17px;
+  line-height: 26px;
+  letter-spacing: 0;
+  font-family: $text-display;
+
+  &-touch {
+    @include touch {
+      font-size: 17px !important;
+      line-height: 26px !important;
+      letter-spacing: 0 !important;
+      font-family: $text-display !important;
+    }
+  }
+
+  &-tablet {
+    @include tablet {
+      font-size: 17px !important;
+      line-height: 26px !important;
+      letter-spacing: 0 !important;
+      font-family: $text-display !important;
+    }
+  }
+
+  &-mobile {
+    @include mobile {
+      font-size: 17px !important;
+      line-height: 26px !important;
+      letter-spacing: 0 !important;
+      font-family: $text-display !important;
+    }
+  }
+}
+
+.is-display-23 {
+  font-size: 23px;
+  line-height: 30px;
+  letter-spacing: -0.05px;
+  font-family: $text-display;
+
+  &-touch {
+    @include touch {
+      font-size: 23px !important;
+      line-height: 30px !important;
+      letter-spacing: -0.05px !important;
+      font-family: $text-display !important;
+    }
+  }
+
+  &-tablet {
+    @include tablet {
+      font-size: 23px !important;
+      line-height: 30px !important;
+      letter-spacing: -0.05px !important;
+      font-family: $text-display !important;
+    }
+  }
+
+  &-mobile {
+    @include mobile {
+      font-size: 23px !important;
+      line-height: 30px !important;
+      letter-spacing: -0.05px !important;
+      font-family: $text-display !important;
+    }
+  }
+}
+
+.is-display-30 {
+  font-size: 30px;
+  line-height: 36px;
+  letter-spacing: -0.15px;
+  font-family: $text-display;
+
+  &-touch {
+    @include touch {
+      font-size: 30px !important;
+      line-height: 36px !important;
+      letter-spacing: -0.15px !important;
+      font-family: $text-display !important;
+    }
+  }
+
+  &-tablet {
+    @include tablet {
+      font-size: 30px !important;
+      line-height: 36px !important;
+      letter-spacing: -0.15px !important;
+      font-family: $text-display !important;
+    }
+  }
+
+  &-mobile {
+    @include mobile {
+      font-size: 30px !important;
+      line-height: 36px !important;
+      letter-spacing: -0.15px !important;
+      font-family: $text-display !important;
+    }
+  }
+}
+
+.is-display-37 {
+  font-size: 37px;
+  line-height: 44px;
+  letter-spacing: -0.35px;
+  font-family: $text-display;
+
+  &-touch {
+    @include touch {
+      font-size: 37px !important;
+      line-height: 44px !important;
+      letter-spacing: -0.35px !important;
+      font-family: $text-display !important;
+    }
+  }
+
+  &-tablet {
+    @include tablet {
+      font-size: 37px !important;
+      line-height: 44px !important;
+      letter-spacing: -0.35px !important;
+      font-family: $text-display !important;
+    }
+  }
+
+  &-mobile {
+    @include mobile {
+      font-size: 37px !important;
+      line-height: 44px !important;
+      letter-spacing: -0.35px !important;
+      font-family: $text-display !important;
+    }
+  }
+}
+
+.is-display-45 {
+  font-size: 45px;
+  line-height: 52px;
+  letter-spacing: -0.5px;
+  font-family: $text-display;
+
+  &-touch {
+    @include touch {
+      font-size: 45px !important;
+      line-height: 52px !important;
+      letter-spacing: -0.5px !important;
+      font-family: $text-display !important;
+    }
+  }
+
+  &-tablet {
+    @include tablet {
+      font-size: 45px !important;
+      line-height: 52px !important;
+      letter-spacing: -0.5px !important;
+      font-family: $text-display !important;
+    }
+  }
+
+  &-mobile {
+    @include mobile {
+      font-size: 45px !important;
+      line-height: 52px !important;
+      letter-spacing: -0.5px !important;
+      font-family: $text-display !important;
+    }
+  }
+}
+
+.is-uppercase {
+  text-transform: uppercase;
+}

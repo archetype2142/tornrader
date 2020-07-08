@@ -1,0 +1,13 @@
+.is-centered-middle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.is-flex-column {
+  flex-direction: column;
+}
+
+.is-flex-row {
+  flex-direction: row;
+}

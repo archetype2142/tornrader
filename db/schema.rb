@@ -1,0 +1,81 @@
+# This file is auto-generated from the current state of the database. Instead
+# of editing this file, please use the migrations feature of Active Record to
+# incrementally modify your database, and then regenerate this schema definition.
+#
+# This file is the source Rails uses to define your schema when running `rails
+# db:schema:load`. When creating a new database, `rails db:schema:load` tends to
+# be faster and is potentially less error prone than running all of your
+# migrations from scratch. Old migrations may fail to apply correctly if those
+# migrations use external dependencies or application code.
+#
+# It's strongly recommended that you check this file into your version control system.
+
+ActiveRecord::Schema.define(version: 2020_07_08_201725) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.bigint "items_id"
+    t.index ["items_id"], name: "index_categories_on_items_id"
+  end
+
+  create_table "item_lists", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "item_id"
+    t.index ["item_id"], name: "index_item_lists_on_item_id"
+    t.index ["user_id"], name: "index_item_lists_on_user_id"
+  end
+
+  create_table "items", force: :cascade do |t|
+    t.string "torn_id"
+    t.string "name"
+    t.integer "price"
+    t.bigint "category_id"
+    t.bigint "line_item_id"
+    t.index ["category_id"], name: "index_items_on_category_id"
+    t.index ["line_item_id"], name: "index_items_on_line_item_id"
+  end
+
+  create_table "line_items", force: :cascade do |t|
+    t.integer "quantity"
+    t.bigint "item_id"
+    t.index ["item_id"], name: "index_line_items_on_item_id"
+  end
+
+  create_table "subscriptions", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.datetime "ends_at", null: false
+    t.bigint "user_id"
+    t.integer "state", default: 0
+    t.index ["user_id"], name: "index_subscriptions_on_user_id"
+  end
+
+  create_table "trades", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "users_id"
+    t.bigint "items_id"
+    t.bigint "user_id"
+    t.index ["items_id"], name: "index_trades_on_items_id"
+    t.index ["user_id"], name: "index_trades_on_user_id"
+    t.index ["users_id"], name: "index_trades_on_users_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "torn_api_key"
+    t.string "torn_user_id"
+    t.string "username"
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+end

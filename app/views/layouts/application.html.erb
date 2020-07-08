@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TornTrader</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render "layouts/navbar" %>
+
+    <%= flash_messages %>
+    <%= yield %>
+
+    <script>
+      (document.querySelectorAll('.notification .delete') || []).forEach((del) => {
+        var notification = del.parentNode;
+        
+        del.addEventListener('click', () => {
+          notification.parentNode.removeChild(notification);
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,17 @@
+@import "./colors";
+
+@import "bulma/bulma";
+@import "navbar";
+@import "sidebar";
+@import "tables";
+@import "modals";
+
+@import "./font";
+@import "./typography";
+@import "./utils";
+@import "./basics";
+@import "./flexbox";
+
+.notification {
+  margin-bottom: 0px !important;
+}
