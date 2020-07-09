@@ -20,6 +20,11 @@ a {
   border-radius: 9px;
 }
 
+.box.is-hoverable:hover {
+  background-color: map-get($torn, 'lilac-90');
+  color: white;
+}
+
 .card, .box {
   // overflow: hidden;
 }

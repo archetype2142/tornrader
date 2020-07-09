@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_08_201725) do
+ActiveRecord::Schema.define(version: 2020_07_08_232337) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,17 @@ ActiveRecord::Schema.define(version: 2020_07_08_201725) do
     t.string "name"
     t.bigint "items_id"
     t.index ["items_id"], name: "index_categories_on_items_id"
+  end
+
+  create_table "friendly_id_slugs", force: :cascade do |t|
+    t.string "slug", null: false
+    t.integer "sluggable_id", null: false
+    t.string "sluggable_type", limit: 50
+    t.string "scope"
+    t.datetime "created_at"
+    t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
+    t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
+    t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
   create_table "item_lists", force: :cascade do |t|
@@ -39,9 +50,11 @@ ActiveRecord::Schema.define(version: 2020_07_08_201725) do
   end
 
   create_table "line_items", force: :cascade do |t|
-    t.integer "quantity"
-    t.bigint "item_id"
-    t.index ["item_id"], name: "index_line_items_on_item_id"
+    t.integer "quantity", default: 0
+    t.bigint "items_id"
+    t.bigint "trade_id"
+    t.index ["items_id"], name: "index_line_items_on_items_id"
+    t.index ["trade_id"], name: "index_line_items_on_trade_id"
   end
 
   create_table "subscriptions", force: :cascade do |t|
@@ -56,12 +69,11 @@ ActiveRecord::Schema.define(version: 2020_07_08_201725) do
   create_table "trades", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "users_id"
-    t.bigint "items_id"
     t.bigint "user_id"
-    t.index ["items_id"], name: "index_trades_on_items_id"
+    t.integer "total", default: 0
+    t.string "slug"
+    t.index ["slug"], name: "index_trades_on_slug", unique: true
     t.index ["user_id"], name: "index_trades_on_user_id"
-    t.index ["users_id"], name: "index_trades_on_users_id"
   end
 
   create_table "users", force: :cascade do |t|

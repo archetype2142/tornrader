@@ -20,6 +20,7 @@ body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  overflow-x: hidden;
 }
 
 #wrapper {
@@ -27,5 +28,12 @@ body {
 }
 
 .footer {
-  padding: 5%;
+  padding: 50px;
+}
+
+.container {
+  @include touch {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }

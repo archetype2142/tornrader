@@ -1,0 +1,34 @@
+.container
+  h1.has-pt-24.title Reciept
+  .columns
+    .column.is-half
+      .box
+        table.table.is-striped.is-bordered.is-fullwidth.is-hoverable
+          thead
+            tr
+              th
+                abbr title="Item" Item
+              th
+                abbr title="Quantity" Quantity
+              th
+                abbr title="Price" Price
+              th
+                abbr title="Total" Total
+          tfoot
+            tr
+              th
+                abbr title="Total Price" Total
+              th
+                abbr title="Total Quantity"
+              th
+                abbr title="Total Price" 
+              th
+                abbr title="Total Amount" = "$ #{@trade.total}"
+          tbody
+            - @trade.line_items.each do |li|
+              tr
+                th = li&.items&.last&.name
+                td = li.quantity
+                td = "$ #{li&.items&.last&.price}"
+                td = "$ #{li.quantity * li.items.last.price}"
+

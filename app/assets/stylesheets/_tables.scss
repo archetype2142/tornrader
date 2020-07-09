@@ -9,11 +9,11 @@ tbody {
 }
 
 .table.is-hoverable.is-striped tbody tr:not(.is-selected):hover {
-  background-color: map-get($torn, "tangerine-pop-20");
+  background-color: map-get($torn, "lilac-20");
 }
 
 .table.is-hoverable.is-striped tbody tr:not(.is-selected):hover:nth-child(even) {
-  background-color: map-get($torn, "tangerine-pop-30");
+  background-color: map-get($torn, "lilac-20");
 }
 
 // .table.is-striped tbody tr:not(.is-selected):nth-child(even) {
@@ -22,4 +22,8 @@ tbody {
 
 .table__wrapper {
   overflow-x: auto;
+}
+
+table td:not([align]), table th:not([align]) {
+  text-align: center;
 }

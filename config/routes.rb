@@ -3,7 +3,8 @@
 Rails.application.routes.draw do
   root "homepage#index"
   devise_for :users
-  resources :trades, only: [:index]
-
+  resources :trades, only: [:index, :show]
+  resources :settings, only: [:index]
+  
   get "/contact", to: "static_pages/contacts#index"
 end
