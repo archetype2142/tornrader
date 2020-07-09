@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :trades, only: [:index, :show]
   resources :settings, only: [:index]
+  resources :items, only: [:index]
   
   get "/contact", to: "static_pages/contacts#index"
 end
