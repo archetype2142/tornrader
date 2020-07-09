@@ -8,17 +8,17 @@ tbody {
   }
 }
 
-.table.is-hoverable.is-striped tbody tr:not(.is-selected):hover {
-  background-color: map-get($torn, "lilac-20");
+.table .is-striped tbody tr:not(.is-selected):hover {
+  background-color: map-get($torn, "lilac-50");
 }
 
-.table.is-hoverable.is-striped tbody tr:not(.is-selected):hover:nth-child(even) {
-  background-color: map-get($torn, "lilac-20");
+.table .is-striped tbody tr:not(.is-selected):hover:nth-child(even) {
+  background-color: map-get($torn, "lilac-50");
 }
 
-// .table.is-striped tbody tr:not(.is-selected):nth-child(even) {
-//   background-color: map-get($management, "tangerine-pop-20")
-// }
+.table.is-striped tbody tr:not(.is-selected):nth-child(even) {
+  background-color: map-get($torn, "lilac-20");
+}
 
 .table__wrapper {
   overflow-x: auto;
@@ -27,3 +27,23 @@ tbody {
 table td:not([align]), table th:not([align]) {
   text-align: center;
 }
+
+.trade-table {
+  font-weight: 800;
+  padding: 15px;
+  border-radius: 9px;
+  .title {
+    background-color: white;
+  }
+}
+
+.trade-component {
+  td {
+    text-align: left !important;
+  }
+}
+
+td.component-unit-price, td.component-quantity {
+  text-align: right !important;
+}
+.hideextra { white-space: nowrap; overflow: hidden; text-overflow:ellipsis; }

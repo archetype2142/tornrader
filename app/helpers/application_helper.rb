@@ -25,4 +25,17 @@ module ApplicationHelper
     end
     flashes.html_safe
   end
+
+  def display_price(amount)
+    "$ #{number_with_delimiter(amount, delimiter: ',')}".html_safe
+  end
+
+  def display_line_price(line_item)
+    qty = line_item.quantity
+    itm_name = line_item&.items&.last&.name
+    itm_price = display_price(line_item&.items&.last&.price)
+    total_price = display_price(line_item.total)
+    
+    "#{itm_name}: #{itm_price} x #{qty} = #{total_price}".html_safe
+  end
 end

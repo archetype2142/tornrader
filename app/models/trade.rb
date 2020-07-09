@@ -10,7 +10,8 @@ class Trade < ApplicationRecord
     self.slug = SecureRandom.uuid
   end
 
-  def total
-    self.line_items.map { |li| li.items.last.price * li.quantity }.sum
+  def update_total
+    total_price = self.line_items.pluck(:total).sum
+    self.update!(total: total_price) unless self.total == total_price
   end
 end

@@ -1,41 +1,31 @@
 .container
-  h1.has-pt-24.title Reciept
   .columns
-    .column.is-half
-      .box
-        .table__wrapper
-          table.table.is-striped.is-bordered.is-fullwidth.is-hoverable
-            thead
-              tr
-                th
-                  abbr title="Item" Item
-                th
-                  abbr title="Quantity" Quantity
-                th
-                  abbr title="Price" Price
-                th
-                  abbr title="Total" Total
-            tfoot
-              tr
-                th
-                  abbr title="Total Price" Total
-                th
-                  abbr title="Total Quantity"
-                th
-                  abbr title="Total Price" 
-                th
-                  abbr title="Total Amount" 
-                    | $ 
-                    = number_with_delimiter(@trade.total, :delimiter => ",")
-            tbody
-              - @trade.line_items.each do |li|
-                tr
-                  th = li&.items&.last&.name
-                  td = li.quantity
-                  td 
-                    | $ 
-                    = number_with_delimiter(li&.items&.last&.price, :delimiter => ",")
-                  td 
-                    | $ 
-                    = number_with_delimiter(li.quantity * li.items.last.price, :delimiter => ",")
-
+    .column
+      h1.has-pt-24.title Reciept
+      .table__wrapper
+        table.table.trade-table.is-striped.is-mobile
+          tbody
+            - @trade.line_items.each do |line_item|
+              tr.trade-component
+                td.component-name = line_item&.items&.last&.name
+                td.hideextra.component-unit-price
+                  span = display_price(line_item&.items&.last&.price)
+                  span.times-sign 
+                    | × 
+                td.hideextra.component-quantity
+                  span = line_item.quantity
+                  span.equals-sign 
+                    |  =
+                td.hideextra.component-total-price
+                  span= display_price(line_item.total)
+          tfoot
+            tr.grand-total.has-bg-lilac-90
+              td.hideextra.grand-total-label colspan="3" 
+                b.is-lilac-10 Total:
+              td 
+                b.is-lilac-10 = display_price(@trade.total)
+            tr.generated-at-row
+              td.generated-at colspan="4"
+                .has-text-grey
+                  | Generated at: 
+                  = @trade.created_at.strftime("%Y-%m-%d %H:%M TCT")
