@@ -3,38 +3,39 @@
   .columns
     .column.is-half
       .box
-        table.table.is-striped.is-bordered.is-fullwidth.is-hoverable
-          thead
-            tr
-              th
-                abbr title="Item" Item
-              th
-                abbr title="Quantity" Quantity
-              th
-                abbr title="Price" Price
-              th
-                abbr title="Total" Total
-          tfoot
-            tr
-              th
-                abbr title="Total Price" Total
-              th
-                abbr title="Total Quantity"
-              th
-                abbr title="Total Price" 
-              th
-                abbr title="Total Amount" 
-                  | $ 
-                  = number_with_delimiter(@trade.total, :delimiter => ",")
-          tbody
-            - @trade.line_items.each do |li|
+        .table__wrapper
+          table.table.is-striped.is-bordered.is-fullwidth.is-hoverable
+            thead
               tr
-                th = li&.items&.last&.name
-                td = li.quantity
-                td 
-                  | $ 
-                  = number_with_delimiter(li&.items&.last&.price, :delimiter => ",")
-                td 
-                  | $ 
-                  = number_with_delimiter(li.quantity * li.items.last.price, :delimiter => ",")
+                th
+                  abbr title="Item" Item
+                th
+                  abbr title="Quantity" Quantity
+                th
+                  abbr title="Price" Price
+                th
+                  abbr title="Total" Total
+            tfoot
+              tr
+                th
+                  abbr title="Total Price" Total
+                th
+                  abbr title="Total Quantity"
+                th
+                  abbr title="Total Price" 
+                th
+                  abbr title="Total Amount" 
+                    | $ 
+                    = number_with_delimiter(@trade.total, :delimiter => ",")
+            tbody
+              - @trade.line_items.each do |li|
+                tr
+                  th = li&.items&.last&.name
+                  td = li.quantity
+                  td 
+                    | $ 
+                    = number_with_delimiter(li&.items&.last&.price, :delimiter => ",")
+                  td 
+                    | $ 
+                    = number_with_delimiter(li.quantity * li.items.last.price, :delimiter => ",")
 
