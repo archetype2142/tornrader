@@ -10,4 +10,5 @@
             = trade.line_items.pluck(:quantity).sum
           p
             b Total Amount: 
-            = trade.total
+            | $
+            = number_with_delimiter(trade.total, :delimiter => ",")

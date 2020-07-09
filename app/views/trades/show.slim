@@ -23,12 +23,18 @@
               th
                 abbr title="Total Price" 
               th
-                abbr title="Total Amount" = "$ #{@trade.total}"
+                abbr title="Total Amount" 
+                  | $ 
+                  = number_with_delimiter(@trade.total, :delimiter => ",")
           tbody
             - @trade.line_items.each do |li|
               tr
                 th = li&.items&.last&.name
                 td = li.quantity
-                td = "$ #{li&.items&.last&.price}"
-                td = "$ #{li.quantity * li.items.last.price}"
+                td 
+                  | $ 
+                  = number_with_delimiter(li&.items&.last&.price, :delimiter => ",")
+                td 
+                  | $ 
+                  = number_with_delimiter(li.quantity * li.items.last.price, :delimiter => ",")
 
