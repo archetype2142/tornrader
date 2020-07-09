@@ -4,8 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :rememberable
   
-  has_many :item_lists
-  has_many :items, through: :item_lists
+  has_many :prices
+  has_many :items, through: :prices
   has_many :trades
   has_many :subscriptions
   

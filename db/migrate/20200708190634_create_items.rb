@@ -3,7 +3,7 @@ class CreateItems < ActiveRecord::Migration[6.0]
     create_table :items do |t|
       t.string :torn_id
       t.string :name
-      t.integer :price
+      t.bigint :base_price
     end
   end
 end

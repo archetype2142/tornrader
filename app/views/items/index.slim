@@ -1,0 +1,15 @@
+.container.has-mt-24
+  .columns.is-multiline
+    - Item.all.each do |i|
+      .column.is-one-third
+        .box.is-hoverable onclick="window.open('https://www.torn.com/imarket.php#/p=shop&step=shop&type=&searchname=#{i.name}')"
+          .columns
+            .column.is-one-fifth
+              = image_tag i.image_url
+            .column
+              h4.is-size-4 = i.name
+              p
+                b 
+                  |Buy Price: 
+                  = display_price(i.base_price)
+              p = i.description

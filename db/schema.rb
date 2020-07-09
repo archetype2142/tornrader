@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_09_104535) do
+ActiveRecord::Schema.define(version: 2020_07_09_214529) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,19 +32,14 @@ ActiveRecord::Schema.define(version: 2020_07_09_104535) do
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
   end
 
-  create_table "item_lists", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "item_id"
-    t.index ["item_id"], name: "index_item_lists_on_item_id"
-    t.index ["user_id"], name: "index_item_lists_on_user_id"
-  end
-
   create_table "items", force: :cascade do |t|
     t.string "torn_id"
     t.string "name"
-    t.integer "price"
+    t.bigint "base_price"
     t.bigint "category_id"
     t.bigint "line_item_id"
+    t.string "image_url", default: "null"
+    t.string "description", default: "null"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["line_item_id"], name: "index_items_on_line_item_id"
   end
@@ -54,6 +49,14 @@ ActiveRecord::Schema.define(version: 2020_07_09_104535) do
     t.bigint "trade_id"
     t.integer "total", default: 0
     t.index ["trade_id"], name: "index_line_items_on_trade_id"
+  end
+
+  create_table "prices", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "item_id"
+    t.bigint "amount", default: 0
+    t.index ["item_id"], name: "index_prices_on_item_id"
+    t.index ["user_id"], name: "index_prices_on_user_id"
   end
 
   create_table "subscriptions", force: :cascade do |t|
@@ -69,7 +72,7 @@ ActiveRecord::Schema.define(version: 2020_07_09_104535) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id"
-    t.integer "total", default: 0
+    t.bigint "total", default: 0
     t.string "slug"
     t.index ["slug"], name: "index_trades_on_slug", unique: true
     t.index ["user_id"], name: "index_trades_on_user_id"

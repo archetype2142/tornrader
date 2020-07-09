@@ -8,4 +8,10 @@ Rails.application.routes.draw do
   resources :items, only: [:index]
   
   get "/contact", to: "static_pages/contacts#index"
+
+  namespace :api do 
+    namespace :v1 do
+      resources :trades, only: :index
+    end
+  end
 end
