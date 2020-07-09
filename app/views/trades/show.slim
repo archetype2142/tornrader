@@ -4,6 +4,12 @@
       h1.has-pt-24.title Reciept
       .table__wrapper
         table.table.trade-table.is-striped.is-mobile
+          thead
+            tr.trade-header
+              td Product
+              td Unit Price
+              td Qty
+              td Total
           tbody
             - @trade.line_items.each do |line_item|
               tr.trade-component

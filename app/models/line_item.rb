@@ -7,7 +7,9 @@ class LineItem < ApplicationRecord
   def update_total
     if self.items.any?
       total_price = (self.items.last.price * self.quantity)
-      self.total = total_price unless self.total == total_price
+      if self.total != total_price
+        self.total = total_price
+      end
     end
   end
 end
