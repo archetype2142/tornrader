@@ -20,13 +20,13 @@
     - cache @user.prices do
       - Category.all.each do |category|
         - next unless @user.items.map { |i| i.category.name }.uniq.include?(category.name)
-        .box
-          h1.title.is-size-4.has-text-centered = category.name
+        .box style="padding: none"
+          h1.title.is-size-6.has-text-centered = category.name
           .table__wrapper
             table.table.is-striped.is-mobile.is-fullwidth.trade-table
               thead
                 tr.trade-header
-                  td 
+                  td Item
                   td Item
                   td Price
               tbody

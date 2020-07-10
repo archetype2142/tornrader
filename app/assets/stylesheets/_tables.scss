@@ -55,8 +55,11 @@ tr.trade-header td{
 .component-name {
   font-weight: 200;
   font-size: 0.8rem;
+  // display: flex;
+  // justify-content: center;
 }
 .table td, .table th {
   padding: 0px !important;
-  line-height: 2rem;
+  line-height: 1rem;
+  white-space: nowrap;
 }
