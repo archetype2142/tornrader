@@ -47,3 +47,7 @@ td.component-unit-price, td.component-quantity {
   text-align: right !important;
 }
 .hideextra { white-space: nowrap; overflow: hidden; text-overflow:ellipsis; }
+
+tr.trade-header td{
+  text-align: left;
+}

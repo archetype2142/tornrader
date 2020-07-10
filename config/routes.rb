@@ -8,14 +8,17 @@ Rails.application.routes.draw do
   resources :items, only: [:index]
   
   get "/contact", to: "static_pages/contacts#index"
+  get ':username/prices', to: 'user/price_lists#show', as: :user_price_list
 
   namespace :user do
-    resources :items, only: [:index, :update]
+    resources :items, only: [:index, :update, :create]
+    resources :price_lists, only: [:index]
   end
+
 
   namespace :api do 
     namespace :v1 do
-      resources :trades, only: :index
+      resources :trades, only: [:index, :show]
     end
   end
 end

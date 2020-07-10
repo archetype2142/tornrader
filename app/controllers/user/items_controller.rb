@@ -1,12 +1,38 @@
 class User::ItemsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user, only: :index
+  before_action :set_user, only: [:index, :create]
 
-  def index; end
+  def index
+    @search = Item.basic.includes(:category).ransack(params[:q])
 
-  def update; end
+    @items = Kaminari.paginate_array(
+      @search
+      .result
+      .uniq
+    )
+    .page(params[:page])
+    .per(params[:per_page])
+  end
 
-  def create; end
+  def update
+    puts params
+  end
+
+  def create
+    item = @user.items.find_by(id: params[:user]["item"])
+    if item
+      @user.prices.find_by(item_id: item.id)
+      .update!(
+        amount: params[:user]["price"]
+      )
+    else
+      @user.prices.create!(
+        item: Item.find(params[:user]["item"]),
+        amount: params[:user]["price"]
+      )
+    end
+    redirect_to user_items_path, flash: { success: "Saved!" }
+  end
 
   def set_user
     @user ||= current_user

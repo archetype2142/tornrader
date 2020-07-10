@@ -1,4 +1,43 @@
+- category = params[:q][:category_id_eq] unless params[:q].nil?
 .container.has-mt-24
-  .h1.title Your Items
-  /= form_with @items
-  = current_user.items.inspect
+
+  .level
+    .level-left
+      h1.title 
+        | Your Items 
+        span.has-text-danger 
+          | ( 
+          | Press enter to save a value
+          |  )
+    .level-right
+      - if @user.price_list
+        = link_to "My Price List", user_price_list_path(username: @user.username), class: "button is-primary"
+      - else
+        = link_to "Create a price list", user_price_lists_path, class: "button is-primary"
+  = render 'user/items/filter_box'
+  = page_entries_info @items, :entry_name => 'item'
+  h1.title 
+    | Category: 
+    span.has-text-primary
+      - if category 
+        = Category.find(params[:q][:category_id_eq]).name
+      - else 
+        | All
+  .columns.is-multiline
+    - @items.each do |item|
+      = form_with model: @user, url: user_items_path, method: :post, class: "column is-one-third" do |f|
+          .box
+            .columns
+              .column
+                h1 = item.name
+                a href="#{items_path(item)}"
+                  = image_tag item.image_url
+                = f.hidden_field :item, value: item.id
+              .column
+                b Price:
+                - if @user.items.include?(item)
+                  = f.text_field :price, value: @user.prices.find_by(item_id: item.id).amount, class: 'input'
+                - else
+                  = f.number_field :price, class: 'input'
+  
+  = paginate @items
