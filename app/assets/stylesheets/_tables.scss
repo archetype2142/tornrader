@@ -51,3 +51,11 @@ td.component-unit-price, td.component-quantity {
 tr.trade-header td{
   text-align: left;
 }
+.component-name {
+  font-weight: 200;
+  font-size: 0.8rem;
+}
+.table td, .table th {
+  padding: 0px !important;
+  line-height: 2rem;
+}

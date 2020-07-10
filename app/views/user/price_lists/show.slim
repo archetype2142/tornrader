@@ -4,7 +4,7 @@
     - Category.all.each do |category|
       - next unless @user.items.map { |i| i.category.name }.uniq.include?(category.name)
       .box style="width: 100%"
-        h1.title = category.name
+        h1.title.is-size-4.has-text-centered = category.name
         table.table.is-striped.is-mobile.is-fullwidth.trade-table
           thead
             tr.trade-header
@@ -15,7 +15,7 @@
             - @user.prices.each do |price|
               - if price.item.category == category
                 tr.trade-component
-                  td.component-name = image_tag price.item.image_url
+                  td.component-name = image_tag price.item.thumbnail_url
                   td.component-name = price.item.name
                   td.component-name = display_price(price.amount)
 

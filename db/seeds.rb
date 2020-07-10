@@ -14463,6 +14463,7 @@ res.values.each do |x|
     description: x[:description],
     base_price: x[:market_value],
     image_url: x[:image],
+    thumbnail_url: x[:image].gsub("large", "medium"),
     category: category
   )
 end
