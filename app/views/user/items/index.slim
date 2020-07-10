@@ -1,6 +1,5 @@
 - category = params[:q][:category_id_eq] unless params[:q].nil?
 .container.has-mt-24
-
   .level
     .level-left
       h1.title 
@@ -19,8 +18,8 @@
   h1.title 
     | Category: 
     span.has-text-primary
-      - if category 
-        = Category.find(params[:q][:category_id_eq]).name
+      - if category && !category&.empty?
+        = Category.find(category).name
       - else 
         | All
   .columns.is-multiline
@@ -32,7 +31,10 @@
                 h1 = item.name
                 a href="#{items_path(item)}"
                   = image_tag item.image_url
-                = f.hidden_field :query, value: params[:q]
+                - if params[:q]
+                  = f.hidden_field :query, value: params[:q]
+                = f.hidden_field :per_page, value: params[:per_page]
+                = f.hidden_field :page, value: params[:page]
                 = f.hidden_field :item, value: item.id
               .column
                 b Price:

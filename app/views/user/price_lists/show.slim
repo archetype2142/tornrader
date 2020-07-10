@@ -1,23 +1,32 @@
-.container.has-pt-24
-  h1.title = "<span class='has-text-primary'>#{@user.username}'s</span> PriceList".html_safe
-  div#macy-container
-    - Category.all.each do |category|
-      - next unless @user.items.map { |i| i.category.name }.uniq.include?(category.name)
-      .box
-        h1.title.is-size-4.has-text-centered = category.name
-        .table__wrapper
-          table.table.is-striped.is-mobile.is-fullwidth.trade-table
-            thead
-              tr.trade-header
-                td Item
-                td Name
-                td Price
-            tbody
-              - @user.prices.each do |price|
-                - if price.item.category == category
-                  tr.trade-component
-                    td.component-name = image_tag price.item.thumbnail_url
-                    td.component-name = price.item.name
-                    td.component-name = display_price(price.amount)
+- cache @user do
+  - cache @user.prices do
+    .container.has-pt-24
+      .level
+        .level-left.center-mob
+          h1.title.is-size-5-touch = "<span class='has-text-primary'>#{@user.username}'s</span> PriceList".html_safe
+        .level-right.center-mob
+          = link_to "Trade", "https://www.torn.com/trade.php#step=start&userID=#{@user.torn_user_id}", class: "button has-bg-lilac-30"
+          - if @user.forum_url
+            = link_to "Reviews", @user.forum_url, class: "has-ml-4 button is-primary"
+      div#macy-container
+        - Category.all.each do |category|
+          - next unless @user.items.map { |i| i.category.name }.uniq.include?(category.name)
+          .box
+            h1.title.is-size-4.has-text-centered = category.name
+            .table__wrapper
+              table.table.is-striped.is-mobile.is-fullwidth.trade-table
+                thead
+                  tr.trade-header
+                    td 
+                    td Item
+                    td Price
+                tbody
+                  - @user.prices.each do |price|
+                    - if price.item.category == category
+                      tr.trade-component
+                        td.component-name = image_tag price.item.thumbnail_url
+                        td.component-name = price.item.name
+                        td.component-name 
+                          b = display_price(price.amount)
 
 = javascript_pack_tag 'macy', 'data-turbolinks-track': 'reload' 

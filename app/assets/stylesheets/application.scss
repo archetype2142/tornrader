@@ -17,6 +17,14 @@
     display: none;
   }
 }
+
+.center-mob {
+  @include touch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
 .notification {
   margin-bottom: 0px !important;
 }
@@ -42,3 +50,4 @@ body {
     padding-right: 10px;
   }
 }
+
