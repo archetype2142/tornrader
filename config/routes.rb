@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   resources :items, only: [:index]
   
   get "/contact", to: "static_pages/contacts#index"
-  get ':username/prices', to: 'user/price_lists#show', as: :user_price_list
-
+  get ":username/prices", to: 'user/price_lists#show', as: :user_price_list
+  get ":username/update_prices", to: 'user/price_lists#update_list', as: :update_user_price_list
   namespace :user do
     resources :items, only: [:index, :update, :create]
     resources :price_lists, only: [:index]

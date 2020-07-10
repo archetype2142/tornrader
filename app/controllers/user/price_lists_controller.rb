@@ -1,14 +1,19 @@
 class User::PriceListsController < ApplicationController
   before_action :authenticate_user!, except: :show
-  before_action :set_user, only: [:index, :show]
+  before_action :set_user, only: [:index, :show, :update_list]
 
   def index
-    @user.update!(price_list: true)
+    @user.update!(price_list: true, updated_price_list_at: DateTime.now)
     redirect_to user_items_path, flash: { success: "Price List Successfully Created!" }
   end
 
-  def show
-    @user.update!(updated_at: Time.now)
+  def show; end
+
+  def update_list
+    @user.update!(updated_price_list_at: Time.now)
+    flash.now[:success] = "Price List Updated"
+    render :show
+    # redirect_to user_items_path, flash: { success: "Price List Successfully Created!" }
   end
 
   def set_user
