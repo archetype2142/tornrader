@@ -8,6 +8,7 @@ class User::PriceListsController < ApplicationController
   end
 
   def show
+    @user.update!(updated_at: Time.now)
   end
 
   def set_user
