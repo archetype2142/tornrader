@@ -18,8 +18,7 @@ class User::ItemsController < ApplicationController
   end
 
   def create
-    puts "HELLO #{JSON.load(params[:user]['query'])}"
-
+    # puts "HELLO #{JSON.load(params[:user]['query'])}"
 
     item = @user.items.find_by(id: params[:user]["item"])
     if item
