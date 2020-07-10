@@ -14442,13 +14442,14 @@ res = {
       }
 }
 
-# res.each do |r|
-  # print r
-# end
+Item.all.destroy_all
+User.all.destroy_all
+
 User.create!(
   torn_api_key: "YQJ0Eq6WTzpgXDax",
   torn_user_id: 2422075,
-  password: "asd123"
+  password: "asd123",
+  username: "archetype2142"
 )
 
 res.values.each do |x|
@@ -14460,7 +14461,7 @@ res.values.each do |x|
   Item.create!(
     name: x[:name],
     description: x[:description],
-    base_price: x[:buy_price],
+    base_price: x[:market_value],
     image_url: x[:image],
     category: category
   )

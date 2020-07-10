@@ -6,7 +6,12 @@ class LineItem < ApplicationRecord
 
   def update_total
     if self.items.any?
-      total_price = (self.items.last.price * self.quantity)
+      user_id = self.trade.user.id
+
+      total_price = (
+        self.items.last.prices.find_by(user_id: user_id).amount * self.quantity
+      )
+      
       if self.total != total_price
         self.total = total_price
       end

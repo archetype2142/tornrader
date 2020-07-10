@@ -1,10 +1,16 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user, only: :index
+  # before_action :set_user, only: :index
 
-  def index; end
+  def index
+    @search = Item.basic.includes(:category).ransack(params[:q])
 
-  def set_user
-    user = User.find(params[:user]) || current_user
+    @items = Kaminari.paginate_array(
+        @search
+        .result
+        .uniq
+      )
+    .page(params[:page])
+    .per(params[:per_page])
   end
 end

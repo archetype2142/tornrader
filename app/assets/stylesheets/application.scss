@@ -12,6 +12,11 @@
 @import "./basics";
 @import "./flexbox";
 
+.hide-mob {
+  @include touch {
+    display: none;
+  }
+}
 .notification {
   margin-bottom: 0px !important;
 }

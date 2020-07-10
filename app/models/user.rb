@@ -6,6 +6,7 @@ class User < ApplicationRecord
   
   has_many :prices
   has_many :items, through: :prices
+
   has_many :trades
   has_many :subscriptions
   

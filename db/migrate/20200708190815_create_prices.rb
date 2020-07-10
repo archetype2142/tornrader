@@ -3,7 +3,7 @@ class CreatePrices < ActiveRecord::Migration[6.0]
     create_table :prices do |t|
       t.references :user
       t.references :item
-      t.bigint :amount, default: 0
+      t.bigint :amount, default: nil
     end
   end
 end

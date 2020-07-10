@@ -1,6 +1,9 @@
 .container.has-mt-24
+  = render 'items/filter_box'
+  = page_entries_info @items, :entry_name => 'item' 
+
   .columns.is-multiline
-    - Item.all.each do |i|
+    - @items.each do |i|
       .column.is-one-third
         .box.is-hoverable onclick="window.open('https://www.torn.com/imarket.php#/p=shop&step=shop&type=&searchname=#{i.name}')"
           .columns
@@ -10,6 +13,7 @@
               h4.is-size-4 = i.name
               p
                 b 
-                  |Buy Price: 
+                  |Market Value: 
                   = display_price(i.base_price)
               p = i.description
+  = paginate @items

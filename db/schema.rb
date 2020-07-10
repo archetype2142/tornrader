@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_09_214529) do
+ActiveRecord::Schema.define(version: 2020_07_09_235751) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 2020_07_09_214529) do
     t.bigint "line_item_id"
     t.string "image_url", default: "null"
     t.string "description", default: "null"
+    t.integer "item_type", default: 0
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["line_item_id"], name: "index_items_on_line_item_id"
   end
@@ -54,7 +55,7 @@ ActiveRecord::Schema.define(version: 2020_07_09_214529) do
   create_table "prices", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "item_id"
-    t.bigint "amount", default: 0
+    t.bigint "amount"
     t.index ["item_id"], name: "index_prices_on_item_id"
     t.index ["user_id"], name: "index_prices_on_user_id"
   end

@@ -26,6 +26,8 @@ gem 'devise'
 gem 'slim'
 gem 'sidekiq'
 gem 'friendly_id'
+gem 'kaminari'
+gem 'ransack', github: 'activerecord-hackery/ransack'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

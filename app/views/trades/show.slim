@@ -1,3 +1,4 @@
+- user_id = @trade.user.id
 .container
   .columns
     .column
@@ -15,7 +16,7 @@
               tr.trade-component
                 td.component-name = line_item&.items&.last&.name
                 td.hideextra.component-unit-price
-                  span = display_price(line_item&.items&.last&.price)
+                  span = display_price(line_item&.items&.last&.prices.find_by(user_id: user_id).amount)
                   span.times-sign 
                     | × 
                 td.hideextra.component-quantity
