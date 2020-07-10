@@ -15,10 +15,12 @@ class User::ItemsController < ApplicationController
   end
 
   def update
-    puts params
   end
 
   def create
+    puts "HELLO #{JSON.load(params[:user]['query'])}"
+
+
     item = @user.items.find_by(id: params[:user]["item"])
     if item
       @user.prices.find_by(item_id: item.id)
@@ -31,6 +33,8 @@ class User::ItemsController < ApplicationController
         amount: params[:user]["price"]
       )
     end
+    # query = nil
+    # query = params[:user]['query']
     redirect_to user_items_path, flash: { success: "Saved!" }
   end
 

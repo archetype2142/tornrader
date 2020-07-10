@@ -1,4 +1,5 @@
 - category = params[:q][:category_id_eq] unless params[:q].nil?
+= params[:q]
 .container.has-mt-24
 
   .level
@@ -32,6 +33,7 @@
                 h1 = item.name
                 a href="#{items_path(item)}"
                   = image_tag item.image_url
+                = f.hidden_field :query, value: params[:q]
                 = f.hidden_field :item, value: item.id
               .column
                 b Price:
