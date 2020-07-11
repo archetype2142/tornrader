@@ -1,10 +1,11 @@
+- content_for :title, "Receipt"
 - user_id = @trade.user.id
 .container
   .columns
     .column
-      h1.has-pt-24.title Reciept
+      h1.has-pt-24.title Receipt
       .table__wrapper
-        table.table.trade-table.is-striped.is-mobile
+        table.table.is-striped.is-mobile
           thead
             tr.trade-header
               td Product
@@ -13,10 +14,10 @@
               td Total
           tbody
             - @trade.line_items.each do |line_item|
-              tr.trade-component
-                td.component-name = line_item&.items&.last&.name
+              tr
+                td = line_item&.items&.last&.name
                 td.hideextra.component-unit-price
-                  span = display_price(line_item&.items&.last&.prices.find_by(user_id: user_id).amount)
+                  span = display_price(line_item&.items&.last&.prices&.find_by(user_id: user_id)&.amount)
                   span.times-sign 
                     | × 
                 td.hideextra.component-quantity

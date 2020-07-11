@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_10_125048) do
+ActiveRecord::Schema.define(version: 2020_07_11_125108) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,9 @@ ActiveRecord::Schema.define(version: 2020_07_10_125048) do
     t.string "description", default: "null"
     t.integer "item_type", default: 0
     t.string "thumbnail_url"
+    t.datetime "base_price_added_on"
+    t.bigint "lowest_market_price", default: 0
+    t.datetime "lowest_price_added_on"
     t.index ["category_id"], name: "index_items_on_category_id"
     t.index ["line_item_id"], name: "index_items_on_line_item_id"
   end
@@ -95,6 +98,7 @@ ActiveRecord::Schema.define(version: 2020_07_10_125048) do
     t.string "username"
     t.boolean "price_list", default: false
     t.string "forum_url"
+    t.datetime "updated_price_list_at"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

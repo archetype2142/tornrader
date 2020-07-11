@@ -1,25 +1,26 @@
 .box 
   .columns.is-mobile style="margin-bottom: 0px;"
     .column
+      h1.is-size-5 
+        b SEARCH
       = search_form_for @search, url: user_items_path, class: "closed" do |f|
         .columns.is-mobile.is-multiline
-          .column.is-half
+          .column
             .field
-              = f.label :name_cont, "Name", class: "label"
+              = f.label :name_cont, "By Name", class: "label"
               .control
                 = f.search_field :name_cont, class: "input"
-          .column.is-half
-            .field
-              = f.label :category_id_eq, "Category", class: "label"
-              .control
-                .select
-                  = f.select :category_id_eq, Category.all.map { |c| [c.name, c.id] }, include_blank: true
-        .columns
           .column
+            .field
+              = f.label :category_id_eq, "By Category", class: "label"
+              .control
+                .select.is-fullwidth
+                  = f.select :category_id_eq, Category.all.map { |c| [c.name, c.id] }, include_blank: true
+          .column style="display: flex; align-items: flex-end"
             .field
               .control
                 = f.submit "Filter", class: "button is-primary"
-    .column.is-one-fifth.hide-mob
+    .column.is-one-fifth.hide-mob style="display: flex; align-items: flex-end; justify-content: flex-end;"
       = form_with url: user_items_path, method: :get do |f|
         .field
           label.label Per page

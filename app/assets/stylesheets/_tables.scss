@@ -51,14 +51,16 @@ td.component-unit-price, td.component-quantity {
 tr.trade-header td{
   text-align: left;
 }
-
+.trade-header {
+  font-weight: bolder;
+}
 .component-name {
   font-weight: 200;
   font-size: 0.8rem;
   // display: flex;
   // justify-content: center;
 }
-.table td, .table th {
+.table.trade-table td, .table.trade-table th {
   padding: 0px !important;
   line-height: 1rem;
   white-space: nowrap;

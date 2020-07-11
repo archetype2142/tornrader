@@ -1,3 +1,4 @@
+- content_for :title, "All Ittems"
 .container.has-mt-24
   = render 'items/filter_box'
   = page_entries_info @items, :entry_name => 'item' 
@@ -11,9 +12,20 @@
               = image_tag i.image_url
             .column
               h4.is-size-4 = i.name
+              p 
+                b 
+                  |Minimum Value: 
+                  = display_price(i.lowest_market_price)
+                - if i.lowest_price_added_on
+                  span  
+                    |  updated: (  
+                    = i.lowest_price_added_on&.strftime("%Y-%m-%d %H:%M TCT")
+                    |  )
+                - else 
+                  p.has-text-danger  Item not on market
               p
                 b 
                   |Market Value: 
-                  = display_price(i.base_price)
+                  = display_price(i.base_price)              
               p = i.description
   = paginate @items

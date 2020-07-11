@@ -25,6 +25,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'devise'
 gem 'slim'
 gem 'sidekiq'
+gem 'whenever', require: false
 gem 'friendly_id'
 gem 'kaminari'
 gem 'ransack', github: 'activerecord-hackery/ransack'

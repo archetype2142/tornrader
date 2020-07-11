@@ -43,10 +43,14 @@ class User::ItemsController < ApplicationController
 
     item = @user.items.find_by(id: params[:user]["item"])
     if item
-      @user.prices.find_by(item_id: item.id)
-      .update!(
-        amount: params[:user]["price"]
-      )
+      price = @user.prices.find_by(item_id: item.id)
+      if params[:user]["price"].to_i > 0
+        price.update!(
+          amount: params[:user]["price"]
+        )
+      else
+        @user.prices.delete(price)
+      end
     else
       @user.prices.create!(
         item: Item.find(params[:user]["item"]),

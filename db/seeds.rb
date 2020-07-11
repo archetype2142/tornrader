@@ -14452,13 +14452,14 @@ User.create!(
   username: "archetype2142"
 )
 
-res.values.each do |x|
+res.each do |y, x|
   next if x[:type] == "Book"
   category = Category.find_or_create_by(
     name: x[:type]
   )
 
   Item.create!(
+    torn_id: y,
     name: x[:name],
     description: x[:description],
     base_price: x[:market_value],
