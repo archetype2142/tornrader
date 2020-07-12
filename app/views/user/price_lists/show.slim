@@ -34,7 +34,9 @@
                 - @user.prices.each do |price|
                   - if price.item.category == category
                     tr.trade-component
-                      td.component-name = image_tag price.item.thumbnail_url
+                      td.component-name 
+                        figure.image.is-32x32
+                          = image_tag price.item.thumbnail_url
                       td.component-name = price.item.name
                       td.component-name 
                         b = display_price(price.amount)
