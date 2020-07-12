@@ -6,7 +6,12 @@ Rails.application.routes.draw do
   resources :trades, only: [:index, :show]
   resources :settings, only: [:index]
   resources :items, only: [:index]
-  
+  resources :trade_settings, only: :index
+  resources :trade_messages, only: [:create, :destroy]
+  resources :admin, only: [:index]
+  resources :subscriptions, only: [:create, :destroy]
+
+
   get "/contact", to: "static_pages/contacts#index"
   get ":username/prices", to: 'user/price_lists#show', as: :user_price_list
   get ":username/update_prices", to: 'user/price_lists#update_list', as: :update_user_price_list
@@ -18,6 +23,7 @@ Rails.application.routes.draw do
 
   namespace :api do 
     namespace :v1 do
+      resources :trades, only: [:index, :show, :create]
       resources :trades, only: [:index, :show]
     end
   end

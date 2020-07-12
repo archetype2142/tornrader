@@ -1,0 +1,33 @@
+.box 
+  .columns.is-mobile style="margin-bottom: 0px;"
+    .column
+      h1.is-size-5 
+        b SEARCH
+      = search_form_for @search, url: admin_index_path, class: "closed" do |f|
+        .columns.is-mobile.is-multiline
+          .column
+            .field
+              = f.label :email_cont, "By Email", class: "label"
+              .control
+                = f.search_field :email_cont, class: "input"
+          .column
+            .field
+              = f.label :username_cont, "By Username", class: "label"
+              .control
+                = f.search_field :username_cont, class: "input"
+          .column
+            .field
+              = f.label :torn_user_id_cont, "By Torn User ID", class: "label"
+              .control
+                = f.search_field :torn_user_id_cont, class: "input"
+          .column style="display: flex; align-items: flex-end"
+            .field
+              .control
+                = f.submit "Filter", class: "button is-primary"
+    .column.is-one-fifth.hide-mob style="display: flex; align-items: flex-end; justify-content: flex-end;"
+      = form_with url: admin_index_path, method: :get do |f|
+        .field
+          label.label Per page
+          .control
+            .select
+              = select_tag "per_page", options_for_select([10, 150, 250, 400], params[:per_page]), onchange: 'this.form.submit();'

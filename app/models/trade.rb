@@ -2,7 +2,7 @@ class Trade < ApplicationRecord
   extend FriendlyId
   friendly_id :slug, use: :slugged
 
-  belongs_to :user, optional: true
+  belongs_to :user
   has_many :line_items
   has_many :items, through: :line_items
 

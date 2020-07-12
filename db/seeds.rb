@@ -583,7 +583,7 @@ res = {
          "image": "https://www.torn.com/images/items/43/large.png"
       },
       "44": {
-         "name": "Pack of Blank CDs :  100",
+         "name": "Pack of Blank CDs : 100",
          "description": "Writable CDs for recording music or saving data.",
          "effect": "",
          "requirement": "",
@@ -14445,12 +14445,21 @@ res = {
 Item.all.destroy_all
 User.all.destroy_all
 
-User.create!(
+user = User.create!(
   torn_api_key: "YQJ0Eq6WTzpgXDax",
   torn_user_id: 2422075,
   password: "asd123",
   username: "archetype2142"
 )
+
+user.subscriptions.create!(ends_at: 1.week.from_now)
+user.subscriptions.create!(state: :inactive, ends_at: 15.day.ago)
+user.subscriptions.create!(state: :inactive, ends_at: 30.day.ago)
+user.subscriptions.create!(state: :inactive, ends_at: 200.day.ago)
+user.subscriptions.create!(state: :inactive, ends_at: 500.day.ago)
+user.subscriptions.create!(state: :inactive, ends_at: 800.day.ago)
+user.subscriptions.create!(state: :inactive, ends_at: 1000.day.ago)
+user.subscriptions.create!(state: :inactive, ends_at: 20000.day.ago)
 
 res.each do |y, x|
   next if x[:type] == "Book"

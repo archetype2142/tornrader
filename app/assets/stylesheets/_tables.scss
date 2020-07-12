@@ -44,7 +44,7 @@ table td:not([align]), table th:not([align]) {
 }
 
 td.component-unit-price, td.component-quantity {
-  text-align: right !important;
+  text-align: left !important;
 }
 .hideextra { white-space: nowrap; overflow: hidden; text-overflow:ellipsis; }
 

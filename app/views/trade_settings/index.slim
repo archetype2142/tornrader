@@ -1,0 +1,37 @@
+- content_for :title, "Trade Settings"
+.container
+  h1.has-pt-24.has-text-centered.title Settings
+  = render 'settings/tabs', locals: { tab_name: "trade" }
+  .box
+    h2.has-mb-18.is-size-2.is-size-5-mobile Trade Messages
+    p.has-text-primary You can add messages here that you can copy while using the trader's plugin.
+
+    - if current_user.messages.any?
+      - current_user.messages.each do |m|
+        article.message.is-primary
+          .message-header
+            p = m.name
+            = link_to "Delete", trade_message_path(m), method: :delete, class: "button is-danger is-small"
+          .message-body
+            = m.message
+
+    - else
+      p
+        b.has-text-danger No Messages found!
+
+    - if current_user.messages.count < 5
+      = form_with url: trade_messages_path do |f|
+        .columns
+          .column
+            .field
+              = f.label :name
+              .control
+                = f.text_field :name, class: "input"
+          .column
+            .field
+              = f.label :message
+              .control
+                = f.text_field :message, class: "input"
+        .columns
+          .column
+            = f.submit "Save", class: "button is-primary"

@@ -7,6 +7,6 @@ class TradesController < ApplicationController
   def show; end
 
   def set_trade
-    @trade ||= Trade.joins(:line_items).friendly.find(params[:id])
+    @trade ||= Trade.friendly.find(params[:id])
   end
 end

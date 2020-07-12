@@ -18,8 +18,7 @@
       <%= flash_messages %>
       <%= yield %>    
     </div>
-      <%= render "layouts/footer" %>
-
+    <%= render "layouts/footer" %>
     <script>
       (document.querySelectorAll('.notification .delete') || []).forEach((del) => {
         var notification = del.parentNode;
@@ -29,5 +28,9 @@
         });
       });
     </script>
+
+    <% if controller_name == "admin" %>
+      <%= javascript_pack_tag 'calendar_pick', 'data-turbolinks-track': 'reload' %>
+    <% end %>
   </body>
 </html>

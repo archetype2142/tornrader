@@ -7,7 +7,7 @@
       p
         b
           span - Use the <span class="has-text-primary">"Update List"</span> button ONLY IF you don't see all added products. 
-  
+
   .level
     .level-left.center-mob
       h1.title.is-size-5-touch = "<span class='has-text-primary'>#{@user.username}'s</span> PriceList".html_safe
@@ -28,7 +28,7 @@
               thead
                 tr.trade-header
                   td Item
-                  td Item
+                  td 
                   td Price
               tbody
                 - @user.prices.each do |price|

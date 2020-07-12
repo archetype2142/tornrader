@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_11_125108) do
+ActiveRecord::Schema.define(version: 2020_07_12_022517) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,7 +53,16 @@ ActiveRecord::Schema.define(version: 2020_07_11_125108) do
     t.integer "quantity", default: 0
     t.bigint "trade_id"
     t.integer "total", default: 0
+    t.bigint "item_id"
+    t.index ["item_id"], name: "index_line_items_on_item_id"
     t.index ["trade_id"], name: "index_line_items_on_trade_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string "message", default: "", null: false
+    t.bigint "user_id"
+    t.string "name"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "prices", force: :cascade do |t|
@@ -81,6 +90,8 @@ ActiveRecord::Schema.define(version: 2020_07_11_125108) do
     t.bigint "user_id"
     t.bigint "total", default: 0
     t.string "slug"
+    t.integer "torn_trade_id"
+    t.string "seller"
     t.index ["slug"], name: "index_trades_on_slug", unique: true
     t.index ["user_id"], name: "index_trades_on_user_id"
   end
@@ -99,6 +110,8 @@ ActiveRecord::Schema.define(version: 2020_07_11_125108) do
     t.boolean "price_list", default: false
     t.string "forum_url"
     t.datetime "updated_price_list_at"
+    t.string "custom_message"
+    t.integer "user_type", default: 0
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

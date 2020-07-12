@@ -1,7 +1,10 @@
 <% content_for :title, "Account Settings" %>
 <div class="container">
+  <h1 class="has-pt-24 has-text-centered title"> Settings</h1>
+  <%= render 'settings/tabs', locals: {tab_name: "account"} %>
+
   <div class="is-centered-middle is-flex-column">
-    <div class="box has-padding-36 has-mt-24 has-mb-24">
+    <div class="box has-padding-36 has-mb-24">
       <h2 class="has-mb-48 is-size-2 is-size-5-mobile">Account Settings</h2>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>

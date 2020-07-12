@@ -27,6 +27,7 @@ gem 'slim'
 gem 'sidekiq'
 gem 'whenever', require: false
 gem 'friendly_id'
+gem 'rack-cors'
 gem 'kaminari'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 

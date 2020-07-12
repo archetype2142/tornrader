@@ -1,0 +1,11 @@
+.tabs.is-medium
+  ul
+    li id="general" 
+      = link_to "General", settings_path
+    li id="account"
+      = link_to "Account", edit_user_registration_path
+    li id="trade"
+      = link_to "Trade", trade_settings_path
+      
+javascript:
+  document.querySelector("##{locals[:tab_name]}").classList.toggle("is-active");

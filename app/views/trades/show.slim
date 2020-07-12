@@ -4,20 +4,31 @@
   .columns
     .column
       h1.has-pt-24.title Receipt
+      b 
+        | For: 
+        span.is-lilac-50 
+          = @trade.seller 
+      b
+        |  | Total: 
+        span.is-lilac-50 
+          = display_price(@trade.total)
       .table__wrapper
-        table.table.is-striped.is-mobile
+        table.table.is-striped.is-narrow.is-mobile
           thead
             tr.trade-header
               td Product
               td Unit Price
               td Qty
-              td Total
+              td style="text-align: center;" Total
           tbody
             - @trade.line_items.each do |line_item|
+              - next unless line_item.item
               tr
-                td = line_item&.items&.last&.name
+                td style="text-align: left"
+                  span.hide-mob = image_tag line_item&.item&.thumbnail_url 
+                  span = line_item&.item&.name
                 td.hideextra.component-unit-price
-                  span = display_price(line_item&.items&.last&.prices&.find_by(user_id: user_id)&.amount)
+                  span = display_price(line_item&.item&.prices&.find_by(user_id: user_id)&.amount)
                   span.times-sign 
                     | × 
                 td.hideextra.component-quantity

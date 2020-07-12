@@ -1,0 +1,30 @@
+- content_for :title, "Admin"
+- if current_user.admin?
+  .container 
+    h1.has-mt-5.title Admin
+    = render 'admin/filter_box'
+    = page_entries_info @users, :entry_name => 'user'
+    br
+    = sort_link(@search, :created_at, "Created_at") 
+    .columns.is-multiline
+      - @users.each do |u|
+        .column.is-one-third
+          .box
+            b = u.username
+            = u.email
+            - if u.subscriptions.active.any?
+              p                 
+                | Subscription: 
+                span.has-text-primary
+                  = distance_of_time_in_words(DateTime.now, u.subscriptions.active.first.ends_at)
+              = link_to "Cancel", subscription_path(u.subscriptions.active.first), method: :delete, class: "button is-danger"
+            - else
+              .has-text-danger no subscriptions
+              = form_with url: subscriptions_path do |f|
+                .columns
+                  = f.hidden_field :user_id, value: u.id
+                  .column
+                    = f.date_field "ends_on", value: f.object.try(:strftime,"%m/%d/%Y")
+                  .column.is-one-fifth
+                    = f.submit "Save", class: "button is-primary"
+    = paginate @users
