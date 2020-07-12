@@ -80,6 +80,8 @@ test:
 #
 production:
   <<: *default
-  database: torn_trader_production
-  username: torn_trader
-  password: <%= ENV['TORN_TRADER_DATABASE_PASSWORD'] %>
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+  database: torntrader_production
+  host: <%= ENV['DB_HOST'] %>
+  port: 5432
