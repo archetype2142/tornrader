@@ -31,6 +31,7 @@ gem 'friendly_id'
 gem 'rack-cors'
 gem 'kaminari'
 gem 'ransack', github: 'activerecord-hackery/ransack'
+gem 'sitemap_generator'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

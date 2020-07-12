@@ -1,1 +1,6 @@
-# See https://www.robotstxt.org/robotstxt.html for documentation on how to use the robots.txt file
+# robots.txt for http://torntraders.com/
+
+User-agent: *
+Disallow: /tmp/ # these will soon disappear
+Disallow: /admin
+Sitemap: https://torntrader.com/sitemap.xml.gz
