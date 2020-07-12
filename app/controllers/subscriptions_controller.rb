@@ -16,7 +16,7 @@ class SubscriptionsController < ApplicationController
   def destroy
     s = Subscription.find(params[:id])
 
-    if s.destroy
+    if s.inactive!
       flash = { success: "Deleted!" }
     else
       flash = { error: s.errors }

@@ -6,16 +6,25 @@
   .box
     h2.has-mb-48.is-size-2.is-size-5-mobile Subscriptions
     - if current_user.subscriptions.active.any?
-      h2.is-size-5.has-text-primary Active subscription
-      p 
-        b Ends at: 
-      p
-        = current_user.subscriptions.active.first.ends_at.strftime("%Y-%m-%d %H:%M TCT ")
-        = "(#{distance_of_time_in_words(DateTime.now, current_user.subscriptions.active.first.ends_at)})"
+      h2.has-text-success.is-size-5.has-mb-18 Active subscription
+      .columns.is-multiline
+        .column.is-one-third
+          .box style="box-shadow: 0 1px 2px rgba(51, 51, 51, 0.51);"
+            h1.title.is-size-4
+              |Days Left:  
+              = distance_of_time_in_words(current_user.subscriptions.active.first.created_at, current_user.subscriptions.active.first.ends_at)
+            p
+              .has-text-primary 
+                |started: 
+              = current_user.subscriptions.active.first.created_at.strftime("%Y-%m-%d %H:%M TCT ")
+            p
+              .has-text-primary 
+                |ends at: 
+              = current_user.subscriptions.active.first.ends_at.strftime("%Y-%m-%d %H:%M TCT ")
     - else 
       h1
         b.has-text-danger No subscriptions found, go to <a href="/contact">contact</a> page to find out more...
-    h2.has-mt-18.is-size-5.has-mb-18.has-text-primary Expired subscriptions
+    h2.has-text-danger.has-mt-18.is-size-5.has-mb-18 Expired subscriptions
     - current_user.subscriptions.inactive.any?
       .columns.is-multiline
         - current_user.subscriptions.inactive.limit(10).each do |s|

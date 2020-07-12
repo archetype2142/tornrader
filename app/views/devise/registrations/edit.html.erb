@@ -16,6 +16,13 @@
           </div>
         </div>
 
+        <div class="field">
+          <%= f.label :torn_api_key %><i> (update it if you change it)</i>
+          <div class="control">
+            <%= f.text_field :torn_api_key, class: "input" %>
+          </div>
+        </div>
+
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
         <% end %>
