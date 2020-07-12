@@ -24,7 +24,7 @@
                 .columns
                   = f.hidden_field :user_id, value: u.id
                   .column
-                    = f.date_field "ends_on", value: f.object.try(:strftime,"%m/%d/%Y")
+                    = f.date_field "ends_on", id: "date_field_end"
                   .column.is-one-fifth
                     = f.submit "Save", class: "button is-primary"
     = paginate @users
