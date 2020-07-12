@@ -1,10 +1,25 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TornTrader - <%= yield(:title) %></title>
+    <title>TornTrader | <%= yield(:title) %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Trading App for high volume traders on Torn, with our handy chrome extension, trading is a breeze!">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@torntrader">
+    <meta name="twitter:creator" content="@torntrader">
+    <meta name="twitter:title" content="TornTrader | High Volume Torn Trading">
+    <meta name="twitter:description" content="High volume trading solution for Torn">
+    <meta name="twitter:image" content="<%= asset_url('favicon')%>">
+
+    <meta property="og:title" content="TornTrader | High Volume Torn Trading" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="" />
+    <meta property="og:url" content="https://torntrader.com" />
+    <meta property="og:image" content="<%= asset_url('favicon')%>" />
     <%= favicon_link_tag "favicon.svg" %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
