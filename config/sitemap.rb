@@ -6,6 +6,6 @@ SitemapGenerator::Sitemap.create do
   
   User.find_each do |user|
     next unless user.price_list
-    add price_list_path(user), lastmod: user.updated_at
+    add user_price_list_path(username: user.username), lastmod: user.updated_at
   end
 end
