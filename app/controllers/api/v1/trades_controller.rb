@@ -5,10 +5,14 @@ module Api
 
       def create
         api_key = request.headers["Authorization"]
-        puts "\n\n\n\n\n #{api_key}" 
         user = User.includes(:prices, :items, :trades).find_by(torn_user_id: params[:buyer])
+        if !user
+          trade_info = { 
+            message: "User does't use TornTrader yet"
+          }
+          status = 404
 
-        if user.trader_api_token == api_key
+        elsif user.trader_api_token == api_key
           trade = user.trades.find_or_create_by(
             torn_trade_id: params["trade_id"],
             seller: params["seller"]
@@ -58,7 +62,7 @@ module Api
         render status: status, json: trade_info
       end
 
-      private 
+      private
 
       def replace_keys(message, username, params, trade)
         replacements = [
