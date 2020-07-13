@@ -32,8 +32,6 @@ module Api
             }
           end
         end
-
-
         render json: response
       end
     end

@@ -4,12 +4,11 @@ module Api
       def index; end
 
       def create
-        puts params
         api_key = request.headers["Authorization"]
+        puts "\n\n\n\n\n #{api_key}" 
         user = User.includes(:prices, :items, :trades).find_by(torn_user_id: params[:buyer])
 
         if user.trader_api_token == api_key
-
           trade = user.trades.find_or_create_by(
             torn_trade_id: params["trade_id"],
             seller: params["seller"]
