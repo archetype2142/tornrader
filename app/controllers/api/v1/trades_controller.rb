@@ -27,7 +27,7 @@ module Api
           user_prices = user&.prices
 
           items = params[:items].map do |item|
-            user_item = user.items.find_by(name: item["name"].gsub(" \nRemove", ""))
+            user_item = user.items.find_by(name: item["name"].gsub!(" \nRemove", ""))
             price = user_item.nil? ? nil : user_prices.find_by(item_id: user_item.id).amount
             
             trade.line_items.find_or_create_by(
