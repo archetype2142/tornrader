@@ -5,6 +5,22 @@
   .box
     h2.has-mb-18.is-size-2.is-size-5-mobile Trade Messages
     p.has-text-primary You can add messages here that you can copy while using the trader's plugin.
+    p.has-text-primary Following blocks can be used to create a custom message: 
+    .content 
+      ul
+        li 
+          |{trade_total}
+        li 
+          |{items_count}
+        li 
+          |{trade_url}
+        li 
+          |{seller_name}
+        li 
+          |{trader_name}
+    p.has-text-primary.has-mb-18
+      b Example: 
+      span Thanks for trading with {trader_name}, your total is {trade_total}
 
     - if current_user.messages.any?
       - current_user.messages.each do |m|

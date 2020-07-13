@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_12_022517) do
+ActiveRecord::Schema.define(version: 2020_07_12_223250) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -112,6 +112,8 @@ ActiveRecord::Schema.define(version: 2020_07_12_022517) do
     t.datetime "updated_price_list_at"
     t.string "custom_message"
     t.integer "user_type", default: 0
+    t.string "trader_api_token"
+    t.datetime "trader_api_token_update_at"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
