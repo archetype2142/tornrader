@@ -5,12 +5,12 @@ module Api
 
       def create
         api_key = request.headers["Authorization"]
-        if ((params[:buyer] =~ /\A[-+]?[0-9]*\.?[0-9]+\Z/) == 0)
+        if ((params[:buyer] =~ /\A[-+]?[0-9]*\.?[0-9]+\Z/) != nil)
           user = User.includes(:prices, :items, :trades).find_by(torn_user_id: params[:buyer])
         else
           user = User.includes(:prices, :items, :trades).find_by(torn_user_id: params[:seller])
         end
-        
+
         if !user
           trade_info = { 
             message: "User does't use TornTrader yet"
