@@ -5,10 +5,13 @@ module Api
 
       def create
         api_key = request.headers["Authorization"]
+        buyer_flip = false
+
         if ((params[:buyer] =~ /\A[-+]?[0-9]*\.?[0-9]+\Z/) != nil)
           user = User.includes(:prices, :items, :trades).find_by(torn_user_id: params[:buyer])
         else
           user = User.includes(:prices, :items, :trades).find_by(torn_user_id: params[:seller])
+          buyer_flip = true
         end
 
         if !user
@@ -17,7 +20,7 @@ module Api
           }
           status = 404
 
-        elsif user.trader_api_token == api_key
+        elsif (user.trader_api_token == api_key) || buyer_flip
           trade = user.trades.find_or_create_by(
             torn_trade_id: params["trade_id"],
             seller: params["seller"]
@@ -27,7 +30,7 @@ module Api
           user_prices = user&.prices
 
           items = params[:items].map do |item|
-            user_item = user.items.find_by(name: item["name"].gsub!(" \nRemove", ""))
+            user_item = user.items.find_by(name: item["name"])
             price = user_item.nil? ? nil : user_prices.find_by(item_id: user_item.id).amount
             
             trade.line_items.find_or_create_by(
