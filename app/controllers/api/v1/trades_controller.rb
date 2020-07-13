@@ -66,6 +66,7 @@ module Api
           }
           status = 401
         end
+        put trade_info
 
         render status: status, json: trade_info
       end
