@@ -53,7 +53,7 @@ module Api
           
           trade_info = {
             trade: {
-              trade_url: trade_url(trade),
+              trade_url: url_maker(trade_url(trade)),
               trade_total: display_price(trade.total),
               items: items,
               trade_messages: trade_messages
@@ -76,12 +76,25 @@ module Api
         replacements = [
           ["{trade_total}", display_price(trade&.total).to_s],
           ["{items_count}", trade&.line_items.pluck(:quantity).sum.to_s],
-          ["{trade_url}", trade_url(trade).to_s],
+          ["{trade_url}", url_maker(trade_url(trade)).to_s],
           ["{seller_name}", params["seller"].to_s],
           ["{trader_name}", username.to_s]
         ]
         
         replacements.inject(message) { |str, (k,v)| str.gsub(k,v) }
+      end
+      
+      def url_maker(url_long)
+        uri = URI("https://ttr.bz/urls")
+        http = Net::HTTP.new(uri.host, uri.port)
+        http.use_ssl = true
+        data = {url: url_long}
+
+        request = Net::HTTP::Post.new(uri, {'Content-Type' => 'application/json'})
+        request.body = data.to_json
+
+        response = http.request(request)
+        JSON.parse(response.body)["short_url"]
       end
 
       def display_price(amount)
