@@ -4,7 +4,7 @@ Description=clockwork
 [Service]
 Type=simple
 WorkingDirectory=/var/www/torntrader/
-ExecStart=exec /home/torntrader/.rbenv/shims/bundle exec clockwork config/clockwork.rb
+ExecStart=/bin/bash /home/torntrader/.rbenv/shims/bundle exec clockwork config/clockwork.rb
 User=torntrader
 Group=torntrader
 UMask=0002
