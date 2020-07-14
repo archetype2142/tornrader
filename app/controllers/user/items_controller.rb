@@ -70,6 +70,4 @@ class User::ItemsController < ApplicationController
     @user ||= current_user
   end
 end
-#Parameters: {"q"=>{"name_cont"=>"chocolate", "category_id_eq"=>""}, "commit"=>"Filter"}
-# "{\"name_cont\"=>\"chocolate\", \"category_id_eq\"=>\"\"}"}
 

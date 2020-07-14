@@ -11,7 +11,7 @@ module Clockwork
     config[:logger] = Logger.new Rails.root.join("log", "clockwork.log")
   end
 
-  every 50.minutes, "fifty-minutely" do
+  every 1.hour, "fifty-minutely" do
     total_items = (1..1065).to_a.each_slice(60).to_a
 
     (0..17).to_a.each_with_index do |item_set, index|

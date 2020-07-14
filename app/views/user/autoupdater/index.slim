@@ -1,7 +1,10 @@
+- content_for :title, "Auto Pricelist Updater"
 .container
   h1.mt-5.title.has-text-centered Auto Update Items
   - if current_user.subscriptions.active.last.auto?
     = render "user/autoupdater/pricelist_form"
+    - if current_user.enable_global?
+      = render "user/autoupdater/items_all"
   - else
     p.is-size-4.has-text-primary Auto Pricelist is a feature that allows you to update pricing automatically at some interval 24/7.
     br
