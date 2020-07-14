@@ -29,6 +29,7 @@ gem 'sidekiq'
 gem 'whenever', require: false
 gem 'friendly_id'
 gem 'rack-cors'
+gem 'clockwork'
 gem 'kaminari'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'sitemap_generator'

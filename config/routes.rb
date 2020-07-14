@@ -1,3 +1,4 @@
+require 'sidekiq/web'
 # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
 Rails.application.routes.draw do
@@ -11,20 +12,24 @@ Rails.application.routes.draw do
   resources :admin, only: [:index]
   resources :subscriptions, only: [:create, :destroy]
 
-
   get "/contact", to: "static_pages/contacts#index"
   get ":username/prices", to: 'user/price_lists#show', as: :user_price_list
   get ":username/update_prices", to: 'user/price_lists#update_list', as: :update_user_price_list
+  
   namespace :user do
     resources :items, only: [:index, :update, :create]
     resources :price_lists, only: [:index]
   end
-
 
   namespace :api do 
     namespace :v1 do
       resources :trades, only: [:index, :show, :create]
       resources :users, only: [:create]
     end
+  end
+
+  mount Sidekiq::Web, at: "/sidekiq"
+  Sidekiq::Web.use Rack::Auth::Basic do |username, password|
+    username == "test123" && password == "test123"
   end
 end

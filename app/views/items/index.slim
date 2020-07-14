@@ -1,7 +1,14 @@
 - content_for :title, "All Items"
 .container.has-mt-24
   = render 'items/filter_box'
-  = page_entries_info @items, :entry_name => 'item' 
+  .level
+    .level-left
+      span
+        = page_entries_info @items, :entry_name => 'item' 
+    .level-right
+      span
+        b Sort by: 
+        = sort_link(@search, :lowest_market_price) 
 
   .columns.is-multiline
     - @items.each do |i|
@@ -14,13 +21,13 @@
               h4.is-size-4 = i.name
               p 
                 b 
-                  |Minimum Value: 
+                  |Lowest Market price: 
                   = display_price(i.lowest_market_price)
                 - if i.lowest_price_added_on
-                  span  
+                  p  
                     |  updated: (  
-                    = i.lowest_price_added_on&.strftime("%Y-%m-%d %H:%M TCT")
-                    |  )
+                    = distance_of_time_in_words(i.lowest_price_added_on, Time.now)
+                    |  ago )
                 - else 
                   p.has-text-danger  Item not on market
               p
