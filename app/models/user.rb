@@ -18,6 +18,8 @@ class User < ApplicationRecord
   validate :has_five_messages_atmost
 
   enum user_type: %w[general admin]
+  enum auto_update: %w[not_auto_updated auto_updated]
+  
   attr_writer :login
 
   def has_five_messages_atmost

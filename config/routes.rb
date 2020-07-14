@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   resources :trade_messages, only: [:create, :destroy]
   resources :admin, only: [:index]
   resources :subscriptions, only: [:create, :destroy]
+  get '/subscriptions/:subscription_id/enable_auto', to: "subscriptions#enable", as: 'e_autopricing'
+  get '/subscriptions/:subscription_id/disable_auto', to: "subscriptions#disable", as: 'd_autopricing'
 
   get "/contact", to: "static_pages/contacts#index"
   get ":username/prices", to: 'user/price_lists#show', as: :user_price_list
@@ -19,6 +21,7 @@ Rails.application.routes.draw do
   namespace :user do
     resources :items, only: [:index, :update, :create]
     resources :price_lists, only: [:index]
+    resources :autoupdater, only: [:index]
   end
 
   namespace :api do 

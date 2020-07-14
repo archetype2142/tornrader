@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_12_223250) do
+ActiveRecord::Schema.define(version: 2020_07_14_140647) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 2020_07_12_223250) do
     t.bigint "user_id"
     t.bigint "item_id"
     t.bigint "amount"
+    t.integer "auto_update", default: 0
     t.index ["item_id"], name: "index_prices_on_item_id"
     t.index ["user_id"], name: "index_prices_on_user_id"
   end
@@ -81,6 +82,7 @@ ActiveRecord::Schema.define(version: 2020_07_12_223250) do
     t.datetime "ends_at", null: false
     t.bigint "user_id"
     t.integer "state", default: 0
+    t.integer "pricelist_type", default: 0
     t.index ["user_id"], name: "index_subscriptions_on_user_id"
   end
 
@@ -114,6 +116,7 @@ ActiveRecord::Schema.define(version: 2020_07_12_223250) do
     t.integer "user_type", default: 0
     t.string "trader_api_token"
     t.datetime "trader_api_token_update_at"
+    t.integer "auto_update", default: 0
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

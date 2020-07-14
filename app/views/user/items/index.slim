@@ -10,6 +10,7 @@
           | Press enter to save a value
           |  )
     .level-right
+      = link_to "Auto Pricelist", user_autoupdater_index_path, class: "button is-primary has-mr-5"
       - if @user.price_list
         = link_to "My Price List", user_price_list_path(username: @user.username), class: "button is-primary"
       - else

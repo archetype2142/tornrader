@@ -14,11 +14,14 @@
               |Days Left:  
               = distance_of_time_in_words(current_user.subscriptions.active.first.created_at, current_user.subscriptions.active.first.ends_at)
             p
-              .has-text-primary 
+              span.has-text-primary AutoPricelist:  
+              b = current_user.subscriptions.active.first.auto? ? "<span class='has-text-success'>enabled</span>".html_safe : "<span class='has-text-danger'>disabled</span>".html_safe
+            p
+              span.has-text-primary 
                 |started: 
               = current_user.subscriptions.active.first.created_at.strftime("%Y-%m-%d %H:%M TCT ")
             p
-              .has-text-primary 
+              span.has-text-primary 
                 |ends at: 
               = current_user.subscriptions.active.first.ends_at.strftime("%Y-%m-%d %H:%M TCT ")
     - else 
@@ -33,6 +36,9 @@
               h1.title.is-size-4
                 |Duration:  
                 = distance_of_time_in_words(s.created_at, s.ends_at)
+              p
+                span.has-text-primary AutoPricelist:  
+                b = s.auto? ? "<span class='has-text-success'>enabled</span>" : "<span class='has-text-danger'>disabled</span>".html_safe
               p
                 .has-text-primary 
                   |started: 

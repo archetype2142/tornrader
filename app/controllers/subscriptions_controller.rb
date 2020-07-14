@@ -1,9 +1,10 @@
 class SubscriptionsController < ApplicationController
   before_action :authenticate_user!
-
   def create
     user = User.find(params[:user_id])
-    s = user.subscriptions.new(ends_at: Date.strptime(params['ends_on'], "%m/%d/%Y"))
+    s = user.subscriptions.new(
+      ends_at: Date.strptime(params['ends_on'], "%m/%d/%Y")
+    )
     if s.save
       flash = { success: "Saved!" }
     else
@@ -23,5 +24,19 @@ class SubscriptionsController < ApplicationController
     end
     
     redirect_to admin_index_path, flash: flash
+  end
+
+  def enable
+    s = Subscription.find(params[:subscription_id])
+    s.auto!
+
+    redirect_to admin_index_path, flash: { success: "subscription enabled" }
+  end
+
+  def disable
+    s = Subscription.find(params[:subscription_id])
+    s.manual!
+    
+    redirect_to admin_index_path, flash: { success: "subscription disabled" }
   end
 end

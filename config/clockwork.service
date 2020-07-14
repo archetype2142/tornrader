@@ -3,11 +3,10 @@ Description=clockwork
 
 [Service]
 Type=simple
-WorkingDirectory=/var/www/torntrader/
+WorkingDirectory=/var/www/tornrader/
 ExecStart=/bin/bash /home/torntrader/.rbenv/shims/bundle exec clockwork config/clockwork.rb
 User=torntrader
 Group=torntrader
-UMask=0002
 
 Environment=MALLOC_ARENA_MAX=2
 

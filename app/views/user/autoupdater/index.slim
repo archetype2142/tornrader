@@ -1,0 +1,15 @@
+.container
+  h1.mt-5.title.has-text-centered Auto Update Items
+  - if current_user.subscriptions.active.last.auto?
+    = render "user/autoupdater/pricelist_form"
+  - else
+    p.is-size-4.has-text-primary Auto Pricelist is a feature that allows you to update pricing automatically at some interval 24/7.
+    br
+    p.is-size-4.has-text-primary Auto PriceList allows advanced pricing features like: 
+    .content
+      ul
+        li Update prices based on cheapest market price
+        li Choose which products to update automaically, update the rest manually
+        li Auto Update and add all items on Torn to your price list with 1 click
+        li Create manual pricing rules
+
