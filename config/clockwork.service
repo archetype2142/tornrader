@@ -1,12 +1,10 @@
 [Unit]
 Description=clockwork
-After=syslog.target network.target
 
 [Service]
-Type=notify
-WatchdogSec=10
-WorkingDirectory=/var/www/torntrader/config
-ExecStart=/bin/bash -lc "exec /home/torntrader/.rbenv/shims/bundle exec clockwork clockwork.rb"
+Type=simple
+WorkingDirectory=/var/www/torntrader
+ExecStart=/bin/bash -lc "exec /home/torntrader/.rbenv/shims/bundle exec clockwork config/clockwork.rb"
 User=torntrader
 Group=torntrader
 UMask=0002
