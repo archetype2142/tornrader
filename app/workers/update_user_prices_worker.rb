@@ -3,21 +3,50 @@ class UpdateUserPricesWorker
   sidekiq_options retry: false, backtrace: true
 
   def perform(user_id)
-    item_list.each do |item_id|
-      item = Item.find_by(torn_id: item_id)
-      return unless item
+    user = User.find(user_id)
+    Item.all.each do |item|
 
-      uri = URI.parse("https://api.torn.com/market/#{item_id}?selections=itemmarket,bazaar&key=#{key}")
-      http = Net::HTTP.new(uri.host, uri.port)
-      http.use_ssl = true
-      res = http.get(uri.request_uri)
-      response = JSON.parse(res.body)
-      min_value = response.reject { |k, v| v.nil? }.values.flatten.pluck("cost").min
+      price = user.prices.find_or_create_by(
+        item_id: item.id
+      )
+      
+      puts "id: #{item.torn_id}, new_p: #{amount_calculator(
+        user.pricing_rule,
+        item.lowest_market_price,
+        user.amount
+      ).ceil}, old_p: #{item.lowest_market_price}"
 
-      item.update!(
-        lowest_market_price: min_value.to_i,
-        lowest_price_added_on: DateTime.now
+      price.update!(
+        amount: amount_calculator(
+          user.pricing_rule,
+          item.lowest_market_price,
+          user.amount
+        ).ceil,
+        price_updated_at: DateTime.now
       )
     end
+  end
+
+  def amount_calculator(rule, real_amount, to_change)
+    final_price = 0
+    puts "REAL: #{real_amount}, CHANGE: #{to_change}"
+    if real_amount
+      if rule == 0
+        if to_change.positive?
+          if real_amount = 0
+            final_price = 0
+          else
+            final_price = real_amount + real_amount * (to_change.to_f / real_amount.to_f)
+          end
+        else
+          to_change = to_change.abs
+          final_price = real_amount - real_amount * (to_change.to_f / real_amount.to_f)
+        end
+      else
+        final_price = real_amount + to_change
+      end
+    end
+    
+    final_price <= 0 ? 1 : final_price
   end
 end

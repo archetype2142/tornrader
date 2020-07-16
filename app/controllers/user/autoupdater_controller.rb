@@ -41,8 +41,10 @@ class User::AutoupdaterController < ApplicationController
       pricing_rule: params[:user]['pricing_rule'],
       amount: params[:user]['amount']
     )
+    
+    UpdateUserPricesWorker.perform_async(current_user.id)
 
-    redirect_to user_autoupdater_index_path, flash: { success: "Success!"}
+    redirect_to user_autoupdater_index_path, flash: { success: "Success! please wait some time for changes to take place"}
   end
 
   def update; end
