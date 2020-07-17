@@ -14443,9 +14443,8 @@ res = {
 }
 
 Item.all.destroy_all
-User.all.destroy_all
 
-user = User.create!(
+user = User.find_or_create_by(
   torn_api_key: "YQJ0Eq6WTzpgXDax",
   torn_user_id: 2422075,
   password: "asd123",
