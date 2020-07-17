@@ -60,7 +60,8 @@ class User::AutoupdaterController < ApplicationController
     if price.update(
       profit_percentage: params[:user]['profit_percentage'],
       amount: calculate_price(price, params[:user]['profit_percentage']),
-      price_updated_at: DateTime.now
+      price_updated_at: DateTime.now,
+      auto_update: :auto_updated
     )
       flash = { success: "successfully updated!"}
     else
@@ -94,6 +95,7 @@ class User::AutoupdaterController < ApplicationController
   def enable_global
     user = User.find(params[:id])
     user.enable_global!
+    user.prices.update_all(auto_update: :auto_updated)
 
     redirect_to user_autoupdater_index_path, flash: { success: "Enabled global pricing!"}
   end

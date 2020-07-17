@@ -6,13 +6,19 @@
       - if current_user.enable_global?
         = link_to "Disable global pricing", user_disable_global_pricing_path(current_user), class: "button is-danger"
       - else 
-        <option id="user_pricing_rule" value="1"></option>
+        <option id="user_pricing_rule" value="0"></option>
         = link_to "Enable global pricing", user_enable_global_pricing_path(current_user), class: "button is-success"
   - if current_user.enable_global?
     = form_with model: current_user, url: user_autoupdater_index_path(current_user), class: "has-mb-12", method: :post do |f|
-      .columns
+      .columns.is-mobile
+        .column.is-one-fifth
+          label.label = f.label :user_pricing_rule, "Pricing rule"
+          .field
+            .control
+              .select
+                = f.select :pricing_rule, User.pricing_rules.map { |key, value| [key.humanize, value] }, class: "input"
         .column
-          label.label = f.label :amount, "Profit margin(0-100)"
+          label.label = f.label :amount, "Profit (0-100)"
           .field.has-addons
             .control
               = f.number_field :amount, class: "input", value: current_user.amount
@@ -22,7 +28,11 @@
       = f.submit "Update!", class: "button is-primary"
     b.has-mt-12
       span.has-text-danger NOTE: 
-      span Here you can set pricing for all items at once
+      span Min Value formula, although more profitable in general, could be risky for some items
+      .content
+        ul
+          li Weighted average = (Sum of all item prices / Number of items) * (1 - profit/100)
+          li Min Value formula = min(Market value, Bazaar lowest price) * (1 - profit/100)
 
 
   javascript:

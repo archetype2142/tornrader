@@ -24,7 +24,7 @@ class User < ApplicationRecord
 
   enum user_type: %w[general admin]
   enum auto_update: %w[auto_updated_not auto_updated]
-  enum pricing_rules: %w[percentage fixed]
+  enum pricing_rules: %w[weighted_average min_value_formula]
   enum global_pricing: %w[disable_global enable_global]
   
   attr_writer :login

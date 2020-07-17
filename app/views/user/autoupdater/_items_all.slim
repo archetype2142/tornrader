@@ -74,4 +74,6 @@
                         span.has-text-primary = distance_of_time_in_words(DateTime.now, user_price&.price_updated_at)
                   - else
                     p.has-text-danger Price not on list, add profit margin to add to list
+            - if user_price&.auto_updated_not?
+              p Currently has a fixed price, add a percentage to update automatically
   = paginate @items

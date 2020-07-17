@@ -46,7 +46,9 @@ class User::ItemsController < ApplicationController
       price = @user.prices.find_by(item_id: item.id)
       if params[:user]["price"].to_i > 0
         price.update!(
-          amount: params[:user]["price"]
+          amount: params[:user]["price"],
+          auto_update: :auto_updated_not,
+          price_updated_at: DateTime.now
         )
       else
         @user.prices.delete(price)
@@ -54,7 +56,9 @@ class User::ItemsController < ApplicationController
     else
       @user.prices.create!(
         item: Item.find(params[:user]["item"]),
-        amount: params[:user]["price"]
+        amount: params[:user]["price"],
+        auto_update: :auto_updated_not,
+        price_updated_at: DateTime.now
       )
     end
     # query = nil

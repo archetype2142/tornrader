@@ -14,7 +14,6 @@
         = link_to "My Price List", user_price_list_path(username: @user.username), class: "button is-primary"
       - else
         = link_to "Create a price list", user_price_lists_path, class: "button is-primary"
-  p Amount stays fixed
   - if current_user.subscriptions.active.any?
     - if current_user.subscriptions.active.last.auto?
       = render "user/autoupdater/pricelist_form"

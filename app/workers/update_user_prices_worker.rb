@@ -12,17 +12,30 @@ class UpdateUserPricesWorker
         )
         
         price.update!(
-          amount: calculate_price(price, user.amount),
+          amount: user.weighted_average? ? average_price(price, price.profit_percentage) : calculate_price(price, price.profit_percentage),
           price_updated_at: DateTime.now
         )
       end
     else
       user.prices.each do |price|
         price.update!(
-          amount: calculate_price(price, price.profit_percentage),
+          amount: user.weighted_average? ? average_price(price, price.profit_percentage) : calculate_price(price, price.profit_percentage),
           price_updated_at: DateTime.now
         )
       end
+    end
+  end
+
+  def average_price(price, profit)
+    item = price.item
+    if item.base_price == 0
+      (10*(Point.last.price.to_f)*(1.0-profit.to_f/100.0)).floor
+    elsif item.lowest_market_price == 0
+      amount = (item.base_price.to_f * (1.0-profit.to_f/100.0)).floor
+      return (amount == 0 ? 1 : amount)
+    else
+      amount = (item.average_market_price.to_f * (1.0-profit.to_f/100.0)).floor
+      return (amount == 0 ? 1 : amount)
     end
   end
 
