@@ -8,7 +8,7 @@ class Rack::Attack
   Rack::Attack.blocklist('fail2ban pentesters') do |req|
     # `filter` returns truthy value if request fails, or if it's from a previously banned IP
     # so the request is blocked
-    Rack::Attack::Fail2Ban.filter("pentesters-#{req.ip}", maxretry: 3, findtime: 10.minutes, bantime: 2.hours) do
+    Rack::Attack::Fail2Ban.filter("pentesters-#{req.ip}", maxretry: 1, findtime: 10.minutes, bantime: 2.hours) do
       # The count for the IP is incremented if the return value is truthy
       CGI.unescape(req.query_string) =~ %r{/etc/passwd} ||
       req.path.include?('/etc/passwd') ||
@@ -26,7 +26,8 @@ class Rack::Attack
       req.path.include?('global_data') ||
       req.path.include?('op5config') ||
       req.path.include?('NonExistence') ||
-      req.path.include?('solr') 
+      req.path.include?('solr') ||
+      req.path.include?('.well-known') 
     end
   end
 end

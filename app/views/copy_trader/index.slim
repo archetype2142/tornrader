@@ -1,9 +1,15 @@
+- content_for :title, "Copy Trader"
 .container
   .columns.has-mt-5
     .column
       h1.title.is-size-4 Copy trader
+      p (Copy paste trade to get prices)
       = form_with url: copy_trader_index_path do |f|
-        = f.text_area "trade_items", id: "bb", class: "textarea"
+        .field
+          .control
+            = f.text_area "trade_items", id: "bb", class: "textarea"
+
+        = f.submit "Fetch!", class: "button is-primary"
     - if params[:trade_id]
       .column
         h1.title.is-size-4 Total
@@ -15,9 +21,6 @@
           ul
             - current_user.messages.map{ |m| { name: m.name, message: replace_keys(m.message, current_user, @trade)} }.each do |message|
               li = message[:message]
-
-
-
 
 javascript:
   var box = document.getElementById("bb")
