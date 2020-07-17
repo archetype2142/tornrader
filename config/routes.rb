@@ -23,6 +23,8 @@ Rails.application.routes.draw do
     resources :items, only: [:index, :update, :create]
     resources :price_lists, only: [:index]
     resources :autoupdater, only: [:index, :create, :update]
+    get "/:id/remove_categories/:category_id", to: "categories#remove_category", as: 'remove_category'
+    get "/:id/add_categories/:category_id", to: "categories#add_category", as: 'add_category'
 
     get "/:id/autoupdater/disable_global_pricing", to: "autoupdater#disable_global", as: 'disable_global_pricing'
     get "/:id/autoupdater/enable_global_pricing", to: "autoupdater#enable_global", as: 'enable_global_pricing'

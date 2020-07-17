@@ -6,7 +6,10 @@ class User < ApplicationRecord
   validates :torn_user_id, uniqueness: true
   
   has_many :prices
+  
   has_many :items, through: :prices
+  has_many :categories, through: :items
+
   has_many :messages
   accepts_nested_attributes_for :prices
 
@@ -14,8 +17,10 @@ class User < ApplicationRecord
   has_many :subscriptions
   
   validate :validate_torn_user_id
-  validates :torn_user_id, presence: true, uniqueness: { case_sensitive: false }, numericality: { only_integer: true }
   validate :has_five_messages_atmost
+  
+  validates :torn_user_id, presence: true, uniqueness: { case_sensitive: false }, numericality: { only_integer: true }
+  validates :amount, numericality: { only_integer: true, greater_than_or_equal_to: 0}
 
   enum user_type: %w[general admin]
   enum auto_update: %w[auto_updated_not auto_updated]

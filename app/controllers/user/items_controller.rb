@@ -67,7 +67,7 @@ class User::ItemsController < ApplicationController
   end
 
   def set_user
-    @user ||= current_user
+    @user ||= User.includes(:prices).find(current_user.id)
   end
 end
 

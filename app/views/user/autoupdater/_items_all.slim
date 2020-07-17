@@ -1,18 +1,32 @@
+- global_pricing = current_user.enable_global?
 - category = params[:q][:category_id_eq] unless params[:q].nil?
 .container.has-mt-24
   = render 'user/autoupdater/filter_box'
   = page_entries_info @items, :entry_name => 'item'
-  h1.title 
-    | Category: 
-    span.has-text-primary
-      - if category && !category&.empty?
-        = Category.find(category).name
-      - else 
-        | All
+
+  .level.has-mb-12
+    .level-left
+      h1.title 
+        | Category: 
+        span.has-text-primary
+          - if category && !category&.empty?
+            - category = Category.find(category)
+            = category.name
+          - else 
+            - category = "all"
+            | All
+    .level-right
+      - unless category == "all"
+        - if @user.categories.pluck(:name).uniq.include?(category.name)
+          = link_to "Remove category from pricelist", user_remove_category_path(current_user, category), class: "button is-primary"
+        - else
+          = link_to "Add category to pricelist", user_add_category_path(current_user, category), class: "button is-success"
+
   .columns.is-multiline
     - symbol = current_user.pricing_rule == 1 ? '$' : '%' 
     - @items.each do |item|
-      = form_with model: @user, url: user_autoupdater_index_path, method: :put, class: "column is-one-third" do |f|
+      = form_with model: @user, url: user_autoupdater_path(item), method: :put, class: "column is-one-third" do |f|
+          - user_price = @user.prices.find_by(item_id: item)
           .box
             .columns
               .column
@@ -21,6 +35,8 @@
                   = image_tag item.image_url
                 p Lowest Market Price:
                 b = display_price(item.lowest_market_price)
+                p Market Value:
+                b = display_price(item.base_price)
 
                 - if params[:q]
                   = f.hidden_field :query, value: params[:q]
@@ -28,32 +44,26 @@
                 = f.hidden_field :page, value: params[:page]
                 = f.hidden_field :item, value: item.id
               .column
-                b Your Amount:
-                .field.has-addons
-                  .control
-                    - if current_user.enable_global?
-                      = button_tag current_user.prices.find_by(item_id: item)&.amount || 0, class: "button is-static"
-                    - else
-                      = f.number_field :price, class: 'input'
-                  .control
-                    a.button.is-static.switch = symbol
+                - if global_pricing
+                  b Your Amount:
+                  .field.has-addons
+                    .control
+                      = button_tag user_price&.amount || 0, class: "button is-static"
+                    .control
+                      a.button.is-static.switch $
+                - else 
+                  b Profit margin:
+                  .field.has-addons
+                    .control
+                      = f.number_field :profit_percentage, value: user_price&.profit_percentage, class: 'input'
+                    .control
+                      a.button.is-static.switch %
+                  - if user_price
+                    p Your Price:
+                    b = display_price(user_price&.amount)
+                    p 
+                      | Price updated: 
+                      span.has-text-primary = distance_of_time_in_words(DateTime.now, user_price&.price_updated_at)
+                  - else
+                    p.has-text-danger Price not on list, add profit margin to add to list
   = paginate @items
-
-javascript:
-  var switch_form = document.getElementById("user_pricing_rule");
-  var buttons = document.getElementsByClassName("switch");
-
-  switch_form.addEventListener("change", function() {
-    if(switch_form.value == 1) {
-      for (let button of buttons) {
-        button.innerText = '$';
-      }
-    }
-    if(switch_form.value == 0) {
-      for (let button of buttons) {
-        button.innerText = '%';
-      }
-    }
-  })
-
-  

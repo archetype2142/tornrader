@@ -1,6 +1,6 @@
 class User::AutoupdaterController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_user, only: [:index, :create]
+  before_action :set_user, only: [:index, :create, :update]
 
   def index
     cookies[:page] = nil unless params[:page]
@@ -36,18 +36,53 @@ class User::AutoupdaterController < ApplicationController
   end
   
   def create
-    current_user.update!(
-      auto_update: :auto_updated,
-      pricing_rule: params[:user]['pricing_rule'],
-      amount: params[:user]['amount']
-    )
+    if current_user.update(
+        auto_update: :auto_updated,
+        pricing_rule: params['user']['pricing_rule'],
+        amount: params[:user]['amount']
+      )
     
-    UpdateUserPricesWorker.perform_async(current_user.id)
+      UpdateUserPricesWorker.perform_async(current_user.id)
 
-    redirect_to user_autoupdater_index_path, flash: { success: "Success! please wait some time for changes to take place"}
+      flash = { success: "Success! please wait some time for changes to take place"}
+    else
+      flash = { error: current_user.errors }
+    end
+
+    redirect_to user_autoupdater_index_path, flash: flash
   end
 
-  def update; end
+  def update
+    query = params[:user][:query].nil? ? nil : eval(params[:user][:query])
+    
+    price = @user.prices.find_or_create_by(item_id: params[:user]['item'])
+
+    if price.update(
+      profit_percentage: params[:user]['profit_percentage'],
+      amount: calculate_price(price, params[:user]['profit_percentage']),
+      price_updated_at: DateTime.now
+    )
+      flash = { success: "successfully updated!"}
+    else
+      flash = { error: price.errors }
+    end
+    
+    redirect_to user_autoupdater_index_path(
+      per_page: params[:user][:per_page],
+      page: params[:user][:page],
+      q: query
+    ), flash: flash
+  end
+
+  def calculate_price(price, profit)
+    item = price.item
+    
+    if item.base_price == 0
+      (10*(Point.last.price.to_f)*(1.0-profit.to_f/100.0)).floor
+    else
+      amount = ([item.lowest_market_price, item.base_price].min.to_f * (1.0-profit.to_f/100.0)).floor
+    end
+  end
 
   def disable_global
     user = User.find(params[:id])

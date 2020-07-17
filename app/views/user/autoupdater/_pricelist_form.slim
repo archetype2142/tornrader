@@ -7,22 +7,15 @@
         = link_to "Disable global pricing", user_disable_global_pricing_path(current_user), class: "button is-danger"
       - else 
         <option id="user_pricing_rule" value="1"></option>
-
         = link_to "Enable global pricing", user_enable_global_pricing_path(current_user), class: "button is-success"
   - if current_user.enable_global?
     = form_with model: current_user, url: user_autoupdater_index_path(current_user), class: "has-mb-12", method: :post do |f|
       .columns
-        .column.is-one-fifth
-          .field
-            label.label = f.label :pricing_rule
-            .select
-              = f.select :pricing_rule, User.pricing_rules.to_a
-
         .column
-          label.label = f.label :amount, "Amount (Relative to lowest market price eg. -10)"
+          label.label = f.label :amount, "Profit margin(0-100)"
           .field.has-addons
             .control
-              = f.number_field :amount, class: "input", value:current_user.amount
+              = f.number_field :amount, class: "input", value: current_user.amount
             .control
               a.button.is-static id="switch"
                 = current_user.pricing_rule == 1 ? '$' : '%' 
