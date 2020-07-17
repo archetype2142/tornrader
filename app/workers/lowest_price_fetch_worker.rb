@@ -12,10 +12,13 @@ class LowestPriceFetchWorker
       http.use_ssl = true
       res = http.get(uri.request_uri)
       response = JSON.parse(res.body)
-      min_value = response.reject { |k, v| v.nil? }.values.flatten.pluck("cost").min
+      values = response.reject { |k, v| v.nil? }.values.flatten.pluck("cost").min
+      min_value = values.min
+      avg_value = values.sum / values.count
 
       item.update!(
         lowest_market_price: min_value.to_i,
+        average_market_price: avg_value,
         lowest_price_added_on: DateTime.now
       )
     end

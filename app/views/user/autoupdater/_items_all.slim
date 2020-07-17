@@ -55,6 +55,9 @@
                       = button_tag user_price&.amount || 0, class: "button is-static"
                     .control
                       a.button.is-static.switch $
+                  - unless user_price&.price_updated_at.nil?
+                    | Price updated: 
+                    span.has-text-primary = distance_of_time_in_words(DateTime.now, user_price&.price_updated_at)
                 - else 
                   b Profit margin:
                   .field.has-addons

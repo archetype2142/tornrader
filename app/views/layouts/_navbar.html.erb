@@ -16,7 +16,7 @@
       <% if user_signed_in? %>
         <%= link_to "Trades", trades_path, class: "navbar-item"%>
         <%= link_to "Copy/Paste Trade", copy_trader_index_path, class: "navbar-item"%>
-        <%= link_to "Edit / Create Pricelist", user_items_path, class: "navbar-item"%>
+        <%= link_to "My Pricelists", user_items_path, class: "navbar-item"%>
       <% else %>
         <%= link_to "Home", root_path, class: "navbar-item"%>
       <% end %>
