@@ -1,11 +1,10 @@
+Rack::Attack.blocklisted_callback = lambda do |request|
+  # Using 503 because it may make attacker think that they have successfully
+  # DOSed the site. Rack::Attack returns 403 for blocklists by default
+  [ 503, {}, ['Server Error\n']]
+end
+  
 Rack::Attack.blocklist('fail2ban pentesters') do |req|
-
-  Rack::Attack.blocklisted_callback = lambda do |request|
-    # Using 503 because it may make attacker think that they have successfully
-    # DOSed the site. Rack::Attack returns 403 for blocklists by default
-    [ 503, {}, ['Server Error\n']]
-  end
-
   # `filter` returns truthy value if request fails, or if it's from a previously banned IP
   # so the request is blocked
   Rack::Attack::Fail2Ban.filter("pentesters-#{req.ip}", maxretry: 3, findtime: 10.minutes, bantime: 2.hours) do
