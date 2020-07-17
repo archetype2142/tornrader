@@ -30,6 +30,9 @@ class UpdateUserPricesWorker
     item = price.item
     if item.base_price == 0
       (10*(Point.last.price.to_f)*(1.0-profit.to_f/100.0)).floor
+    elsif item.lowest_market_price == 0
+      amount = (item.base_price.to_f * (1.0-profit.to_f/100.0)).floor
+      return (amount == 0 ? 1 : amount)
     else
       amount = ([item.lowest_market_price, item.base_price].min.to_f * (1.0-profit.to_f/100.0)).floor
       return (amount == 0 ? 1 : amount)
