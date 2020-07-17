@@ -62,7 +62,7 @@
                     p Your Price:
                     b = display_price(user_price&.amount)
                     p 
-                      - unless user_price.price_updated_at
+                      - unless user_price.price_updated_at.nil?
                         | Price updated: 
                         span.has-text-primary = distance_of_time_in_words(DateTime.now, user_price&.price_updated_at)
                   - else
