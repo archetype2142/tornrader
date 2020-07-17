@@ -14,14 +14,14 @@ class UpdateUserPricesWorker
         price.update!(
           amount: user.weighted_average? ? average_price(price, price.profit_percentage) : calculate_price(price, price.profit_percentage),
           price_updated_at: DateTime.now
-        )
+        ) unless price.auto_updated_not?
       end
     else
       user.prices.each do |price|
         price.update!(
           amount: user.weighted_average? ? average_price(price, price.profit_percentage) : calculate_price(price, price.profit_percentage),
           price_updated_at: DateTime.now
-        )
+        ) unless price.auto_updated_not?
       end
     end
   end

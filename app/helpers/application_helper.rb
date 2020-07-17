@@ -20,7 +20,7 @@ module ApplicationHelper
       flashes << content_tag(:div, class: "notification #{class_for(msg_type)}") do
 
         content_tag(:button, '&times;'.html_safe, class: 'delete', data: { dismiss: 'alert', hidden: true }) +
-          content_tag(:span, text)
+          content_tag(:span, text.html_safe)
       end
     end
     flashes.html_safe
