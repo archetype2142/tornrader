@@ -4,7 +4,6 @@ class User::CategoriesController < ApplicationController
   
   def remove_category
     user = current_user
-    puts params[:category_id]
     
     user.prices.where(
       item: user.items.where(category_id: params[:category_id])

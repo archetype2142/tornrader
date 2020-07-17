@@ -44,6 +44,10 @@
                 = f.hidden_field :page, value: params[:page]
                 = f.hidden_field :item, value: item.id
               .column
+                h1.has-text-danger style="text-align: right"
+                  - if user_price 
+                    = link_to "<i class='far fa-times-circle'></i>".html_safe, user_price_path(user_price&.id), method: :delete, class: "button is-danger"
+                  
                 - if global_pricing
                   b Your Amount:
                   .field.has-addons

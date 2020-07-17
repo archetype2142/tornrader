@@ -18,9 +18,9 @@ class User < ApplicationRecord
   
   validate :validate_torn_user_id
   validate :has_five_messages_atmost
-  
+
   validates :torn_user_id, presence: true, uniqueness: { case_sensitive: false }, numericality: { only_integer: true }
-  validates :amount, numericality: { only_integer: true, greater_than_or_equal_to: 0}
+  validates :amount, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
 
   enum user_type: %w[general admin]
   enum auto_update: %w[auto_updated_not auto_updated]
