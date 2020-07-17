@@ -38,4 +38,18 @@ module ApplicationHelper
     
     "#{itm_name}: #{itm_price} x #{qty} = #{total_price}".html_safe
   end
+
+  def replace_keys(message, user, trade)
+    replacements = [
+      ["{trade_total}", display_price(trade&.total).to_s],
+      ["{items_count}", trade&.line_items.pluck(:quantity).sum.to_s],
+      ["{trade_url}", trade.short_url.to_s],
+      ["{seller_name}", trade.seller.to_s],
+      ["{trader_name}", user.username.to_s],
+      ["{pricelist_link}", user.short_pricelist_url.to_s]
+    ]
+    
+    replacements.inject(message) { |str, (k,v)| str.gsub(k,v) }
+  end
+
 end

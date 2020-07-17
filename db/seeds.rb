@@ -9527,7 +9527,7 @@ res = {
          "image": "https://www.torn.com/images/items/731/large.png"
       },
       "732": {
-         "name": "Blood Bag :  A+",
+         "name": "Blood Bag : A+",
          "description": "A blood bag filled with type A+ blood. Compatible with recipients in group A+ and AB+.",
          "effect": "Reduces hospital by 100 mins and restores 20% life. Increases medical cooldown by 60 mins.",
          "requirement": "Intravenous Therapy education course.",
@@ -9540,7 +9540,7 @@ res = {
          "image": "https://www.torn.com/images/items/732/large.png"
       },
       "733": {
-         "name": "Blood Bag :  A-",
+         "name": "Blood Bag : A-",
          "description": "A blood bag filled with type A- blood. Compatible with recipients in groups A-, A+, AB- and AB+.",
          "effect": "Reduces hospital by 100 mins and restores 20% life. Increases medical cooldown by 60 mins.",
          "requirement": "Intravenous Therapy education course.",
@@ -9553,7 +9553,7 @@ res = {
          "image": "https://www.torn.com/images/items/733/large.png"
       },
       "734": {
-         "name": "Blood Bag :  B+",
+         "name": "Blood Bag : B+",
          "description": "A blood bag filled with type B+ blood. Compatible with recipients in group B+ and AB+.",
          "effect": "Reduces hospital by 100 mins and restores 20% life. Increases medical cooldown by 60 mins.",
          "requirement": "Intravenous Therapy education course.",
@@ -9566,7 +9566,7 @@ res = {
          "image": "https://www.torn.com/images/items/734/large.png"
       },
       "735": {
-         "name": "Blood Bag :  B-",
+         "name": "Blood Bag : B-",
          "description": "A blood bag filled with type B- blood. Compatible with recipients in groups B-, B+, AB- and AB+.",
          "effect": "Reduces hospital by 100 mins and restores 20% life. Increases medical cooldown by 60 mins.",
          "requirement": "Intravenous Therapy education course.",
@@ -9579,7 +9579,7 @@ res = {
          "image": "https://www.torn.com/images/items/735/large.png"
       },
       "736": {
-         "name": "Blood Bag :  AB+",
+         "name": "Blood Bag : AB+",
          "description": "A blood bag filled with type AB+ blood. Only compatible with recipients in group AB+.",
          "effect": "Reduces hospital by 100 mins and restores 20% life. Increases medical cooldown by 60 mins.",
          "requirement": "Intravenous Therapy education course.",
@@ -9592,7 +9592,7 @@ res = {
          "image": "https://www.torn.com/images/items/736/large.png"
       },
       "737": {
-         "name": "Blood Bag :  AB-",
+         "name": "Blood Bag : AB-",
          "description": "A blood bag filled with type AB- blood. Compatible with recipients in group AB- and AB+.",
          "effect": "Reduces hospital by 100 mins and restores 20% life. Increases medical cooldown by 60 mins.",
          "requirement": "Intravenous Therapy education course.",
@@ -9605,7 +9605,7 @@ res = {
          "image": "https://www.torn.com/images/items/737/large.png"
       },
       "738": {
-         "name": "Blood Bag :  O+",
+         "name": "Blood Bag : O+",
          "description": "A blood bag filled with type O+ blood. Compatible with recipients in groups O+, A+, B+ and AB+.",
          "effect": "Reduces hospital by 100 mins and restores 20% life. Increases medical cooldown by 60 mins.",
          "requirement": "Intravenous Therapy education course.",
@@ -9618,7 +9618,7 @@ res = {
          "image": "https://www.torn.com/images/items/738/large.png"
       },
       "739": {
-         "name": "Blood Bag :  O-",
+         "name": "Blood Bag : O-",
          "description": "A blood bag filled with type O- blood. Compatible with recipients in any blood group.",
          "effect": "Reduces hospital by 100 mins and restores 20% life. Increases medical cooldown by 60 mins.",
          "requirement": "Intravenous Therapy education course.",
@@ -9696,7 +9696,7 @@ res = {
          "image": "https://www.torn.com/images/items/744/large.png"
       },
       "745": {
-         "name": "Book :  Time Is In The Mind",
+         "name": "Book : Time Is In The Mind",
          "description": "Time is a metaphysical concept whose values change according to the unique perception of every individual human. A romantic moment with a partner can whizz by in mere moments, whereas listening to the dull stories told by an elderly relative can feel like a lifetime. Using a variety of psychological techniques <span class=\"italic\">Time Is In The Mind </span> will help you react faster, enjoy moments longer, and punch people in the face before they even know what hit them. By utilising simple methods such as putting your wristwatch in the freezer, or making every gap between seconds on your wall clock twelve metres long, you will become a veritable master of chronology and come to possess almost superhuman reactive ability.",
          "effect": "Permanently increases Speed by 5% (up to 10,000,000 maximum gain) after 31 days.",
          "requirement": "",
@@ -9709,7 +9709,7 @@ res = {
          "image": "https://www.torn.com/images/items/745/large.png"
       },
       "746": {
-         "name": "Book :  Keeping Your Face Handsome",
+         "name": "Book : Keeping Your Face Handsome",
          "description": "Tom Cruise. Denzel Washington. Will Smith. What do they all have in common? No, they aren't all black, unless Tom Cruise is currently undergoing a reverse Michael Jackson. The answer of course is that they are all handsome movie stars. And do you know why? Because they never get punched in the face. <span class=\"italic\">Keeping Your Face Handsome</span> is the book movie stars don't want you to see. With its unique insights into blocking, ducking and diving, you'll ensure your gorgeous mush continues to look lovely until the end of time.<br/><br/><span class=\"bold\">\"I wish I'd read this book before my face got spazzed\"</span><br/>\r\n<span class=\"t-gray-9\">- Sylvester Stallone.</span>",
          "effect": "Permanently increases Defense by 5% (up to 10,000,000 maximum gain) after 31 days.",
          "requirement": "",
@@ -9722,7 +9722,7 @@ res = {
          "image": "https://www.torn.com/images/items/746/large.png"
       },
       "747": {
-         "name": "Book :  A Job For Your Hands",
+         "name": "Book : A Job For Your Hands",
          "description": "Did you know that humans use less than 2% of their hands' potential? What if we could somehow unlock the other 204%? My name is Colette Branlette, and whilst on holiday in Peru I studied the mystical ways of the human phalanges for over three weeks. Our dextrous extremities offer so much more to the world than simply tapping on keyboards and touching ourselves. In my inspiring personal story I recant how I unlocked society's iron grip on my own two mitts, and in turn explored the dormant life-force which lay untapped within my people paws - and all through the power of extreme shadow puppetry.",
          "effect": "Permanently increases Dexterity by 5% (up to 10,000,000 maximum gain) after 31 days.",
          "requirement": "",
@@ -9735,7 +9735,7 @@ res = {
          "image": "https://www.torn.com/images/items/747/large.png"
       },
       "748": {
-         "name": "Book :  Working 9 Til 5",
+         "name": "Book : Working 9 Til 5",
          "description": "Dolly Parton is the world's favourite large-breasted country singer, unless you count Tim McGraw. But did you know that aside from being a platinum recording artist Ms Parton is also the brains behind a cutting-edge method of project management? This revolutionary scheme takes inspiration from Parton's 9 to 5 single, and fans of her mantra include Donald Trump, Flava Flav, and Bill Gates - the latter seeing an increase of over 400% in productivity since employing Ms Parton's methods at Microsoft. If you're sick of working 9 to 5, barely gettin' by, with all talkin' and no givin', then this book has the potential to change your life.\r\n<br/><br/>\r\n<span class=\"bold\">\"If I'd known of Ms Parton's methods when I first started, I probably wouldn't be dead\"</span><br/>\r\n<span class=\"t-gray-9\">- Steve Jobs</span>",
          "effect": "Increases all working stats by 5% (up to 2,500 maximum gain each) upon completion.",
          "requirement": "",
@@ -9748,7 +9748,7 @@ res = {
          "image": "https://www.torn.com/images/items/748/large.png"
       },
       "749": {
-         "name": "Book :  Making Friends, Enemies, And Cakes",
+         "name": "Book : Making Friends, Enemies, And Cakes",
          "description": "In our modern digital world it can be hard to find new friends, and just as hard to find yourself a pure evil nemesis. With everyone too focused on their iPads, Netflix and terror atrocities we all find it hard to break through and make new acquaintances from time to time. But did you know you can make both friends and foes on the bus, simply by sniffing them? Our easy program of 328 simple steps means you'll acquire lifelong pals and mortal enemies with ease, and all in the time it takes for a stranger to say \"What are you doing to my hair?\"",
          "effect": "Increases friends list & enemies list capacity by +100 upon completion.",
          "requirement": "",
@@ -9761,7 +9761,7 @@ res = {
          "image": "https://www.torn.com/images/items/749/large.png"
       },
       "750": {
-         "name": "Book :  High School For Adults",
+         "name": "Book : High School For Adults",
          "description": "Many of us have regrets about our time in high school - how come I never stood up for myself, I wish I had kissed that girl, why didn't I tell the Principal about coach's after school massage lessons? But the thing most people wish they could change is their course of study. You might be stuck in a dead-end graphic design job wishing you'd studied French. Perhaps you toil away as a physicist but your real passion is interpretive dance. Or maybe you're a Physical Education teacher and you wish you'd actually been to school...like even just once. <span class=\"italic\">High School For Adults</span> is the antidote to all of your educational errors, and contains a series of useful ideas which will help you retrain your brain for a whole new vocation or industry. <br/><br/>\r\n\r\n<span class=\"bold\">\"I was one of the best pediatric cancer specialists in the world, but curing sick children never gave me anything like the rush I get when I turn up to work at the strip club and let strange men put dollar bills down my buttcrack\"</span><br/>\r\n<span class=\"t-gray-9\">- Dr Brandy Giggletits</span>",
          "effect": "Provides a free merit reset upon completion.",
          "requirement": "",
@@ -9774,7 +9774,7 @@ res = {
          "image": "https://www.torn.com/images/items/750/large.png"
       },
       "751": {
-         "name": "Book :  Milk Yourself Sober",
+         "name": "Book : Milk Yourself Sober",
          "description": "The healing properties of milk have long been known to mankind, and those first intrepid perverts who dared to suckle on the teat of their bovine brethren unlocked a delicious creamy cave of medicinal wonder. Addiction is a terrible thing, but by replacing each of your daily meals with twelve glasses of milk you'll see those ketamine cravings and hashish hankerings disappear almost as if by magic. A treasure trove of milk stories and milk based recipes can also be found in this, a book described as \"dangerously unscientific\" by the National Medical Council.",
          "effect": "Removes a substantial amount of drug addiction upon completion.",
          "requirement": "",
@@ -9787,7 +9787,7 @@ res = {
          "image": "https://www.torn.com/images/items/751/large.png"
       },
       "752": {
-         "name": "Book :  Fight Like An Asshole",
+         "name": "Book : Fight Like An Asshole",
          "description": "The greatest fighters and warmongers in history - Sun Tzu, Napoleon, Hitler, Mike Tyson, Judge Judy - what do they all have in common? They were all gigantic ass-hats. It was Muhammed Ali who was once so eloquently quoted as saying \"float like a butterfly, sting like a bee\". Yet who amongst the animal kingdom is more of a dick than bees? Perhaps hyenas, but that's besides the point. To become a great fighter you must first become a great douchebag. In <span class=\"italic\">Fight Like An Asshole</span> you will learn how to unleash your inner shithead, learning all manner of titty twisters, eye-gouges, and shin-kicks to the cock which will leave your enemy in a crumpled heap of tears and shame.",
          "effect": "Provides a passive 25% bonus to all battle stats for 31 days.",
          "requirement": "",
@@ -9800,7 +9800,7 @@ res = {
          "image": "https://www.torn.com/images/items/752/large.png"
       },
       "753": {
-         "name": "Book :  Mind Over Matter",
+         "name": "Book : Mind Over Matter",
          "description": "Mind over matter - a saying we've all heard but what exactly does it mean?\r\n<br>Dr Prahapeemanafaleshakorlanomatophitarplain believes that the human body can actually \"think\" itself strong. The award winning author of such books as <span class=\"italic\">Smell Yourself Thin</span>, <span class=\"italic\">Bones Are A Social Construct</span> and <span class=\"italic\">Bullying Children Makes Them Smart</span> now brings you this in-depth guide as to how you can use the power of self-belief to increase your strength.\r\n(N.B. Dr Prahapeemanafaleshakorlanomatophitarplain makes no guarantees as to the success or longevity of his methods and you attempt these activities at your own risk)",
          "effect": "Provides a passive 100% bonus to Strength for 31 days.",
          "requirement": "",
@@ -9813,7 +9813,7 @@ res = {
          "image": "https://www.torn.com/images/items/753/large.png"
       },
       "754": {
-         "name": "Book :  No Shame No Pain",
+         "name": "Book : No Shame No Pain",
          "description": "In her 2015 essay on the human nervous system entitled <span class=\"italic\">Agony and Anxiety - Whaaaa?</span> Professor Folang&eacute; Musketeer-Smith revealed a ground-breaking discovery regarding the human nervous system. After a series of experiments involving children subjected to severe amounts of emotional and physical agony, Professor Musketeer-Smith made the astonishing discovery that people who were embarrassed to a sufficiently high degree become entirely immune to pain. <span class=\"italic\">No Shame No Pain</span> expands on the Professor's initial findings with a more detailed examination of the ways you can shame yourself and loved ones into an agony free existence.",
          "effect": "Provides a passive 100% bonus to Defense for 31 days.",
          "requirement": "",
@@ -9826,7 +9826,7 @@ res = {
          "image": "https://www.torn.com/images/items/754/large.png"
       },
       "755": {
-         "name": "Book :  Run Like The Wind",
+         "name": "Book : Run Like The Wind",
          "description": "There isn't a man, woman or child alive who hasn't at some point dreamed of winning the 100m Olympic Sprint with a record breaking time of 9.04 seconds. Many of us have of course tried to achieve such feats, only to be told we're \"too old\", \"too slow\", \"too fat\" and \"not from Jamaica\". But what if you could use your own personal jet-engine to help you run faster than anyone ever has before you? <span class=\"italic\">Run Like The Wind</span> contains scientifically proven methods based on the principle of harnessing your own human flatulence in order to increase speed. Once you know the power your air biscuits can provide, we guarantee you'll never waste another one.\r\n\r\n<br/><br/>\r\n<span class=\"bold\">\"Disgusting\"</span><br/>\r\n<span class=\"t-gray-9\">- Oprah Winfrey</span>",
          "effect": "Provides a passive 100% bonus to Speed for 31 days.",
          "requirement": "",
@@ -9839,7 +9839,7 @@ res = {
          "image": "https://www.torn.com/images/items/755/large.png"
       },
       "756": {
-         "name": "Book :  Weaseling Out Of Trouble",
+         "name": "Book : Weaseling Out Of Trouble",
          "description": "When the world's animals are listed in order of danger a few familiar names make up the top five; sharks, hippos, lions, spiders, mosquitos. But each time one notable absentee invalidates such lists, and it shall be to his eternal detriment if mankind continues to ignore the ever-present threat of the Weasel. Weasels are known for their extreme dexterity and cunning, yet their passive nature means they rarely use their powers for evil. Those weasels which do turn against man often manage to weasel out of court cases, leading to far fewer prosecutions than you would expect or hope. The only way humanity can combat any future insurrection by Earth's weasel population is to adopt and utilise their methods. By reading <span class=\"italic\">Weaseling Out of Trouble</span>, you might just save your life.",
          "effect": "Provides a passive 100% bonus to Dexterity for 31 days.",
          "requirement": "",
@@ -9852,7 +9852,7 @@ res = {
          "image": "https://www.torn.com/images/items/756/large.png"
       },
       "757": {
-         "name": "Book :  Get Hard Or Go Home",
+         "name": "Book : Get Hard Or Go Home",
          "description": "Fast cars, leather jackets, a horrible personality; men use all sorts of things to mask the fact that they're packing a flaccid little cocktail weenie down there. But we all know the best way to overcompensate for having genitals which resemble an outty belly button is to hit the gym hard. Super hard. So hard it doesn't even matter if someone finds you sobbing in a heap clutching your junk. It doesn't matter okay? It's what you do with it that counts. LEAVE ME ALONE!!!",
          "effect": "Increases all gym gains by 20% for 31 days.",
          "requirement": "",
@@ -9865,7 +9865,7 @@ res = {
          "image": "https://www.torn.com/images/items/757/large.png"
       },
       "758": {
-         "name": "Book :  Gym Grunting - Shouting To Success",
+         "name": "Book : Gym Grunting - Shouting To Success",
          "description": "World famous documentarian Alan Cucumber documents the athletic regimen of tennis legend Serena Williams in a bid to uncover why her on-court grunting regime has brought her so much success. Following Ms Williams over a single calendar year, Cucumber discovers Serena's specific method of grunting and how it helps her in the gym, on the tennis court, and in the bedroom. Sadly Alan Cucumber's eardrums were shattered by one particular grunt as Ms Williams attempted a 6am bicep curl, but the erstwhile storyteller perseveres and brings you the full, unedited story of his time with the multiple Grand Slam champion, in a book which the UK's Guardian newspaper described as \"baffling\".",
          "effect": "Increases Strength gym gains by 30% for 31 days.",
          "requirement": "",
@@ -9878,7 +9878,7 @@ res = {
          "image": "https://www.torn.com/images/items/758/large.png"
       },
       "759": {
-         "name": "Book :  Self Defense In The Workplace",
+         "name": "Book : Self Defense In The Workplace",
          "description": "An attack on an office can happen at any place, at any time...well obviously that place has to be an office, and it would also have to be open, but you get the point. If a masked intruder was to storm in and murder you at your desk, would you survive? <span class=\"italic\">Self Defense In The Workplace</span> teaches you the skills you need to protect yourself in the event of workplace warfare. Find out how dangerous a trapper keeper can be with the right training. Discover how a single sheet of A4 paper can slice a man's throat clean open. And commit to memory the knowledge that someone armed with only six post-it notes, two B3 pencils and a scientific calculator can hold off a horde of over 200 heavily armed troops.",
          "effect": "Increases Defense gym gains by 30% for 31 days.",
          "requirement": "",
@@ -9891,7 +9891,7 @@ res = {
          "image": "https://www.torn.com/images/items/759/large.png"
       },
       "760": {
-         "name": "Book :  Speed 3 - The Rejected Script",
+         "name": "Book : Speed 3 - The Rejected Script",
          "description": "Screenwriter and amateur gynaecologist Ricky Buttons finally reveals to the world the full shooting script for the cancelled third entry into the Speed franchise; <span class=\"italic\">Speed 3:  Piggyback Ride</span>. In this uniquely fascinating manuscript a young father agrees to give his seven year old daughter a piggyback ride, discovering to his horror that he must then travel faster than 40 miles per hour at all times to avoid seeing his little girl detonate before his very eyes. This romantic action comedy romp is both entertaining and inspiring, as we read with bemusement the various methods employed by the desperate dad to keep his legs perpetually in motion.",
          "effect": "Increases Speed gym gains by 30% for 31 days.",
          "requirement": "",
@@ -9904,7 +9904,7 @@ res = {
          "image": "https://www.torn.com/images/items/760/large.png"
       },
       "761": {
-         "name": "Book :  Limbo Lovers 101",
+         "name": "Book : Limbo Lovers 101",
          "description": "The dexterity of one's spine has long been seen as an indication of their sexual prowess, and it is no coincidence that many of the greatest limbo champions were also spectacular in the bedroom. Margaret Headstone-Guff spent six years stalking and bedding some of the greatest pole-avoiders the world has ever seen, and during this time she absorbed many tips and tricks of the trade. Now this knowledge is passed on to you in this, a comprehensive guide to limbering yourself up real good, in a way which hopefully won't leave you paralysed.\r\n\r\n<br/><br/>\r\n<span class=\"bold\">\"After limbering myself up using the instructions in Limbo Lovers 101, I now eat and defecate through a tube\"</span><br/>\r\n<span class=\"t-gray-9\">- The guy from Mumford & Sons</span>",
          "effect": "Increases Dexterity gym gains by 30% for 31 days.",
          "requirement": "",
@@ -9917,7 +9917,7 @@ res = {
          "image": "https://www.torn.com/images/items/761/large.png"
       },
       "762": {
-         "name": "Book :  The Hamburglar's Guide To Crime",
+         "name": "Book : The Hamburglar's Guide To Crime",
          "description": "For three decades The Hamburglar's cheeky beef-stealing exploits were a mainstay of the McDonald's marketing campaign - until a brush with the law in 2003 put an end to both his career and his freedom. Embittered by a custody feud with his ex-wife, Birdie the Early Bird, The Hamburglar (real name Dennis Blork) was sent down for a 12 year stretch by Mayor McCheese after Officer Big Mac stumbled upon him desecrating the salad supplies at a nearby Burger King. But far from being the punishment intended, prison instead hardened The Hamburglar's criminal ways, giving him a range of crafty cons and terrible torture techniques courtesy of his fellow inmates. Now in this tell-all autobiography, The Hamburglar passes on his unique blend of criminal insight and erotic onion-based anecdotes in this <span class=\"italic\">The Hamburglar's Guide To Crime</span>.\r\n<br/><br/>\r\n<span class=\"bold\">\"If I see you looking at me like that again I'll f**king cut you\"</span><br/>\r\n<span class=\"t-gray-9\">- R. McDonald Esq</span>",
          "effect": "Increases crime skill & crime experience gain by 25% for 31 days.",
          "requirement": "",
@@ -9930,7 +9930,7 @@ res = {
          "image": "https://www.torn.com/images/items/762/large.png"
       },
       "763": {
-         "name": "Book :  What Are Old Folk Good For Anyway?",
+         "name": "Book : What Are Old Folk Good For Anyway?",
          "description": "Society has long wondered what to do with the elderly - ignore them, burn them, use them as some kind of hat-stand. Many believe we should just put them in old people jail and leave them to rot, but to do these things would be a waste of the delicious knowledge retained inside the minds of our many wrinkled wanderers. In <span class=\"italic\">What Are Old Folk Good For Anyway?</span> we examine how you can feast upon the experience inside old-people brains for your own benefit. From how to unlock a door using slippers through to a range of fascinating techniques for persuading someone to sleep with you out of pity - this book is an anthology of elderly experience no young whippersnapper can do without.",
          "effect": "Increases all EXP gains by 25% for 31 days.",
          "requirement": "",
@@ -9943,7 +9943,7 @@ res = {
          "image": "https://www.torn.com/images/items/763/large.png"
       },
       "764": {
-         "name": "Book :  Medical Degree Schmedical Degree",
+         "name": "Book : Medical Degree Schmedical Degree",
          "description": "Ever wonder how doctors know so much about your inside parts? Have you ever stopped to consider the possibility that they are wrong and you are right? We've all watched Grey's Anatomy, it can't be that hard. Hear the story of how I, Kenny Manchego, repeatedly leave hospitals against doctor's recommendations several days early, and how you can too!",
          "effect": "Reduces all hospital time by 50% for 31 days.",
          "requirement": "",
@@ -9956,7 +9956,7 @@ res = {
          "image": "https://www.torn.com/images/items/764/large.png"
       },
       "765": {
-         "name": "Book :  No More Soap On A Rope",
+         "name": "Book : No More Soap On A Rope",
          "description": "Humans have tattled on each other since the dawn of time. Many of us remember the first time we told mom it was the kid next door who shat on the porch. Tattling is what makes humans human, so let us rekindle this spirit and apply those tale-telling traits to the Torn legal system. This guide will help you discover how to rat on your fellow criminals so hard the judge can't help but go easy on you.",
          "effect": "Reduces all jail time by 50% for 31 days.",
          "requirement": "",
@@ -9969,7 +9969,7 @@ res = {
          "image": "https://www.torn.com/images/items/765/large.png"
       },
       "766": {
-         "name": "Book :  Mailing Yourself Abroad",
+         "name": "Book : Mailing Yourself Abroad",
          "description": "Ever wonder how mail seems to arrive so much faster at its destination than people do? Ervington Winterbottom did, so he decided to try something out. Over a period of three months he shipped 84 individually boxed kittens to various destinations across the country. On each occasion Winterbottom then attempted to arrive at his parcel's destination before his pussy packages using conventional public transport, and he failed every single time. Despite the unfortunate felines suffocating to death during each journey Ervington knew he had stumbled upon something life-changing, and to this day he saves thousands of pounds and hours every year shipping himself and his family to exotic destinations around the world. <span class=\"italic\">Mailing Yourself Abroad</span> is the essential guide to cheap and easy international travel, and within minutes of reading it you'll be taping yourself up for the trip of a lifetime.",
          "effect": "Reduces all travel times by 25% for 31 days.",
          "requirement": "",
@@ -9982,7 +9982,7 @@ res = {
          "image": "https://www.torn.com/images/items/766/large.png"
       },
       "767": {
-         "name": "Book :  Smuggling For Beginners",
+         "name": "Book : Smuggling For Beginners",
          "description": "International smuggler Reynauld Le Cul has transported over 8,000 tonnes of illicit items between borders over his lifetime, and now as he approaches retirement he has decided to share this knowledge with the world. By building up from small frozen grapes Le Cul explains how to secrete items within yourself, gradually stretching the body's natural elasticated entrances until you are capable of smuggling a baby grand piano without the use of lubricant. <span class=\"italic\">Smuggling For Beginners</span> also covers eluding sniffer dogs, how to ace a cavity search, and how it's possible to walk with twelve coke-filled pineapples inside your body without arousing suspicion.",
          "effect": "Increases travel capacity by +10 for 31 days.",
          "requirement": "",
@@ -9995,7 +9995,7 @@ res = {
          "image": "https://www.torn.com/images/items/767/large.png"
       },
       "768": {
-         "name": "Book :  Stealthy Stealing of Underwear",
+         "name": "Book : Stealthy Stealing of Underwear",
          "description": "If Torn City was more like Tokyo and sold used underwear in vending machines then we wouldn't need a book like this, but it isn't, so we do. I, Miranda Gropenstein, have dedicated my life to stealing all manner of undergarments from people's homes and dumpsters. Filthy men's boxer shorts? You got it. Ladies' thongs. No problem. Crotchless hosiery from the washing basket of a 94 year old blind lady? You better believe it. And guess what, I've never been caught! Let me share with you my stealthy secrets, so you too can become what several newspapers have described as \"A filthy-minded wrong-nonce\".",
          "effect": "Guaranteed stealth for the next 31 days.",
          "requirement": "",
@@ -10008,7 +10008,7 @@ res = {
          "image": "https://www.torn.com/images/items/768/large.png"
       },
       "769": {
-         "name": "Book :  Shawshank Sure Ain't For Me!",
+         "name": "Book : Shawshank Sure Ain't For Me!",
          "description": "Since the release of <span class=\"italic\">The Shawshank Redemption</span>, prison breakouts have become a little clich&eacute;. Every warden worth his salt now checks behind posters of cute girls for holes, under toilets for cracks in the floor, and at the end of sewerage pipes for excrement-slathered convicts. The old ways no longer work, so <span class=\"italic\">Shawshank Sure Ain't For Me!</span> aims to \"breakout\" and devise a whole new approach to the traditional prison bust. From seducing the warden and dressing up like a Mexican bandido through to pleading insanity and gradually mailing yourself piece by piece to an alternate destination - this book is the go-to guide for both current convicts and potential lawbreakers alike.",
          "effect": "Large jail bust & escape boost for 31 days.",
          "requirement": "",
@@ -10021,7 +10021,7 @@ res = {
          "image": "https://www.torn.com/images/items/769/large.png"
       },
       "770": {
-         "name": "Book :  Ignorance Is Bliss",
+         "name": "Book : Ignorance Is Bliss",
          "description": "Happiness is the right of every human being, and the best way to achieve this is to pretend bad things don't happen. There is a reason stupid people always seem so giddy with excitement, and that's because their simple minds have no way of knowing what the hell is going on. We take inspiration from those kids in high school who sat at the back of the class eating paste and bring you some psychological tricks to turn that frown upside down. Has your Grandmother died recently? Burn those treasured family photos. Starving kids in Africa? Smash your TV into bits. People calling you dumb? Just straight up murder them with hammers. Our book is full of handy happiness hints suitable for children and adults alike. And if none of them work, our words are also printed on LSD blotter paper.",
          "effect": "Happiness can regenerate above maximum for 31 days.",
          "requirement": "",
@@ -10034,7 +10034,7 @@ res = {
          "image": "https://www.torn.com/images/items/770/large.png"
       },
       "771": {
-         "name": "Book :  Winking To Win",
+         "name": "Book : Winking To Win",
          "description": "There are many books on the art of persuasion, yet they all over-complicate what is essentially a very simple process. Making people give you more of what you want is as easy as two plus two, which if you didn't know equals four. <span class=\"italic\">Winking To Win</span> teaches you how a simple wink of the right eye can double your fee in business negotiations instantly, and several winks in a row brings riches you can only dream of. Most people are too afraid to utilise the full power of the wink for fear it may make them resemble a pervert or stroke victim, yet those who truly understand the ways of the semi-blink will testify to its uniquely persuasive nature.\r\n\r\n<br/><br/>\r\n<span class=\"bold\">\"Since I started winking I haven't looked back, mostly because I over did it and my eyes fell out\"</span><br/>\r\n<span class=\"t-gray-9\">- Stevie Wonder</span>",
          "effect": "Doubles contract credit and money rewards for 31 days.",
          "requirement": "",
@@ -10047,7 +10047,7 @@ res = {
          "image": "https://www.torn.com/images/items/771/large.png"
       },
       "772": {
-         "name": "Book :  Finders Keepers",
+         "name": "Book : Finders Keepers",
          "description": "Why is it some people seem to get all the luck? One of your friends finds $50 on the floor, your mother acquires a briefcase full of jewels on the bus, and who hasn't got a best friend who just \"happened\" to stumble across a spare kidney in Taco Bell? I don't think this is luck at all. My name is D'aniel Bonkonovitch and in <span class=\"italic\">Finders Keepers</span> I'll teach you how to make your own good fortune in this world of ours by simply re-classifying burglary, grand theft auto and pickpocketing as \"aggressively opportunistic scavenging\".",
          "effect": "Increases awareness by 2500% for 31 days.",
          "requirement": "",
@@ -10060,7 +10060,7 @@ res = {
          "image": "https://www.torn.com/images/items/772/large.png"
       },
       "773": {
-         "name": "Book :  Hot Turkey",
+         "name": "Book : Hot Turkey",
          "description": "Addiction is a cruel mistress and has blighted many people, but all of these tragically wasted lives could have been saved using one simple trick - denial. Both Alcoholics and Narcotics Anonymous claim the realisation of addiction is the first step towards recovery, but by delaying this crucial first step and recategorizing yourself as being \"on the road to being on the road to recovery\", you can enjoy one last month-long blowout before going cold turkey. In <span class=\"italic\">Hot Turkey</span> we pose the questions drunk people are too wasted to ask. For example, giving in to your vice is often called \"Falling off the Wagon\", but how do we know the wagon is going in the right direction? Who is driving the wagon? Are there snacks on board? Maybe being on the wagon isn't all that great after all?",
          "effect": "Gain no drug addiction for 31 days.",
          "requirement": "",
@@ -10073,7 +10073,7 @@ res = {
          "image": "https://www.torn.com/images/items/773/large.png"
       },
       "774": {
-         "name": "Book :  Higher Daddy, Higher!",
+         "name": "Book : Higher Daddy, Higher!",
          "description": "The noble art of pushing children on swings has long been suggested as a potential solution to the world's energy crisis. For reasons as yet unknown, the mysterious power of a child screaming \"Higher Daddy, Higher!\" seems to generate an unlimited amount of energy from untapped reserves located deep within the human body. <span class=\"italic\">Higher Daddy, Higher</span> examines this elusive source of raw brute force and seeks to apply its principles to everyday urban living.\r\n\r\n<br/><br/>\r\n<span class=\"bold\">\"I shouted 'higher daddy, higher!' whilst running for the subway, and I felt more energised than ever before in my life...until I was wrestled to the ground by police officers\"</span><br/>\r\n<span class=\"t-gray-9\">- Judge Judy</span>",
          "effect": "Provides +20% energy regeneration for 31 days.",
          "requirement": "",
@@ -10086,7 +10086,7 @@ res = {
          "image": "https://www.torn.com/images/items/774/large.png"
       },
       "775": {
-         "name": "Book :  The Real Dutch Courage",
+         "name": "Book : The Real Dutch Courage",
          "description": "During the Anglo-Dutch war of 1665-1667 the English sailors often remarked upon how brave their clog-wearing foes were in the heat of battle. The Dutch seemed to have complete disregard for their own safety, as was evident by their exclusive use of bicycles in a war fought entirely at sea. One man remarked that the Dutch must've been drunk, and it is from this incident the term \"Dutch Courage\" originates. Taking a drink before a stressful situation in order to stiffen one's resolve has long been referred to by this term, but <span class=\"italic\">The Real Dutch Courage</span> seeks to obliterate this myth and reveal the true source of the Dutch sailors' bravery - the humble wasp. Each Dutchman took to battle a tiny wooden windmill filled with wasps affixed to their inner thigh as a method of encouragement, and the story of how this tradition came to pass truly is a tale for the ages.",
          "effect": "Doubles nerve regeneration for 31 days.",
          "requirement": "",
@@ -10099,7 +10099,7 @@ res = {
          "image": "https://www.torn.com/images/items/775/large.png"
       },
       "776": {
-         "name": "Book :  Because I'm Happy - The Pharrell Story",
+         "name": "Book : Because I'm Happy - The Pharrell Story",
          "description": "The popular musician and producer Pharrell Williams has long suffered from a debilitating mental condition which causes him to smile at all times, regardless as to whether the situation calls for it. The \"Happy\" hitmaker is often seen grinning at road traffic accidents, laughing at unfortunate medical diagnoses, and seeming positively ecstatic when informed of the death of a close family friend. This condition was caused by a blow to the head suffered when a 6 year old Pharrell was hit by an ice cream truck whilst walking his dog. However, when the young RnB sensation awoke to find his canine companion had passed away after gorging itself on chocolate snow-cones spilled during the accident, he found the news so funny he became unable to shed tears ever again. This inspiring unauthorised biography of Pharrell Williams is a must read for anyone who needs something to stare at while taking a dump.",
          "effect": "Doubles happiness regeneration for 31 days.",
          "requirement": "",
@@ -10112,7 +10112,7 @@ res = {
          "image": "https://www.torn.com/images/items/776/large.png"
       },
       "777": {
-         "name": "Book :  No More Sick Days",
+         "name": "Book : No More Sick Days",
          "description": "Traditional medicine has long been established as the one and only method of healing the sick, but did Jesus have access to aspirin and cough syrup when he cured the lepers? Historians say no, so how could he possibly achieve both this and the growth of such a long, lustrous beard? At the Medicinal Institute for Non-Derivative Life Extending Support Systems we work with homeopaths, psychics, spiritual healers and other non-qualified individuals to create alternative medical products for the gullible folk of the 21st Century. Did we say gullible? We meant smart. Smart educated people who clearly know more than those idiots with their \"medical qualifications\", \"years of training\" and their \"reasonable logic\".",
          "effect": "Doubles life regeneration for 31 days.",
          "requirement": "",
@@ -10125,7 +10125,7 @@ res = {
          "image": "https://www.torn.com/images/items/777/large.png"
       },
       "778": {
-         "name": "Book :  Duke - My Story",
+         "name": "Book : Duke - My Story",
          "description": "How you doin? I'm The Duke, and this is my story what I gone and wrote myself. Now if you wanna learn how to be a big-time honcho head like me you better sit down and read this, but don't go reading it on the john cause I don't wanna see that business! My book is full of stories about how people double crossed over me and I whacked em real hard, but they ain't put no pictures in like I said because they say Oprah won't read it if I do. If you wanna hear about how I grew up on the streets alone, how I became the biggest shark in a small duck pond of fish, and why I'm even more dangerous than those Balsamic State nutjobs over in the Middle Earth...then you better buy this book yeah? Good. I knew you'd agree.",
          "effect": "Duke will occasionally retaliate against your attackers for 31 days.",
          "requirement": "",
@@ -10138,7 +10138,7 @@ res = {
          "image": "https://www.torn.com/images/items/778/large.png"
       },
       "779": {
-         "name": "Book :  Self Control Is For Losers",
+         "name": "Book : Self Control Is For Losers",
          "description": "How many beers do you think it's safe to drink in an hour? Four? Twelve? Forty twelve? What about cigars, cream cakes and breakfast burritos? Surely there's a limit right? Everything in moderation? Not if you're smart about it there isn't. My name is Hermando Ravioli, and my breakfast consists of deep-fried lard balls accompanied by a Champagne and human blood smoothie. But how can I eat this and still weigh only six stone? By tricking my body like a sucker that's how. Each morning I use visualisation techniques to convince my brain I've just completed a marathon, thereby increasing my metabolism and allowing me to fill my face with ever more crap. With <span class=\"italic\">Self Control is For Losers</span> you too will learn my gluttonous secrets, and before long you'll be on your way to a well-earned heart attack.",
          "effect": "Reduces all consumable cooldowns by 50% for 31 days.",
          "requirement": "",
@@ -10151,7 +10151,7 @@ res = {
          "image": "https://www.torn.com/images/items/779/large.png"
       },
       "780": {
-         "name": "Book :  Going Back For More",
+         "name": "Book : Going Back For More",
          "description": "When the ordinary public uses non-prescription medication for headaches, stomach pain or genital warts they often pay close attention to the recommended dosage. If the packet says take two every 24 hours, you take two every 24 hours - unless you are attempting to kill yourself. But did you know that you can take two times, three times, or even twelve times the recommended dose of any medication and only suffer minor internal bleeding and blindness? <span class=\"italic\">Going Back For More</span> lifts the lid on the \"recommended dosage\" conspiracy and gives you the inside track on exactly how much morphine, neumune and painkilling medication you can take before you realise \"I may have gone too far\".",
          "effect": "Reduces all medical cooldowns by 50% for 31 days.",
          "requirement": "",
@@ -10164,7 +10164,7 @@ res = {
          "image": "https://www.torn.com/images/items/780/large.png"
       },
       "781": {
-         "name": "Book :  Get Drunk And Lose Dignity",
+         "name": "Book : Get Drunk And Lose Dignity",
          "description": "Hollywood is littered with tales of tinseltown stars losing their minds in a haze of drunken debauchery, with Marlon Brando, Alec Guinness, Colin Farrell and Betty White all falling foul of the demon drink at one point or another. But one woman outstrips them all - Lindsay Lohan. The enchanting tale of the silver screen's hepatitis typhoon is brought to life in this exquisite anthology of crayon drawings and doodles. If you've always wanted to puke like a Hollywood starlet then this story will both inspire and disgust you, as you are taken on a veritable rollercoaster of booze, bitching, and blowjobs behind dumpsters.",
          "effect": "Doubles alcohol effects for 31 days.",
          "requirement": "",
@@ -10177,7 +10177,7 @@ res = {
          "image": "https://www.torn.com/images/items/781/large.png"
       },
       "782": {
-         "name": "Book :  Fuelling Your Way To Failure",
+         "name": "Book : Fuelling Your Way To Failure",
          "description": "In 1995 on a quiet walk through a forgettable city centre I met a man who would change my life. My name is Letitia Solid-Loaf and for years I had suffered with fatigue of both the mind and brain, until I bumped into a homeless man drinking petrol behind a KFC. He went by the name of Toxic Terry, and with his deep blue eyes and unruly mop of shaggy blonde hair he persuaded me to take a taste of his \"cocktail\" - which I later discovered was a simple energy drink mixed with petroleum. For the first time in my life I felt alive, and since this revelation I haven't gone more than three hours without combining an energy drink with harmful industrial propellants. Despite losing all of my hair, teeth, gums and dignity I do not regret a thing, and in <span class=\"italic\">Fuelling Your Way To Failure</span> I offer up some of my favourite refuelling recipes for you to try at home, at school, or in a heavily soiled alleyway.",
          "effect": "Doubles energy drink effects for 31 days.",
          "requirement": "",
@@ -10190,7 +10190,7 @@ res = {
          "image": "https://www.torn.com/images/items/782/large.png"
       },
       "783": {
-         "name": "Book :  Yes Please Diabetes",
+         "name": "Book : Yes Please Diabetes",
          "description": "If the tale of the Hungry Hungry Caterpillar tells us anything, it's that the morbidly obese eventually turn into a beautiful butterfly. Wouldn't you like to be that beautiful butterfly? Of course you would. This step by step guide will teach you the skills you need to become happier than ever as you consume nothing but candy and become a complete shut in within the comfort of your own home.",
          "effect": "Doubles candy effects for 31 days.",
          "requirement": "",
@@ -10203,7 +10203,7 @@ res = {
          "image": "https://www.torn.com/images/items/783/large.png"
       },
       "784": {
-         "name": "Book :  Ugly Energy",
+         "name": "Book : Ugly Energy",
          "description": "If there's one thing ugly people are known for it's their enthusiasm - because when you have a face that looks like you've fallen out of the ugly tree, been dragged through the whole hideous forest, chopped down by a grotesque lumber corporation and fashioned into the most vomit-inducing coffee table the world has ever seen...you've got to make a bit of an effort. In <span class=\"italic\">Ugly Energy</span> we help you feel more energetic by teaching you how to disfigure your own face using nothing but a screwdriver, two tubs of mayonnaise and an industrial belt sander. And once you've messed up those stunning looks of yours, you'll begin to massively overcompensate and release the true power locked behind that one gorgeous mush.\r\n<br/><br/>\r\n<span class=\"bold\">\"I used to be pretty, but now I do stuff instead...literally all the stuff\"</span><br/>\r\n<span class=\"t-gray-9\">- Lady Gaga</span>",
          "effect": "Increases maximum energy to 250 for 31 days.",
          "requirement": "",
@@ -10216,7 +10216,7 @@ res = {
          "image": "https://www.torn.com/images/items/784/large.png"
       },
       "785": {
-         "name": "Book :  Memories And Mammaries",
+         "name": "Book : Memories And Mammaries",
          "description": "Some people are blessed with a photographic memory, others possess a naturally advanced brain capacity - but what about the rest of us? During her teenage years, mathematician and convicted felon Jennifer Yellow-Hat noticed that her friends had an astounding ability to recall her words whenever she wore a bulky sweater. Conversely, on days where her cleavage was on display, her associates' efforts to memorise facts and figures failed repeatedly. Her conclusion that the presence of breasts reduces the human mind's capacity for memory helped one Harvard student to a 100% grade on his advanced physics paper, and in <span class=\"italic\">Memories and Mammaries</span> Ms Yellow-Hat explains how you too can improve information retention with three simple boob banishing techniques.\r\n<br/><br/>\r\n<span class=\"bold\">\"What's my name again? Who are you? What am I doing here?\"</span><br/>\r\n<span class=\"t-gray-9\">- Hugh Hefner</span>",
          "effect": "Takes the same effect from the last used book for 31 days.",
          "requirement": "",
@@ -10229,7 +10229,7 @@ res = {
          "image": "https://www.torn.com/images/items/785/large.png"
       },
       "786": {
-         "name": "Book :  Brown-nosing The Boss",
+         "name": "Book : Brown-nosing The Boss",
          "description": "The term \"brown-nosing\" refers to the behavior of an employee attempting to curry favor with their superior or superiors. It was first coined by the Roman Emperor Tiberius, whose appointed counsel frequently cleansed their leader's unvarnished penny as an act of worship and servitude. Obviously such techniques are inappropriate today, but what modern equivalents can an employee use to increase their workplace reputation? With step-by-step guides to everything from incisive compliments through to impromptu massage at the urinals, <span class=\"italic\">Brown-nosing The Boss</span> is the most important career-progression tool you will ever need.",
          "effect": "Greatly increases personal employee effectiveness for 31 days.",
          "requirement": "",
@@ -10242,7 +10242,7 @@ res = {
          "image": "https://www.torn.com/images/items/786/large.png"
       },
       "787": {
-         "name": "Book :  Running Away From Trouble",
+         "name": "Book : Running Away From Trouble",
          "description": "Some of Torn's most respected cowards draw upon a lifetime's experience of running from scary shit to offer an eye-opening glimpse into the world of the namby pamby wuss. In this guide you'll find strategies and stories, none of which are heroic, which you can use to inspire yourself to run screaming like a little girl at the next sign of trouble.\r\n<br/><br/>\r\n<span class=\"bold\">\"A book so gutless we're surprised it's even got a spine\"</span><br/>\r\n<span class=\"t-gray-9\">- The New York Times</span>",
          "effect": "Guaranteed attacking escape attempt success for 31 days.",
          "requirement": "",

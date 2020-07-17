@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_17_010119) do
+ActiveRecord::Schema.define(version: 2020_07_17_124639) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,6 +103,7 @@ ActiveRecord::Schema.define(version: 2020_07_17_010119) do
     t.string "slug"
     t.integer "torn_trade_id"
     t.string "seller"
+    t.string "short_url"
     t.index ["slug"], name: "index_trades_on_slug", unique: true
     t.index ["user_id"], name: "index_trades_on_user_id"
   end

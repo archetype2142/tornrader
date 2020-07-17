@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   resources :trade_messages, only: [:create, :destroy]
   resources :admin, only: [:index]
   resources :subscriptions, only: [:create, :destroy]
-  
+  resources :copy_trader, only: [:index, :create]
   get "/subscriptions/:subscription_id/enable_auto", to: "subscriptions#enable", as: 'e_autopricing'
   get "/subscriptions/:subscription_id/disable_auto", to: "subscriptions#disable", as: 'd_autopricing'
 

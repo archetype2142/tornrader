@@ -1,0 +1,27 @@
+.container
+  .columns.has-mt-5
+    .column
+      h1.title.is-size-4 Copy trader
+      = form_with url: copy_trader_index_path do |f|
+        = f.text_area "trade_items", id: "bb", class: "textarea"
+    - if params[:trade_id]
+      .column
+        h1.title.is-size-4 Total
+        = render "trades/trade_total"
+        p 
+          | Trade url:  
+          a href="#{@trade.short_url}" = @trade.short_url
+        .content
+          ul
+            - current_user.messages.map{ |m| { name: m.name, message: replace_keys(m.message, current_user, @trade)} }.each do |message|
+              li = message[:message]
+
+
+
+
+javascript:
+  var box = document.getElementById("bb")
+  box.addEventListener('change', (event) => {
+    event.preventDefault();
+    (event.target.parentElement).submit();
+  });

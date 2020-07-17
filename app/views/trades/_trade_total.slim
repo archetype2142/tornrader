@@ -1,0 +1,50 @@
+- content_for :title, "Receipt"
+- user_id = @trade.user.id
+.container
+  .columns
+    .column
+      h1.has-pt-24.title Receipt
+      b 
+        | For: 
+        span.is-lilac-50 
+          = @trade.seller 
+      b
+        |  | Total: 
+        span.is-lilac-50 
+          = display_price(@trade.total)
+      .table__wrapper
+        table.table.is-striped.is-narrow.is-mobile
+          thead
+            tr.trade-header
+              td Product
+              td Unit Price
+              td Qty
+              td style="text-align: center;" Total
+          tbody
+            - @trade.line_items.each do |line_item|
+              - next unless line_item.item
+              tr
+                td style="text-align: left"
+                  span.hide-mob = image_tag line_item&.item&.thumbnail_url 
+                  span = line_item&.item&.name
+                td.hideextra.component-unit-price
+                  span = display_price(line_item&.item&.prices&.find_by(user_id: user_id)&.amount)
+                  span.times-sign 
+                    | × 
+                td.hideextra.component-quantity
+                  span = line_item.quantity
+                  span.equals-sign 
+                    |  =
+                td.hideextra.component-total-price
+                  span= display_price(line_item.total)
+          tfoot
+            tr.grand-total.has-bg-lilac-90
+              td.hideextra.grand-total-label colspan="3" 
+                b.is-lilac-10 Total:
+              td 
+                b.is-lilac-10 = display_price(@trade.total)
+            tr.generated-at-row
+              td.generated-at colspan="4"
+                .has-text-grey
+                  | Generated at: 
+                  = @trade.created_at.strftime("%Y-%m-%d %H:%M TCT")
