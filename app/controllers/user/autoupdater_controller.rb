@@ -44,7 +44,7 @@ class User::AutoupdaterController < ApplicationController
     
       UpdateUserPricesWorker.perform_async(current_user.id)
 
-      flash = { success: "Success! please wait some time for changes to take place, <span class='has-text-danger' style='background: white'><b>refresh trade page to see new prices</b></span>"}
+      flash = { success: "Success! please wait some time for changes to take place, <span class='has-text-danger' style='background: white'><b>refresh page to see new prices, also refresh page before using chrome extension</b></span>"}
     else
       flash = { error: current_user.errors }
     end
