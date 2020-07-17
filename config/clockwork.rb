@@ -32,7 +32,7 @@ module Clockwork
     LowestPointPriceFetchWorker.perform_async(api_key)
   end
 
-  every 6.hours "six-hourly" do
+  every 6.hours, "six-hourly" do
     MarketValueFetchWorker.perform_async(api_key)
   end
 end
