@@ -22,26 +22,27 @@
       - if @user.forum_url
         = link_to "Reviews", @user.forum_url, class: "has-ml-4 button is-primary"
   div#macy-container
-    - Category.all.each do |category|
-      /- next unless @user.items.map { |i| i.category.name }.uniq.include?(category.name)
-      .box style="padding: none"
-        h1.title.is-size-6.has-text-centered = category.name
-        .table__wrapper
-          table.table.is-striped.is-mobile.is-fullwidth.trade-table
-            thead
-              tr.trade-header
-                td Item
-                td 
-                td Price
-            tbody
-              - @user.prices.each do |price|
-                - if price.item.category == category
-                  tr.trade-component
-                    td.component-name 
-                      figure.image.is-32x32
-                        = image_tag price.item.thumbnail_url
-                    td.component-name = price.item.name
-                    td.component-name 
-                      b = display_price(price.amount)
+    - cache @user.prices do
+      - Category.all.each do |category|
+        - next unless @user.items.map { |i| i.category.name }.uniq.include?(category.name)
+        .box style="padding: none"
+          h1.title.is-size-6.has-text-centered = category.name
+          .table__wrapper
+            table.table.is-striped.is-mobile.is-fullwidth.trade-table
+              thead
+                tr.trade-header
+                  td Item
+                  td 
+                  td Price
+              tbody
+                - @user.prices.each do |price|
+                  - if price.item.category == category
+                    tr.trade-component
+                      td.component-name 
+                        figure.image.is-32x32
+                          = image_tag price.item.thumbnail_url
+                      td.component-name = price.item.name
+                      td.component-name 
+                        b = display_price(price.amount)
 
 = javascript_pack_tag 'macy', 'data-turbolinks-track': 'reload' 
