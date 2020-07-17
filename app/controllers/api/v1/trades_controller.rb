@@ -4,6 +4,7 @@ module Api
       def index; end
 
       def create
+        puts params
         api_key = request.headers["Authorization"]
         buyer_flip = false
 
