@@ -44,6 +44,9 @@ module Api
               price: price ? display_price(price) : nil,
               quantity: item["quantity"], 
               total: price ? display_price(price * item["quantity"].to_i) : nil,
+              profit: price ? display_price(
+                (user_item.lowest_market_price * item["quantity"].to_i) - (price * item["quantity"].to_i)
+              ) : nil
             }
           end
 
@@ -51,12 +54,15 @@ module Api
 
           trade_messages = user.messages.map{ |m| {name: m.name, message: replace_keys(m.message, user, params, trade)} }
           
+          total_profit =  items.pluck(:profit).compact.map { |i| i.gsub("$", "").strip.to_i }.sum
+          
           trade_info = {
             trade: {
               trade_url: url_maker(trade_url(trade)),
               trade_total: display_price(trade.total),
               items: items,
-              trade_messages: trade_messages
+              trade_messages: trade_messages,
+              total_profit: display_price(total_profit)
             }
           }
           status = 200
@@ -81,7 +87,7 @@ module Api
           ["{trade_url}", url_maker(trade_url(trade)).to_s],
           ["{seller_name}", params["seller"].to_s],
           ["{trader_name}", user.username.to_s],
-          ["{pricelist_link}", user.short_pricelist_url]
+          ["{pricelist_link}", user.short_pricelist_url.to_s]
         ]
         
         replacements.inject(message) { |str, (k,v)| str.gsub(k,v) }
