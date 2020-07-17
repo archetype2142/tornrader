@@ -7,12 +7,13 @@ class UpdateUserPricesWorker
     
     if user.enable_global?
       Item.all.each do |item|
-        price = user.prices.find_or_create_by(
-          item_id: item.id
-        )
         
+        price = user.prices.find_or_create_by(item_id: item.id, amount: 1) do |pr|
+          pr.auto_updated!
+        end
+
         price.update!(
-          amount: user.weighted_average? ? average_price(price, price.profit_percentage) : calculate_price(price, price.profit_percentage),
+          amount: user.weighted_average? ? average_price(price, price.profit_percentage).to_i : calculate_price(price, price.profit_percentage).to_i,
           price_updated_at: DateTime.now
         ) unless price.auto_updated_not?
       end
