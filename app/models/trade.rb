@@ -14,4 +14,8 @@ class Trade < ApplicationRecord
     total_price = self.line_items.pluck(:total).sum
     self.update!(total: total_price) unless self.total == total_price
   end
+
+  def normalize_friendly_id(value)
+    value.to_s.parameterize(preserve_case: true)
+  end
 end
