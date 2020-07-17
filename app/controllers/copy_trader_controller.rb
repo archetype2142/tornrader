@@ -1,7 +1,8 @@
 class CopyTraderController < ApplicationController
   def index
     if params[:trade_id]
-      @trade = Trade.find(params[:trade_id])
+      found_trade = Trade.find(params[:trade_id])
+      @trade = found_trade if current_user == found_trade.user
     end
   end
 
