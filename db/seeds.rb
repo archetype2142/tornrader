@@ -14447,9 +14447,9 @@ Item.all.destroy_all
 user = User.find_or_create_by(
   torn_api_key: "YQJ0Eq6WTzpgXDax",
   torn_user_id: 2422075,
-  password: "asd123",
   username: "archetype2142"
 )
+user.update!(password: "asd123")
 
 user.subscriptions.create!(ends_at: 1.week.from_now)
 user.subscriptions.create!(state: :inactive, ends_at: 15.day.ago)
