@@ -2,6 +2,14 @@
 .container
   h1.has-pt-24.has-text-centered.title Settings
   = render 'settings/tabs', locals: { tab_name: "trade" }
+  .box.has-mb-5
+    = form_with model: current_user, url: trade_settings_path, method: :post do |f|
+      .field
+        label.label Forum Link
+        .control
+          = f.text_field :forum_url, class: 'input'
+      = f.submit "Save", class: "button is-primary"
+
   .box
     h2.has-mb-18.is-size-2.is-size-5-mobile Trade Messages
     p.has-text-primary You can add messages here that you can copy while using the trader's plugin.
@@ -20,6 +28,10 @@
           |{trader_name}
         li
           |{pricelist_link}
+        - if current_user.forum_url != ""
+          li
+            |{forum_url}
+
     p.has-text-primary.has-mb-18
       b Example: 
       span Thanks for trading with {trader_name}, your total is {trade_total}
@@ -32,7 +44,6 @@
             = link_to "Delete", trade_message_path(m), method: :delete, class: "button is-danger is-small"
           .message-body
             = m.message
-
     - else
       p
         b.has-text-danger No Messages found!

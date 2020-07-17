@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :trades, only: [:index, :show]
   resources :settings, only: [:index]
   resources :items, only: [:index]
-  resources :trade_settings, only: :index
+  resources :trade_settings, only: [:index, :create]
   resources :trade_messages, only: [:create, :destroy]
   resources :admin, only: [:index]
   resources :subscriptions, only: [:create, :destroy]

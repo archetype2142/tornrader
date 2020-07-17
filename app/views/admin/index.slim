@@ -18,7 +18,7 @@
                 | Subscription: 
                 span.has-text-primary
                   = distance_of_time_in_words(DateTime.now, s.ends_at)
-              .columns 
+              .columns.is-mobile
                 .column
                   .field
                     .control
@@ -30,8 +30,6 @@
                         = link_to "Cancel AutoPrice", d_autopricing_path(s), method: :get, class: "button is-danger"
                       - else 
                         = link_to "Enable AutoPrice", e_autopricing_path(s), method: :get, class: "button is-success"
-
-                
             - else
               .has-text-danger no subscriptions
               = form_with url: subscriptions_path do |f|
