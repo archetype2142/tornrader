@@ -16,8 +16,6 @@
     .level-left.center-mob
       h1.title.is-size-5-touch = "<span class='has-text-primary'>#{@user.username}'s</span> PriceList".html_safe
     .level-right.center-mob
-      - if current_user == @user
-        = link_to "Update List", update_user_price_list_path(username: @user.username), class: "has-mr-4 button is-danger"
       = link_to "Trade", "https://www.torn.com/trade.php#step=start&userID=#{@user.torn_user_id}", class: "button has-bg-lilac-30"
       - if @user.forum_url
         = link_to "Reviews", @user.forum_url, class: "has-ml-4 button is-primary"

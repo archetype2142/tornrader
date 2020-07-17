@@ -1,6 +1,4 @@
 class Rack::Attack
-
-
   Rack::Attack.blocklisted_response = lambda do |request|
     # Using 503 because it may make attacker think that they have successfully
     # DOSed the site. Rack::Attack returns 403 for blocklists by default
