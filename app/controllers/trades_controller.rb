@@ -2,7 +2,9 @@ class TradesController < ApplicationController
   before_action :authenticate_user!, except: :show
   before_action :set_trade, only: :show
 
-  def index; end
+  def index
+    @trades = current_user.trades.limit(30)
+  end
 
   def show; end
 

@@ -2,7 +2,7 @@
 .container
   h1.has-pt-48.title.has-text-centered All trades
   .columns.is-multiline
-    - current_user.trades.each do |trade|
+    - @trades.each do |trade|
       .column.is-one-third
         .box.is-hoverable onclick="window.location='#{trade_path(trade)}'"
           p = trade.created_at
