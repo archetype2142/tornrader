@@ -46,7 +46,9 @@ module ApplicationHelper
       ["{trade_url}", trade.short_url.to_s],
       ["{seller_name}", trade.seller.to_s],
       ["{trader_name}", user.username.to_s],
-      ["{pricelist_link}", user.short_pricelist_url.to_s]
+      ["{pricelist_link}", user.short_pricelist_url.to_s],
+      ["{forum_url}", user.forum_url.to_s],
+      ["{price_without_delimiter}", trade&.total.to_s]
     ]
     
     replacements.inject(message) { |str, (k,v)| str.gsub(k,v) }
