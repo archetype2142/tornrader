@@ -4,7 +4,7 @@
   "theme_color": "#ce3b79",
   "background_color": "#f5eff3",
   "scope": "/",
-  "start_url": "/",
+  "start_url": "/pwa_copy_trader",
   "display": "standalone",
   "display": "fullscreen",
   "icons": [
