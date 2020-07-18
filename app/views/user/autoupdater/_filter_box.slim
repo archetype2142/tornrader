@@ -1,10 +1,10 @@
 .box 
-  .columns.is-mobile style="margin-bottom: 0px;"
+  .columns.is-multiline.is-mobile style="margin-bottom: 0px;"
     .column
       h1.is-size-5 
         b SEARCH
       = search_form_for @search, url: user_autoupdater_index_path, class: "closed" do |f|
-        .columns.is-mobile.is-multiline
+        .columns.is-multiline
           .column
             .field
               = f.label :name_cont, "By Name", class: "label"
@@ -20,7 +20,7 @@
             .field
               .control
                 = f.submit "Filter", class: "button is-primary"
-    .column.is-one-fifth.hide-mob style="display: flex; align-items: flex-end; justify-content: flex-end;"
+    .column.hide-mob.is-one-fifth
       = form_with url: user_autoupdater_index_path, method: :get do |f|
         .field
           label.label Per page

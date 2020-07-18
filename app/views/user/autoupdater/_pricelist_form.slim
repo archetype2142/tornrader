@@ -10,8 +10,8 @@
         = link_to "Enable global pricing", user_enable_global_pricing_path(current_user), class: "button is-success"
   - if current_user.enable_global?
     = form_with model: current_user, url: user_autoupdater_index_path(current_user), class: "has-mb-12", method: :post do |f|
-      .columns.is-mobile
-        .column.is-one-fifth
+      .columns.is-multiline.is-mobile
+        .column
           label.label = f.label :user_pricing_rule, "Pricing rule"
           .field
             .control
@@ -33,7 +33,6 @@
         ul
           li Weighted average = (Sum of all item prices / Number of items) * (1 - profit/100)
           li Min Value formula = min(Market value, Bazaar lowest price) * (1 - profit/100)
-
 
   javascript:
     var switch_form = document.getElementById("user_pricing_rule");

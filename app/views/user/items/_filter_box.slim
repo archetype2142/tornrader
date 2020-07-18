@@ -4,7 +4,7 @@
       h1.is-size-5 
         b SEARCH
       = search_form_for @search, url: user_items_path, class: "closed" do |f|
-        .columns.is-mobile.is-multiline
+        .columns.is-multiline
           .column
             .field
               = f.label :name_cont, "By Name", class: "label"
@@ -20,7 +20,7 @@
             .field
               .control
                 = f.submit "Filter", class: "button is-primary"
-    .column.is-one-fifth.hide-mob style="display: flex; align-items: flex-end; justify-content: flex-end;"
+    .column.is-one-fifth.hide-mob
       = form_with url: user_items_path, method: :get do |f|
         .field
           label.label Per page
