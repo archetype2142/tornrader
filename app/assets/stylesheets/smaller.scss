@@ -1,0 +1,46 @@
+@import "./colors";
+
+@import "bulma/bulma";
+@import "tables";
+
+@import "./utils";
+
+.hide-mob {
+  @include touch {
+    display: none;
+  }
+}
+
+.center-mob {
+  @include touch {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+.notification {
+  margin-bottom: 0px !important;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+#wrapper {
+  flex: 1;
+}
+
+.footer {
+  padding: 50px;
+}
+
+.container {
+  @include touch {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+

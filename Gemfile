@@ -36,6 +36,7 @@ gem 'sitemap_generator'
 gem 'rack-attack'
 gem 'bullet', group: 'development'
 gem 'sidekiq-failures'
+gem 'webpacker-pwa', group: :development
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

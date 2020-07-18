@@ -6,7 +6,6 @@
   "scope": "/",
   "start_url": "/pwa_copy_trader",
   "display": "standalone",
-  "display": "fullscreen",
   "icons": [
     {
       "src": "/images/icons/icon-72x72.png",

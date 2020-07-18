@@ -15,7 +15,7 @@
         = render "pwa_copy_trader/trade_total", locals: { trade: Trade.find(params[:trade_id])}
         p 
           | Trade url:  
-          a href="#{@trade.short_url}" = @trade.short_url
+          = @trade.short_url
         .content
           ul
             - current_user.messages.map{ |m| { name: m.name, message: replace_keys(m.message, current_user, @trade)} }.each do |message|

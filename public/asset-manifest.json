@@ -3,9 +3,9 @@
   "short_name": "TornTrader",
   "theme_color": "#ce3b79",
   "background_color": "#f5eff3",
-  "start_url": ".",
+  "scope": "/",
+  "start_url": "/pwa_copy_trader",
   "display": "standalone",
-  "display": "fullscreen",
   "icons": [
     {
       "src": "/images/icons/icon-72x72.png",

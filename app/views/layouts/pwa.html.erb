@@ -13,8 +13,8 @@
     <meta name="theme-color" content="#ce3b79" />
     <link rel="apple-touch-icon" href="/images/icons/icon-192x192.png" />
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'smaller', media: 'all', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body style="min-height: 100%; overflow-x: initial;">
@@ -22,5 +22,6 @@
     <%= yield %>
 
     <%= javascript_pack_tag 'hello_react' %>
+    <script async src="https://unpkg.com/pwacompat" crossorigin="anonymous"></script>
   </body>
 </html>
