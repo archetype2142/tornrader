@@ -34,6 +34,10 @@ class User::PriceListsController < ApplicationController
   end
 
   def set_user
-    @user ||= User.find_by(username: params[:username]) if params[:username]
+    if params[:username]
+      @user ||= User.find_by(username: params[:username]) 
+    else
+      @user ||= current_user
+    end
   end
 end
