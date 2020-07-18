@@ -1,7 +1,7 @@
 - content_for :title, "Copy/Paste Trade"
 .container
-  .columns.has-mt-5
-    .column
+  .columns.is-multiline.is-mobile
+    .column.is-full
       h1.title.is-size-4 Copy trader
       p (Copy paste trade to get prices)
       = form_with url: pwa_copy_trader_index_path do |f|
@@ -11,9 +11,9 @@
 
         = f.submit "Fetch!", class: "button is-primary"
     - if params[:trade_id]
-      .column
+      .column.has-full
         h1.title.is-size-4 Total
-        = render "trades/trade_total", locals: { trade: Trade.find(params[:trade_id])}
+        = render "pwa_copy_trader/trade_total", locals: { trade: Trade.find(params[:trade_id])}
         p 
           | Trade url:  
           a href="#{@trade.short_url}" = @trade.short_url
