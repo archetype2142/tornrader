@@ -17,7 +17,7 @@
             | All
     .level-right
       - unless category == "all"
-        - if @user.categories.pluck(:name).uniq.include?(category.name)
+        - if @user.categories.uniq.pluck(:name).include?(category.name)
           = link_to "Remove category from pricelist", user_remove_category_path(current_user, category), class: "button is-primary"
         - else
           = link_to "Add category to pricelist", user_add_category_path(current_user, category), class: "button is-success"
