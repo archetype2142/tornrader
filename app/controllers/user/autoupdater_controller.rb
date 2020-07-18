@@ -24,7 +24,7 @@ class User::AutoupdaterController < ApplicationController
       page = cookies[:page].to_s
     end
 
-    @search ||= Item.basic.includes(:category).ransack(params[:q])
+    @search ||= Item.basic.ransack(params[:q])
 
     @items ||= Kaminari.paginate_array(
       @search
