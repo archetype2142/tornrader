@@ -14,7 +14,7 @@ class LowestPriceFetchWorker
       response = JSON.parse(res.body)
       values = response.reject { |k, v| v.nil? }.values.flatten.pluck("cost")
       min_value = values.min
-      avg_value = values.sum / values.count
+      avg_value = values.count == 0 ? 0 : (values.sum / values.count)
 
       item.update!(
         lowest_market_price: min_value.to_i,
