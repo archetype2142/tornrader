@@ -1,6 +1,6 @@
 class UpdateUserPricesWorker
   include Sidekiq::Worker
-  sidekiq_options retry: false, backtrace: true
+  sidekiq_options retry: false, backtrace: true, failures: true
 
   def perform(user_id, add_all=false)
     user = User.find(user_id)

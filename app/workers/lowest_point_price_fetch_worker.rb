@@ -1,6 +1,6 @@
 class LowestPointPriceFetchWorker
   include Sidekiq::Worker
-  sidekiq_options retry: false, backtrace: true
+  sidekiq_options retry: false, backtrace: true, failures: true
 
   def perform(key)
     uri = URI.parse("https://api.torn.com/market/?selections=pointsmarket&key=#{key}")
