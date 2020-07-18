@@ -14462,6 +14462,7 @@ user.subscriptions.create!(state: :inactive, ends_at: 20000.day.ago)
 
 res.each do |y, x|
   next if x[:type] == "Book"
+  next if x[:type] == "Unused"
 
   category = Category.find_or_create_by!(
     name: x[:type]

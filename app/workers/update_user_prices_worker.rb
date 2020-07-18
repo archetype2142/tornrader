@@ -4,12 +4,11 @@ class UpdateUserPricesWorker
 
   def perform(user_id)
     user = User.find(user_id)
-    
+    categories = user.categories
+
     if user.enable_global?
       Item.all.each do |item|
-        next if item.category == "Collectible"
-        next if item.category == "Unused"
-        next if item.category == "Other"
+        next if !categories.include?(item.category)
         
         price = user.prices.find_or_create_by(item_id: item.id, amount: 1) do |pr|
           pr.auto_updated!
@@ -25,7 +24,7 @@ class UpdateUserPricesWorker
         price.update!(
           amount: user.weighted_average? ? average_price(price, price.profit_percentage) : calculate_price(price, price.profit_percentage),
           price_updated_at: DateTime.now
-        ) unless price.auto_updated_not?
+        ) unless (price.auto_updated_not? || !categories.include?(price.item.category)
       end
     end
   end
