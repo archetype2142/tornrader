@@ -116,6 +116,7 @@ class User::AutoupdaterController < ApplicationController
 
   def disable_global
     user = User.find(params[:id])
+    user.prices.update_all(profit_percentage: user.amount)
     user.disable_global!
 
     redirect_to user_autoupdater_index_path, flash: { success: "Disabled global pricing!"}
