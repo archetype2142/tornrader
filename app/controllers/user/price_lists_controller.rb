@@ -34,6 +34,6 @@ class User::PriceListsController < ApplicationController
   end
 
   def set_user
-    @user ||= User.joins(:items, :categories).find_by(username: params[:username]) if params[:username]
+    @user ||= User.find_by(username: params[:username]) if params[:username]
   end
 end

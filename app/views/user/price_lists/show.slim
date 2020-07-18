@@ -33,7 +33,7 @@
                 td 
                 td Price
             tbody
-              - @user.items.preload(:prices).where(category: category).each do |item|
+              - @user.items.where(category: category).each do |item|
                 tr.trade-component
                   td.component-name 
                     figure.image.is-32x32
