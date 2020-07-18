@@ -23,10 +23,10 @@ class UpdateUserPricesWorker
         end
       else
         user.items.all.each do |item|
-          price = user.prices.find_or_create_by(item_id: item.id) do |pr|
-            pr.auto_updated!
-          end
-
+          price = user.prices.find_by(item_id: item.id)
+          next unless price
+          
+          price.auto_updated!
           price.update!(
             amount: user.pricing_rule == 0 ? 
             average_price(price, user.amount).to_i : 
