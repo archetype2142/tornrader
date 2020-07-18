@@ -7,6 +7,9 @@ class UpdateUserPricesWorker
     
     if user.enable_global?
       Item.all.each do |item|
+        next if item.category == "Collectible"
+        next if item.category == "Unused"
+        next if item.category == "Other"
         
         price = user.prices.find_or_create_by(item_id: item.id, amount: 1) do |pr|
           pr.auto_updated!
