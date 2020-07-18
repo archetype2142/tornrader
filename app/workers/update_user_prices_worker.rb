@@ -15,7 +15,9 @@ class UpdateUserPricesWorker
           end
 
           price.update!(
-            amount: user.weighted_average? ? average_price(price, price.profit_percentage).to_i : calculate_price(price, price.profit_percentage).to_i,
+            amount: user.weighted_average? ? 
+            average_price(price, user.amount).to_i : 
+            calculate_price(price, user.amount).to_i,
             price_updated_at: DateTime.now
           ) unless price.auto_updated_not?
         end
@@ -26,7 +28,9 @@ class UpdateUserPricesWorker
           end
 
           price.update!(
-            amount: user.weighted_average? ? average_price(price, price.profit_percentage).to_i : calculate_price(price, price.profit_percentage).to_i,
+            amount: user.weighted_average? ? 
+            average_price(price, user.amount).to_i : 
+            calculate_price(price, user.amount).to_i,
             price_updated_at: DateTime.now
           ) unless price.auto_updated_not?
         end
