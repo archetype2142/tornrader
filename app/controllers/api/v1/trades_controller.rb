@@ -46,7 +46,7 @@ module Api
               quantity: item["quantity"], 
               total: price ? display_price(price * item["quantity"].to_i) : nil,
               profit: price ? 
-                ((user_item.lowest_market_price - price ) * item["quantity"].to_i)).abs
+                ((user_item.lowest_market_price - price ) * item["quantity"].to_i).abs
               ) : nil
             }
           end
