@@ -13,8 +13,9 @@ b
   |  | Total: 
   span.is-lilac-50 
     = display_price(@trade.total)
-.table-container
-  table.table.is-striped.is-narrow.is-bordered
+
+.table__wrapper
+  table.table.is-striped.is-narrow.is-mobile.is-bordered
     thead
       tr.trade-header
         td Product
@@ -28,10 +29,14 @@ b
           td style="text-align: left"
             span.hide-mob = image_tag line_item&.item&.thumbnail_url 
             span = line_item&.item&.name
-          td
+          td.hideextra.component-unit-price
             span = display_price(line_item&.item&.prices&.find_by(user_id: user_id)&.amount)
-          td
+            span.times-sign 
+              | × 
+          td.hideextra
             span = line_item.quantity
+            span.equals-sign 
+              |  =
           td
             span= display_price(line_item.total)
     tfoot

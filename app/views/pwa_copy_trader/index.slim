@@ -2,7 +2,7 @@
 .container
   .columns.is-multiline.is-mobile
     .column.is-full
-      h1.title.is-size-4 Copy trader
+      h1.has-pt-24.title Copy trader
       p (Copy paste trade to get prices)
       = form_with url: pwa_copy_trader_index_path do |f|
         .field
@@ -12,7 +12,6 @@
         = f.submit "Fetch!", class: "button is-primary"
     - if params[:trade_id]
       .column.has-full
-        h1.title.is-size-4 Total
         = render "pwa_copy_trader/trade_total", locals: { trade: Trade.find(params[:trade_id])}
         p 
           | Trade url:  
