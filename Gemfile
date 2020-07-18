@@ -35,6 +35,7 @@ gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'sitemap_generator'
 gem 'rack-attack'
 gem 'bullet', group: 'development'
+gem 'sidekiq-failures'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

@@ -1,0 +1,30 @@
+- content_for :title, "Copy/Paste Trade"
+.container
+  .columns.has-mt-5
+    .column
+      h1.title.is-size-4 Copy trader
+      p (Copy paste trade to get prices)
+      = form_with url: pwa_copy_trader_index_path do |f|
+        .field
+          .control
+            = f.text_area "trade_items", id: "bb", class: "textarea"
+
+        = f.submit "Fetch!", class: "button is-primary"
+    - if params[:trade_id]
+      .column
+        h1.title.is-size-4 Total
+        = render "trades/trade_total", locals: { trade: Trade.find(params[:trade_id])}
+        p 
+          | Trade url:  
+          a href="#{@trade.short_url}" = @trade.short_url
+        .content
+          ul
+            - current_user.messages.map{ |m| { name: m.name, message: replace_keys(m.message, current_user, @trade)} }.each do |message|
+              li = message[:message]
+
+javascript:
+  var box = document.getElementById("bb")
+  box.addEventListener('change', (event) => {
+    event.preventDefault();
+    (event.target.parentElement).submit();
+  });

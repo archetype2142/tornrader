@@ -7553,6 +7553,11 @@ webpack@^4.41.2:
     watchpack "^1.6.1"
     webpack-sources "^1.4.1"
 
+webpacker-pwa@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/webpacker-pwa/-/webpacker-pwa-0.1.2.tgz#7b44f6f23383f830206b5c66dc1885ecc34e46d4"
+  integrity sha512-DfKbInyb9Z+p4Bl+9deKJW4MSiQaqcfK24DGJnzq+c2DwzhL6GpnrXHPr7GXcXq4SLnAh4O8u1JhUGay2htkVA==
+
 websocket-driver@0.6.5:
   version "0.6.5"
   resolved "https://registry.yarnpkg.com/websocket-driver/-/websocket-driver-0.6.5.tgz#5cb2556ceb85f4373c6d8238aa691c8454e13a36"

@@ -1,12 +1,9 @@
-class CopyTraderController < ApplicationController
+class PwaCopyTraderController < ApplicationController
   before_action :authenticate_user!
 
-  def index
-    if params[:trade_id]
-      found_trade = Trade.find(params[:trade_id])
-      @trade = found_trade if current_user == found_trade.user
-    end
-  end
+  layout 'layouts/pwa'
+
+  def index; end
 
   def create
     items_with_user = params[:trade_items].split('\n')
@@ -22,7 +19,7 @@ class CopyTraderController < ApplicationController
 
     if !found
       flash = { error: "User not found, ensure you copy the whole block including user's name" }
-      redr = copy_trader_index_path
+      redr = pwa_copy_trader_index_path
     else
       user_items = current_user&.items
       user_prices = current_user&.prices
@@ -30,7 +27,7 @@ class CopyTraderController < ApplicationController
       
       if items_list.empty?
         flash = { error: "Bad copy, try again" }
-        redr = copy_trader_index_path
+        redr = pwa_copy_trader_index_path
       else
         trade = current_user.trades.create!(
           seller: params[:trade_items].split("\n").first
@@ -53,14 +50,11 @@ class CopyTraderController < ApplicationController
 
         trade.update_total
         flash = { success: "Trade created!" }
-        redr = copy_trader_index_path(trade_id: trade.id)
+        redr = pwa_copy_trader_index_path(trade_id: trade.id)
       end
 
     end
     redirect_to redr, flash: flash
-  end
-
-  def show
   end
 
   def split_items(items, user, found=false)

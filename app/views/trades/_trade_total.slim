@@ -1,4 +1,7 @@
 - content_for :title, "Receipt"
+- if !@trade
+  - @trade = locals[:trade]
+
 - user_id = @trade.user.id
 .container
   .columns

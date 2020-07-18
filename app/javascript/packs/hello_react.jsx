@@ -2,25 +2,34 @@
 // like app/views/layouts/application.html.erb. All it does is render <div>Hello React</div> at the bottom
 // of the page.
 
-import React from 'react'
-import ReactDOM from 'react-dom'
-import PropTypes from 'prop-types'
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-const Hello = props => (
-  <div>Hello {props.name}!</div>
-)
 
-Hello.defaultProps = {
-  name: 'David'
-}
+window.addEventListener('load', () => {
+  navigator.serviceWorker.register('/service-worker.js').then(registration => {
+    console.log('ServiceWorker registered: ', registration);
 
-Hello.propTypes = {
-  name: PropTypes.string
-}
+    var serviceWorker;
+    if (registration.installing) {
+      serviceWorker = registration.installing;
+      console.log('Service worker installing.');
+    } else if (registration.waiting) {
+      serviceWorker = registration.waiting;
+      console.log('Service worker installed & waiting.');
+    } else if (registration.active) {
+      serviceWorker = registration.active;
+      console.log('Service worker active.');
+    }
+  }).catch(registrationError => {
+    console.log('Service worker registration failed: ', registrationError);
+  });
+});
 
-document.addEventListener('DOMContentLoaded', () => {
-  ReactDOM.render(
-    <Hello name="React" />,
-    document.body.appendChild(document.createElement('div')),
-  )
-})
+ReactDOM.render(
+  <React.StrictMode>
+
+  </React.StrictMode>,
+  document.getElementById("root")
+);
+

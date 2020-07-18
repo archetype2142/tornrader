@@ -74,8 +74,6 @@ module Api
           status = 401
         end
 
-        puts trade_info
-
         render status: status, json: trade_info
       end
 

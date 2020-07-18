@@ -35,3 +35,4 @@
 yarn-debug.log*
 .yarn-integrity
 .env
+public/service-worker.js*
