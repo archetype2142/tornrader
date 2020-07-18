@@ -11,7 +11,7 @@
         .column.is-one-third
           .box
             b = u.username
-            = u.email
+            p = u.email
             - if u.subscriptions.active.any?
               - s = u.subscriptions.active.first
               p                 
