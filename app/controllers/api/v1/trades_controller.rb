@@ -45,8 +45,8 @@ module Api
               price: price ? display_price(price) : nil,
               quantity: item["quantity"], 
               total: price ? display_price(price * item["quantity"].to_i) : nil,
-              profit: price ? display_price(
-                (user_item.lowest_market_price * item["quantity"].to_i) - (price * item["quantity"].to_i)
+              profit: price ? 
+                ((user_item.lowest_market_price - price ) * item["quantity"].to_i)).abs
               ) : nil
             }
           end
@@ -55,7 +55,7 @@ module Api
 
           trade_messages = user.messages.map{ |m| {name: m.name, message: replace_keys(m.message, user, params, trade)} }
           
-          total_profit =  items.pluck(:profit).compact.map { |i| i.gsub("$", "").strip.to_i }.sum
+          total_profit =  items.pluck(:profit).compact.sum
           
           trade_info = {
             trade: {
