@@ -21,6 +21,9 @@
           = link_to "Remove category from pricelist", user_remove_category_path(current_user, category), class: "button is-primary"
         - else
           = link_to "Add category to pricelist", user_add_category_path(current_user, category), class: "button is-success"
+      - else 
+        = link_to "Add all Items", user_all_items_adder_path, class: "button is-info has-mr-5"
+
 
   .columns.is-multiline
     - symbol = current_user.pricing_rule == 1 ? '$' : '%' 

@@ -35,7 +35,13 @@ class User::AutoupdaterController < ApplicationController
     .page(page)
     .per(per_page)
   end
-  
+
+  def all_items_adder
+    UpdateUserPricesWorker.perform_async(current_user.id, add_all=true)
+
+    redirect_to user_autoupdater_index_path, flash: {success: "Success! please wait some time for changes to take place, <span class='has-text-danger' style='background: white'><b>refresh page to see new prices, also refresh page before using chrome extension</b></span>"}
+  end
+
   def create
     if current_user.update(
         auto_update: :auto_updated,
@@ -43,7 +49,7 @@ class User::AutoupdaterController < ApplicationController
         amount: params[:user]['amount']
       )
     
-      UpdateUserPricesWorker.perform_async(current_user.id, add_all=true)
+      UpdateUserPricesWorker.perform_async(current_user.id, add_all=false)
 
       flash = { success: "Success! please wait some time for changes to take place, <span class='has-text-danger' style='background: white'><b>refresh page to see new prices, also refresh page before using chrome extension</b></span>"}
     else
