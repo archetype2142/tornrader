@@ -29,10 +29,6 @@
         <div class="navbar-dropdown">
           <%= link_to "All Items", items_path, class: "navbar-item"%>
           <%= link_to "Contact", contact_path, class: "navbar-item"%>
-          <% if user_signed_in? %>
-            <hr class="navbar-divider">
-            <%= link_to "Settings", settings_path, class: "navbar-item" %>
-          <% end %>
         </div>
       </div>
     </div>
@@ -49,7 +45,7 @@
                 <%= current_user.username %>
               </a>
               <div class="navbar-dropdown">
-                <%= link_to "Account Settings", edit_user_registration_path, class: "navbar-item" %>
+                <%= link_to "Settings", edit_user_registration_path, class: "navbar-item" %>
               </div>
             </div>
             <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "button is-danger" %>
