@@ -23,12 +23,13 @@ module Clockwork
         api_key
       )
     end
-  end
 
-  every 1.hour, "hourly" do
     User.auto_updated.each do |user|
       UpdateUserPricesWorker.perform_async(user.id)
     end
+  end
+
+  every 1.hour, "hourly" do
     LowestPointPriceFetchWorker.perform_async(api_key)
   end
 
