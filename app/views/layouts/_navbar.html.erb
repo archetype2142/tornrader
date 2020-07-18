@@ -35,8 +35,10 @@
 
     <div class="navbar-end">
       <div class="navbar-item">
-          <% if current_user.admin? %>
-            <%= link_to "Admin", admin_index_path, class: "navbar-item" %>
+          <% if user_signed_in? %>
+            <% if current_user.admin? %>
+              <%= link_to "Admin", admin_index_path, class: "navbar-item" %>
+            <% end %>
           <% end %>
           <% if user_signed_in? %>
             <div class="navbar-item has-dropdown is-hoverable has-mr-4">
