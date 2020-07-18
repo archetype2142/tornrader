@@ -10,13 +10,12 @@ class UpdateUserPricesWorker
     if user.enable_global?
       if add_all
         Item.all.each do |item|
-
           price = user.prices.find_or_create_by(item_id: item.id) do |pr|
             pr.auto_updated!
           end
 
           price.update!(
-            amount: user.weighted_average? ? 
+            amount: user.pricing_rule == 0 ? 
             average_price(price, user.amount).to_i : 
             calculate_price(price, user.amount).to_i,
             price_updated_at: DateTime.now
@@ -29,7 +28,7 @@ class UpdateUserPricesWorker
           end
 
           price.update!(
-            amount: user.weighted_average? ? 
+            amount: user.pricing_rule == 0 ? 
             average_price(price, user.amount).to_i : 
             calculate_price(price, user.amount).to_i,
             price_updated_at: DateTime.now
@@ -39,7 +38,7 @@ class UpdateUserPricesWorker
     else
       user.prices.each do |price|
         price.update!(
-          amount: user.weighted_average? ? average_price(price, price.profit_percentage) : calculate_price(price, price.profit_percentage),
+          amount: user.pricing_rule == 0 ? average_price(price, price.profit_percentage) : calculate_price(price, price.profit_percentage),
           price_updated_at: DateTime.now
         ) unless (price.auto_updated_not? || !categories.include?(price.item.category))
       end
@@ -48,10 +47,16 @@ class UpdateUserPricesWorker
 
   def average_price(price, profit)
     item = price.item
-    if item.base_price == 0
+    if item.base_price == 0 && item.lowest_market_price == 0
       (10*(Point.last.price.to_f)*(1.0-profit.to_f/100.0)).floor
-    elsif item.lowest_market_price == 0
+    elsif item.lowest_market_price == 0 && item.base_price != 0
       amount = (item.base_price.to_f * (1.0-profit.to_f/100.0)).floor
+      return (amount == 0 ? 1 : amount)
+    elsif item.lowest_market_price != 0 && item.base_price == 0
+      amount = (item.lowest_market_price.to_f * (1.0-profit.to_f/100.0)).floor
+      return (amount == 0 ? 1 : amount)
+    elsif item.average_market_price <= 2
+      amount = calculate_price(price, profit)
       return (amount == 0 ? 1 : amount)
     else
       amount = (item.average_market_price.to_f * (1.0-profit.to_f/100.0)).floor
@@ -61,10 +66,13 @@ class UpdateUserPricesWorker
 
   def calculate_price(price, profit)
     item = price.item
-    if item.base_price == 0
+    if item.base_price == 0 && item.lowest_market_price == 0
       (10*(Point.last.price.to_f)*(1.0-profit.to_f/100.0)).floor
-    elsif item.lowest_market_price == 0
+    elsif item.lowest_market_price == 0 && item.base_price != 0      
       amount = (item.base_price.to_f * (1.0-profit.to_f/100.0)).floor
+      return (amount == 0 ? 1 : amount)
+    elsif item.lowest_market_price != 0 && item.base_price == 0      
+      amount = (item.lowest_market_price.to_f * (1.0-profit.to_f/100.0)).floor
       return (amount == 0 ? 1 : amount)
     else
       amount = ([item.lowest_market_price, item.base_price].min.to_f * (1.0-profit.to_f/100.0)).floor

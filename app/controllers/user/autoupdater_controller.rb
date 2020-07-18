@@ -60,7 +60,7 @@ class User::AutoupdaterController < ApplicationController
 
     if price.update(
       profit_percentage: params[:user]['profit_percentage'],
-      amount: calculate_price(price, params[:user]['profit_percentage']),
+      amount: @user.pricing_rule == 0 ? average_price(price, params[:user]['profit_percentage']) : calculate_price(price, params[:user]['profit_percentage']),
       price_updated_at: DateTime.now,
       auto_update: :auto_updated
     )
@@ -76,13 +76,35 @@ class User::AutoupdaterController < ApplicationController
     ), flash: flash
   end
 
+  def average_price(price, profit)
+    item = price.item
+    if item.base_price == 0 && item.lowest_market_price == 0
+      (10*(Point.last.price.to_f)*(1.0-profit.to_f/100.0)).floor
+    elsif item.lowest_market_price == 0 && item.base_price != 0
+      amount = (item.base_price.to_f * (1.0-profit.to_f/100.0)).floor
+      return (amount == 0 ? 1 : amount)
+    elsif item.lowest_market_price != 0 && item.base_price == 0
+      amount = (item.lowest_market_price.to_f * (1.0-profit.to_f/100.0)).floor
+      return (amount == 0 ? 1 : amount)
+    else
+      amount = (item.average_market_price.to_f * (1.0-profit.to_f/100.0)).floor
+      return (amount == 0 ? 1 : amount)
+    end
+  end
+
   def calculate_price(price, profit)
     item = price.item
-    
-    if item.base_price == 0
+    if item.base_price == 0 && item.lowest_market_price == 0
       (10*(Point.last.price.to_f)*(1.0-profit.to_f/100.0)).floor
+    elsif item.lowest_market_price == 0 && item.base_price != 0      
+      amount = (item.base_price.to_f * (1.0-profit.to_f/100.0)).floor
+      return (amount == 0 ? 1 : amount)
+    elsif item.lowest_market_price != 0 && item.base_price == 0      
+      amount = (item.lowest_market_price.to_f * (1.0-profit.to_f/100.0)).floor
+      return (amount == 0 ? 1 : amount)
     else
       amount = ([item.lowest_market_price, item.base_price].min.to_f * (1.0-profit.to_f/100.0)).floor
+      return (amount == 0 ? 1 : amount)
     end
   end
 
