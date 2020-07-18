@@ -39,6 +39,7 @@ class CopyTraderController < ApplicationController
             trade_url(trade)
           )
         )
+        
         items_list.each do |item|
           trade.line_items.find_or_create_by(
             item: Item.find(item["item_id"]),
@@ -64,7 +65,7 @@ class CopyTraderController < ApplicationController
     item_list = item_list.map { |l| l.rstrip }
 
     item_list.map do |item| 
-      elements = item.partition("x")
+      elements = item.partition(" x")
       puts elements
       i = Item.find_by(name: elements[0].strip)
       item = user.prices.find_by(item_id: i.id)
