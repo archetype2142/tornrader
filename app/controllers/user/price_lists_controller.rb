@@ -35,7 +35,7 @@ class User::PriceListsController < ApplicationController
 
   def set_user
     if params[:username]
-      @user ||= User.includes([:item]).find_by(username: params[:username]) 
+      @user ||= User.find_by(username: params[:username]) 
     else
       @user ||= current_user
     end
