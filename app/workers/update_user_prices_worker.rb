@@ -10,7 +10,7 @@ class UpdateUserPricesWorker
       if add_all
         Item.all.each do |item|
 
-          price = user.prices.find_or_create_by(item_id: item.id, amount: 1) do |pr|
+          price = user.prices.find_or_create_by(item_id: item.id) do |pr|
             pr.auto_updated!
           end
 
@@ -21,7 +21,7 @@ class UpdateUserPricesWorker
         end
       else
         user.items.all.each do |item|
-          price = user.prices.find_or_create_by(item_id: item.id, amount: 1) do |pr|
+          price = user.prices.find_or_create_by(item_id: item.id) do |pr|
             pr.auto_updated!
           end
 
