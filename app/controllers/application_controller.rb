@@ -12,4 +12,12 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(resource)
     stored_location_for(resource) || trades_path
   end
+
+  def confirm_subscription
+    if user_signed_in?
+      if !current_user.subscriptions.active.any?
+        redirect_to expired_sub_path
+      end
+    end
+  end
 end

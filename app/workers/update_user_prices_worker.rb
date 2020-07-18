@@ -4,6 +4,7 @@ class UpdateUserPricesWorker
 
   def perform(user_id, add_all=false)
     user = User.find(user_id)
+    return unless user.subscriptions.active.any?
     categories = user.categories.uniq
 
     if user.enable_global?

@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   get "/subscriptions/:subscription_id/disable_auto", to: "subscriptions#disable", as: 'd_autopricing'
 
   get "/contact", to: "static_pages/contacts#index"
+  get "/subscription", to: "static_pages/subscriptions#index", as: :expired_sub
+
   get ":username/prices", to: 'user/price_lists#show', as: :user_price_list
   get ":username/update_prices", to: 'user/price_lists#update_list', as: :update_user_price_list
   
