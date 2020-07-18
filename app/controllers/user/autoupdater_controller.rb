@@ -42,7 +42,7 @@ class User::AutoupdaterController < ApplicationController
         amount: params[:user]['amount']
       )
     
-      UpdateUserPricesWorker.perform_async(current_user.id)
+      UpdateUserPricesWorker.perform_async(current_user.id, add_all=true)
 
       flash = { success: "Success! please wait some time for changes to take place, <span class='has-text-danger' style='background: white'><b>refresh page to see new prices, also refresh page before using chrome extension</b></span>"}
     else
