@@ -6,9 +6,10 @@ class User < ApplicationRecord
   validates :torn_user_id, uniqueness: true
   
   has_many :prices
-  
   has_many :items, through: :prices
-  has_many :categories, through: :items
+
+  has_many :positions
+  has_many :categories, through: :positions
 
   has_many :messages
   accepts_nested_attributes_for :prices

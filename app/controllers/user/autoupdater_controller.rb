@@ -66,7 +66,7 @@ class User::AutoupdaterController < ApplicationController
 
     if price.update(
       profit_percentage: params[:user]['profit_percentage'],
-      amount: @user.pricing_rule == 0 ? average_price(price, params[:user]['profit_percentage']) : calculate_price(price, params[:user]['profit_percentage']),
+      amount: @user.pricing_rule == 1 ? average_price(price, params[:user]['profit_percentage']) : calculate_price(price, params[:user]['profit_percentage']),
       price_updated_at: DateTime.now,
       auto_update: :auto_updated
     )

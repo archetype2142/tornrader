@@ -15,7 +15,7 @@ class UpdateUserPricesWorker
           end
 
           price.update!(
-            amount: user.pricing_rule == 0 ? 
+            amount: user.pricing_rule == 1 ? 
             average_price(price, user.amount).to_i : 
             calculate_price(price, user.amount).to_i,
             price_updated_at: DateTime.now
@@ -28,7 +28,7 @@ class UpdateUserPricesWorker
           
           price.auto_updated!
           price.update!(
-            amount: user.pricing_rule == 0 ? 
+            amount: user.pricing_rule == 1 ? 
             average_price(price, user.amount).to_i : 
             calculate_price(price, user.amount).to_i,
             price_updated_at: DateTime.now
@@ -38,7 +38,7 @@ class UpdateUserPricesWorker
     else
       user.prices.each do |price|
         price.update!(
-          amount: user.pricing_rule == 0 ? average_price(price, price.profit_percentage) : calculate_price(price, price.profit_percentage),
+          amount: user.pricing_rule == 1 ? average_price(price, price.profit_percentage) : calculate_price(price, price.profit_percentage),
           price_updated_at: DateTime.now
         ) unless (price.auto_updated_not? || !categories.include?(price.item.category))
       end

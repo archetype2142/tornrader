@@ -6,6 +6,8 @@
       = link_to "Account", edit_user_registration_path
     li id="trade"
       = link_to "Trade", trade_settings_path
+    li id="pricelist"
+      = link_to "Pricelists", user_price_lists_order_index_path
       
 javascript:
   document.querySelector("##{locals[:tab_name]}").classList.toggle("is-active");
