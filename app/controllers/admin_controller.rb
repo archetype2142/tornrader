@@ -3,7 +3,7 @@ class AdminController < ApplicationController
   before_action :ensure_admin
 
   def index
-    @search = User.includes(:subscriptions).ransack(params[:q])
+    @search = User.ransack(params[:q])
 
     @users = Kaminari.paginate_array(
         @search

@@ -2500,6 +2500,13 @@ builtin-status-codes@^3.0.0:
   resolved "https://registry.yarnpkg.com/builtin-status-codes/-/builtin-status-codes-3.0.0.tgz#85982878e21b98e1c66425e03d0174788f569ee8"
   integrity sha1-hZgoeOIbmOHGZCXgPQF0eI9Wnug=
 
+bulma-block-list@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/bulma-block-list/-/bulma-block-list-0.4.0.tgz#4f70d2bdeb1dbaa730c1f7cf75adcd6013b5703b"
+  integrity sha512-N1jFSWXKmZrtETmbAVuy/q7TA0eb6VuyeaM8YsOue43Es55CPWshbK1vplJ+BYoxaacibs9paNhQs0y35qU+dQ==
+  dependencies:
+    bulma "^0.8.0"
+
 bulma-calendar@^6.0.9:
   version "6.0.9"
   resolved "https://registry.yarnpkg.com/bulma-calendar/-/bulma-calendar-6.0.9.tgz#cff21c7a2cae3ef4c2c5616c042ed4585d70f585"
@@ -2507,6 +2514,11 @@ bulma-calendar@^6.0.9:
   dependencies:
     date-and-time "^0.6.3"
     date-fns "^1.29.0"
+
+bulma@^0.8.0:
+  version "0.8.2"
+  resolved "https://registry.yarnpkg.com/bulma/-/bulma-0.8.2.tgz#5d928f16ed4a84549c2873f95c92c38c69c631a7"
+  integrity sha512-vMM/ijYSxX+Sm+nD7Lmc1UgWDy2JcL2nTKqwgEqXuOMU+IGALbXd5MLt/BcjBAPLIx36TtzhzBcSnOP974gcqA==
 
 bulma@^0.9.0:
   version "0.9.0"
@@ -7660,6 +7672,11 @@ sort-keys@^1.0.0:
   integrity sha1-RBttTTRnmPG05J6JIK37oOVD+a0=
   dependencies:
     is-plain-obj "^1.0.0"
+
+sortablejs@^1.10.2:
+  version "1.10.2"
+  resolved "https://registry.yarnpkg.com/sortablejs/-/sortablejs-1.10.2.tgz#6e40364d913f98b85a14f6678f92b5c1221f5290"
+  integrity sha512-YkPGufevysvfwn5rfdlGyrGjt7/CRHwvRPogD/lC+TnvcN29jDpCifKP+rBqf+LRldfXSTh+0CGLcSg0VIxq3A==
 
 source-list-map@^2.0.0:
   version "2.0.1"

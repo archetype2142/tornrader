@@ -1,6 +1,6 @@
 - content_for :title, "Trade Settings"
 .container
-  h1.has-pt-24.has-text-centered.title Settings
+  h1.has-pt-24.has-text-centered.title Trade Settings
   = render 'settings/tabs', locals: { tab_name: "trade" }
   .box.has-mb-5
     = form_with model: current_user, url: trade_settings_path, method: :post do |f|

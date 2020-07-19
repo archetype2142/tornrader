@@ -1,0 +1,31 @@
+= stylesheet_link_tag 'sort', media: 'all', 'data-turbolinks-track': 'reload' 
+
+- content_for :title, "Pricelist Order"
+.container
+  h1.has-pt-24.has-text-centered.title PriceList Settings
+  = render 'settings/tabs', locals: { tab_name: "pricelist" }
+  h1.title Edit Pricelist
+  h2.subtitle Drag items from the "All Items" list to add it to your pricelist, you can rearrange the order of you pricelist here as well
+  
+  = hidden_field_tag :authenticity_token, form_authenticity_token
+  
+  .columns.is-mobile
+    .column.is-half
+      .content
+        h1.is-size-4 Your Items List
+        ul.block-list.is-primary data-user="#{current_user.id}" id="user_items"
+          - current_user.positions.includes([:category]).order(:number).each do |p|
+            li id="#{p.category_id}" style="display: flex; align-items: center;"
+              i.fas.fa-arrows-alt.handle.has-mr-5
+              = p.category.name
+    .column.is-half
+      .content
+        h1.is-size-4 All Categories
+        ul.block-list.is-outlined.is-info data-user="#{current_user.id}" id="all_items"
+          - user_positions = current_user.positions.pluck(:category_id)
+          - Category.all.reject{ |c| user_positions.include?(c.id) }.each do |cat|
+            li id="#{cat.id}" style="display: flex; align-items: center;"
+              i.fas.fa-arrows-alt.handle.has-mr-5
+              = cat.name
+
+= javascript_pack_tag 'rearrange_order', 'data-turbolinks-track': 'reload'
