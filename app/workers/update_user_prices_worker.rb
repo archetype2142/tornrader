@@ -26,7 +26,7 @@ class UpdateUserPricesWorker
           price = user.prices.find_by(item_id: item.id)
           next unless price
           
-          price.auto_updated!
+          # price.auto_updated!
           price.update!(
             amount: user.pricing_rule == 1 ? 
             average_price(price, user.amount).to_i : 
