@@ -21,9 +21,9 @@
         = link_to "Reviews", @user.forum_url, class: "has-ml-4 button is-primary"
   div#macy-container
     - cache @user.prices do
-      - categories = @user.categories.uniq
+      - categories = @user.items.pluck(:category_id).uniq
       - Category.all.each do |category|
-        - next unless categories.include?(category)
+        - next unless categories.include?(category.id)
         .box style="padding: none"
           h1.title.is-size-6.has-text-centered = category.name
           .table__wrapper
