@@ -5,7 +5,7 @@ class UpdateUserPricesWorker
   def perform(user_id, add_all=false)
     user = User.find(user_id)
     return unless user.subscriptions.active.any?
-    categories = user.categories.uniq
+    categories = user.items.pluck(:category_id).uniq
 
     if user.enable_global?
       if add_all
@@ -40,7 +40,7 @@ class UpdateUserPricesWorker
         price.update!(
           amount: user.pricing_rule == 1 ? average_price(price, price.profit_percentage) : calculate_price(price, price.profit_percentage),
           price_updated_at: DateTime.now
-        ) unless (price.auto_updated_not? || !categories.include?(price.item.category))
+        ) unless (price.auto_updated_not? || !categories.include?(price.item.category.id))
       end
     end
   end
