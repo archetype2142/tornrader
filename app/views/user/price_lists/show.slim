@@ -6,11 +6,14 @@
       b -  To add a new item to this list, go to <a href="#{user_items_path}">My Items</a> and add price to an item.
       p
         b
-          span - Use the <span class="has-text-primary">"Update List"</span> button ONLY IF you don't see all added products. 
+          span - You can reorder categories <a href="#{user_price_lists_order_index_path}">here</a>
       p 
         b 
           span - You can copy the url of this page and share with your clients or copy this shortened url 
           a href="#{current_user.short_pricelist_url}" = current_user.short_pricelist_url
+      p 
+        b 
+          span - Did you update position of pricelist caegories and don't see them changed? Don't worry, please wait for cache to clear, they will update automatically. 
 
   .level
     .level-left.center-mob
