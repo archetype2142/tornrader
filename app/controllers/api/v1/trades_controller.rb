@@ -55,11 +55,7 @@ module Api
 
           trade_messages = user.messages.map{ |m| {name: m.name, message: replace_keys(m.message, user, params, trade)} }
           
-          total_profit = (trade.total - items.pluck(:profit).compact.sum)
-          Rails.logger = Logger.new(STDOUT)
-          Rails.logger.level = Logger::DEBUG
-          
-          logger.info "\n\n\n\nTRADE TOTAL = #{trade.total}\nITEM TOTAL = #{items.pluck(:profit).compact.sum}\nPROFIT = #{total_profit}"
+          total_profit = items.pluck(:profit).compact.sum
           
           trade_info = {
             trade: {
