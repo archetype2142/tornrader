@@ -55,7 +55,7 @@ module Api
 
           trade_messages = user.messages.map{ |m| {name: m.name, message: replace_keys(m.message, user, params, trade)} }
           
-          total_profit = (trade.total - items.pluck(:profit).compact.sum).abs
+          total_profit = (trade.total - items.pluck(:profit).compact.sum)
           
           trade_info = {
             trade: {
