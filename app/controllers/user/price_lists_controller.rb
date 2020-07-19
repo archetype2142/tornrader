@@ -12,7 +12,9 @@ class User::PriceListsController < ApplicationController
     redirect_to user_items_path, flash: { success: "Price List Successfully Created!" }
   end
 
-  def show; end
+  def show
+    @user_prices = current_user.prices
+  end
 
   def update_list
     @user.update!(updated_price_list_at: Time.now)

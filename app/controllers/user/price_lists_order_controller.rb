@@ -31,4 +31,12 @@ class User::PriceListsOrderController < ApplicationController
 
     render json: {status: :ok, action: action}
   end
+
+  def auto_update_user_prices
+    UpdateUserPricesWorker.perform_async(current_user.id)
+    puts "user_pricelist_#{current_user.username}"
+    Rails.cache.delete("user_pricelist_#{current_user.username}")
+
+    redirect_to user_price_lists_order_index_path, flash: { success: "Please wait a few moments for prices to update"}
+  end
 end

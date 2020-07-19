@@ -3,6 +3,7 @@ import Sortable from 'sortablejs';
 var user = document.getElementById("user_items");
 var all = document.getElementById("all_items");
 var authenticity_token = getMeta('csrf-token');
+var update_prices = document.getElementById("update_prices");
 
 var all_items = new Sortable(all, {
   handle: '.handle',
@@ -27,6 +28,7 @@ var user_items = new Sortable(user, {
 });
 
 async function sendRearrangeReq(list, userID, token) {
+  update_prices.style.display = "block";
   const response = await fetch("http://localhost:3000/user/price_lists_order", {
     method: 'POST',
     mode: 'same-origin',

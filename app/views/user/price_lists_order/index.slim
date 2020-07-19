@@ -5,10 +5,14 @@
   h1.has-pt-24.has-text-centered.title PriceList Settings
   = render 'settings/tabs', locals: { tab_name: "pricelist" }
   h1.title Edit Pricelist
-  h2.subtitle Drag items from the "All Items" list to add it to your pricelist, you can rearrange the order of you pricelist here as well
+  h2.subtitle Drag items from the <b class="has-text-primary">All Categories</b> to <b class="has-text-primary">Your Items List</b> to add it to your pricelist. You can also drag categories back to <b class="has-text-primary">All Categories</b> to delete them. You can rearrange the order of you pricelist here as well!
   
   = hidden_field_tag :authenticity_token, form_authenticity_token
-  
+  .columns id="update_prices" style="display: none"
+    .column.is-half
+      .box
+        = link_to "Update pricelist", user_auto_update_path, class: "button is-primary has-mb-12"
+        .has-text-danger Use when done making changes
   .columns.is-mobile
     .column.is-half
       .content
@@ -27,5 +31,6 @@
             li id="#{cat.id}" style="display: flex; align-items: center;"
               i.fas.fa-arrows-alt.handle.has-mr-5
               = cat.name
+
 
 = javascript_pack_tag 'rearrange_order', 'data-turbolinks-track': 'reload'
