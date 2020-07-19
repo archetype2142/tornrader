@@ -4,7 +4,6 @@ module Api
       def index; end
 
       def create
-        puts params
         api_key = request.headers["Authorization"]
         buyer_flip = false
 
@@ -50,13 +49,13 @@ module Api
               ) : nil
             }
           end
-
+          trade.line_items.each { |li| li.update_total_manual }
           trade.update_total
 
           trade_messages = user.messages.map{ |m| {name: m.name, message: replace_keys(m.message, user, params, trade)} }
           
           total_profit = items.pluck(:profit).compact.sum
-          
+
           trade_info = {
             trade: {
               trade_url: url_maker(trade_url(trade)),

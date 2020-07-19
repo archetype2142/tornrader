@@ -17,4 +17,18 @@ class LineItem < ApplicationRecord
       end
     end
   end
+
+  def update_total_manual
+    if !self.item.nil?
+      user_id = self.trade.user.id
+
+      total_price = (
+        self.item.prices.find_by(user_id: user_id).amount * self.quantity
+      )
+      
+      if self.total != total_price
+        self.update!(total: total_price)
+      end
+    end
+  end
 end
