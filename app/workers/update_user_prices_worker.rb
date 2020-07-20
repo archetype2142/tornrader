@@ -10,7 +10,7 @@ class UpdateUserPricesWorker
     if user.enable_global?
       if add_all
         Category.all.each do |c|
-          user.find_or_create_by(category_id: c.id)
+          user.positions.find_or_create_by(category_id: c.id)
         end
         
         Item.all.each do |item|
