@@ -8,9 +8,9 @@ module Api
         buyer_flip = false
 
         if ((params[:buyer].to_s =~ /\A[-+]?[0-9]*\.?[0-9]+\Z/) != nil)
-          user = User.includes(:prices, :items, :trades).find_by(torn_user_id: params[:buyer])
+          user = User.find_by(torn_user_id: params[:buyer])
         else
-          user = User.includes(:prices, :items, :trades).find_by(torn_user_id: params[:seller])
+          user = User.find_by(torn_user_id: params[:seller])
           buyer_flip = true
         end
 
@@ -30,7 +30,7 @@ module Api
           user_prices = user&.prices
 
           items = params[:items].map do |item|
-            user_item = user.items.find_by(name: item["name"])
+            user_item = user_items.find_by(name: item["name"])
             price = user_item.nil? ? nil : user_prices.find_by(item_id: user_item.id).amount
             
             trade.line_items.find_or_create_by(
