@@ -1,6 +1,6 @@
 class UpdateUserPricesWorker
   include Sidekiq::Worker
-  sidekiq_options lock: :while_executing, lock_args: ->(args) { [ args.first.user_id ] }, on_conflict: :reject, retry: false, backtrace: true, failures: true
+  sidekiq_options lock: :while_executing, on_conflict: :reject, retry: false, backtrace: true, failures: true
 
   def perform(user_id, add_all=false)
     user = User.find(user_id)
