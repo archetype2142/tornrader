@@ -7,48 +7,50 @@ class UpdateUserPricesWorker
     return unless user.subscriptions.active.any?
     categories = user.items.pluck(:category_id).uniq
 
-    begin
-      if user.enable_global?
-        if add_all
-          Category.all.each do |c|
-            user.positions.find_or_create_by(category_id: c.id)
-          end
-          
-          Item.all.each do |item|
+    
+    if user.enable_global?
+      if add_all
+        Category.all.each do |c|
+          user.positions.find_or_create_by(category_id: c.id)
+        end
+        
+        Item.all.each do |item|
+          begin
             price = user.prices.find_or_create_by(item_id: item.id) do |pr|
               pr.auto_updated!
             end
+          rescue ActiveRecord::RecordInvalid
+            next
+          end
 
-            price.update!(
-              amount: user.pricing_rule == 1 ? 
-              average_price(price, user.amount).to_i : 
-              calculate_price(price, user.amount).to_i,
-              price_updated_at: DateTime.now
-            ) unless price.auto_updated_not?
-          end
-        else
-          user.items.all.each do |item|
-            price = user.prices.find_by(item_id: item.id)
-            next unless price
-            
-            price.update!(
-              amount: user.pricing_rule == 1 ? 
-              average_price(price, user.amount).to_i : 
-              calculate_price(price, user.amount).to_i,
-              price_updated_at: DateTime.now
-            ) unless price.auto_updated_not?
-          end
+          price.update!(
+            amount: user.pricing_rule == 1 ? 
+            average_price(price, user.amount).to_i : 
+            calculate_price(price, user.amount).to_i,
+            price_updated_at: DateTime.now
+          ) unless price.auto_updated_not?
         end
       else
-        user.prices.each do |price|
+        user.items.all.each do |item|
+          price = user.prices.find_by(item_id: item.id)
+          next unless price
+          
           price.update!(
-            amount: user.pricing_rule == 1 ? average_price(price, price.profit_percentage) : calculate_price(price, price.profit_percentage),
+            amount: user.pricing_rule == 1 ? 
+            average_price(price, user.amount).to_i : 
+            calculate_price(price, user.amount).to_i,
             price_updated_at: DateTime.now
-          ) unless (price.auto_updated_not? || !categories.include?(price.item.category.id))
+          ) unless price.auto_updated_not?
         end
       end
+    else
+      user.prices.each do |price|
+        price.update!(
+          amount: user.pricing_rule == 1 ? average_price(price, price.profit_percentage) : calculate_price(price, price.profit_percentage),
+          price_updated_at: DateTime.now
+        ) unless (price.auto_updated_not? || !categories.include?(price.item.category.id))
+      end
     end
-  rescue ActiveRecord::RecordInvalid
   end
 
   def average_price(price, profit)
