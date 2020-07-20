@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :rememberable
   validates :torn_user_id, uniqueness: true
-  
+
   has_many :prices
   has_many :items, through: :prices
 
@@ -29,6 +29,7 @@ class User < ApplicationRecord
   enum global_pricing: %w[disable_global enable_global]
   
   attr_writer :login
+
 
   def has_five_messages_atmost
     errors.add :user_id, "Only 5 messages are allowed!" if messages.count > 5
