@@ -1,34 +1,27 @@
 class LineItem < ApplicationRecord
   belongs_to :trade
   has_one :item
+  has_many :prices
 
   before_save :update_total
 
   def update_total
-    if !self.item.nil?
-      user_id = self.trade.user.id
+    user_id = self.trade.user.id
 
-      total_price = (
-        self.item.prices.find_by(user_id: user_id).amount * self.quantity
-      )
-      
-      if self.total != total_price
-        self.total = total_price
-      end
-    end
+    total_price = self.item.nil? ? 0 : (
+      self.prices.last.amount * self.quantity
+    )
+    
+    self.total = total_price unless self.total != total_price
   end
 
   def update_total_manual
-    if !self.item.nil?
-      user_id = self.trade.user.id
+    user_id = self.trade.user.id
 
-      total_price = (
-        self.item.prices.find_by(user_id: user_id).amount * self.quantity
-      )
-      
-      if self.total != total_price
-        self.update!(total: total_price)
-      end
-    end
+    total_price = self.item.nil? ? 0 : (
+      self.prices.first.amount * self.quantity
+    )
+    
+    self.update!(total: total_price) unless self.total != total_price
   end
 end

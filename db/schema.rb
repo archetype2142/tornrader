@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_18_231935) do
+ActiveRecord::Schema.define(version: 2020_07_20_185214) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -91,8 +91,10 @@ ActiveRecord::Schema.define(version: 2020_07_18_231935) do
     t.datetime "price_updated_at"
     t.integer "profit_percentage", default: 1
     t.bigint "category_id"
+    t.bigint "line_item_id"
     t.index ["category_id"], name: "index_prices_on_category_id"
     t.index ["item_id"], name: "index_prices_on_item_id"
+    t.index ["line_item_id"], name: "index_prices_on_line_item_id"
     t.index ["user_id"], name: "index_prices_on_user_id"
   end
 

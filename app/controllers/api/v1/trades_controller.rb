@@ -26,14 +26,16 @@ module Api
             seller: params["seller"]
           )
 
-          user_items = user&.items
-          user_prices = user&.prices
+          user_prices ||= user&.prices
+          user_items ||= user&.items
 
           items = params[:items].map do |item|
             user_item = user_items.find_by(name: item["name"])
-            price = user_item.nil? ? nil : user_prices.find_by(item_id: user_item.id).amount
+            
+            price = user_item.nil? ? nil : user_prices.find_by(item_id: user_item.id)
             
             trade.line_items.find_or_create_by(
+              prices: [price],
               item: user_item,
               quantity: item["quantity"]
             ) unless price.nil?
@@ -41,15 +43,15 @@ module Api
             {
               name: "#{item["name"]}",
               id: user_item&.id, 
-              price: price ? display_price(price) : nil,
+              price: price&.amount ? display_price(price.amount) : nil,
               quantity: item["quantity"], 
-              total: price ? display_price(price * item["quantity"].to_i) : nil,
-              profit: price ? 
-                (((user_item.lowest_market_price - price ) * item["quantity"].to_i).abs
+              total: price&.amount ? display_price(price.amount * item["quantity"].to_i) : nil,
+              profit: price&.amount ? 
+                (((user_item.lowest_market_price - price.amount ) * item["quantity"].to_i).abs
               ) : nil
             }
           end
-          trade.line_items.each { |li| li.update_total_manual }
+          trade.line_items.includes([:item]).each { |li| li.update_total_manual }
           trade.update_total
 
           trade_messages = user.messages.map{ |m| {name: m.name, message: replace_keys(m.message, user, params, trade)} }
@@ -82,7 +84,7 @@ module Api
         replacements = [
           ["{trade_total}", display_price(trade&.total).to_s],
           ["{items_count}", trade&.line_items.pluck(:quantity).sum.to_s],
-          ["{trade_url}", url_maker(trade_url(trade)).to_s],
+          ["{trade_url}", trade.short_url ? trade.short_url : url_maker(trade_url(trade)).to_s],
           ["{seller_name}", params["seller"].to_s],
           ["{trader_name}", user.username.to_s],
           ["{pricelist_link}", user.short_pricelist_url.to_s],
