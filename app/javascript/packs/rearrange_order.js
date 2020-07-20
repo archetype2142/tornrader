@@ -6,7 +6,6 @@ var authenticity_token = getMeta('csrf-token');
 var update_prices = document.getElementById("update_prices");
 
 var all_items = new Sortable(all, {
-  handle: '.handle',
   group: 'shared', // set both lists to same group
   animation: 150
 });
@@ -14,7 +13,6 @@ var all_items = new Sortable(all, {
 var user_items = new Sortable(user, {
   group: 'shared',
   animation: 150,
-  handle: '.handle',
   onAdd: function (evt) {
     categoryChanged(evt.item.id, evt.target.dataset.user, evt.newIndex, evt.oldIndex, authenticity_token, 'added');
   },
