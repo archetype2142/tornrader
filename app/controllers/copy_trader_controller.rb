@@ -42,11 +42,10 @@ class CopyTraderController < ApplicationController
             trade_url(trade)
           )
         )
-        
-        # total_profit =  items.pluck(:profit).compact.map { |i| i.gsub("$", "").strip.to_i }.sum
-        
+                
         items_list.each do |item|
           trade.line_items.find_or_create_by(
+            prices: [item["price_object"]],
             item: Item.find(item["item_id"]),
             quantity: item["quantity"]
           ) unless item["price"] == "Price not found"
@@ -90,7 +89,7 @@ class CopyTraderController < ApplicationController
         total = price * quantity
       end
 
-      { "item_id" => i.id, "name" => item_name, "quantity" => quantity, "price" => price, "total" => total }
+      { "item_id" => i.id, "name" => item_name, "quantity" => quantity, "price_object" => item, "price" => price, "total" => total }
     end
   end
 

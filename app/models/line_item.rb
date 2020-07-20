@@ -11,8 +11,9 @@ class LineItem < ApplicationRecord
     total_price = self.item.nil? ? 0 : (
       self.prices.last.amount * self.quantity
     )
-    
-    self.total = total_price unless self.total != total_price
+    if self.total != total_price
+      self.total = total_price 
+    end
   end
 
   def update_total_manual
@@ -21,7 +22,13 @@ class LineItem < ApplicationRecord
     total_price = self.item.nil? ? 0 : (
       self.prices.first.amount * self.quantity
     )
-    
-    self.update!(total: total_price) unless self.total != total_price
+    puts self.prices.first.amount
+    puts self.quantity
+    puts total_price
+    puts self.total
+
+    if self.total != total_price
+      self.update!(total: total_price)
+    end
   end
 end
