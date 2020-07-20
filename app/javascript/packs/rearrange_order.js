@@ -26,7 +26,6 @@ var user_items = new Sortable(user, {
 });
 
 async function sendRearrangeReq(list, userID, token) {
-  update_prices.style.display = "block";
   const response = await fetch("https://torntrader.com/user/price_lists_order", {
     method: 'POST',
     mode: 'same-origin',
@@ -59,6 +58,8 @@ function getMeta(metaName) {
 }
 
 async function categoryChanged(categoryID, userID, newPosition, oldPosition, token, type) {
+  if (type == "added") update_prices.style.display = "block";
+
   const response = await fetch("https://torntrader.com/user/price_lists_order", {
     method: 'POST',
     mode: 'same-origin',
