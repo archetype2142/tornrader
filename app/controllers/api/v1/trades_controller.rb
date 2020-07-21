@@ -4,6 +4,8 @@ module Api
       def index; end
 
       def create
+        puts params[:items]
+
         api_key = request.headers["Authorization"]
         buyer_flip = false
 
@@ -25,7 +27,8 @@ module Api
             torn_trade_id: params["trade_id"],
             seller: params["seller"]
           )
-
+          trade.line_items.destroy_all if trade.line_items.any?
+          
           user_prices ||= user&.prices
           user_items ||= user&.items
 
@@ -34,7 +37,7 @@ module Api
             
             price = user_item.nil? ? nil : user_prices.find_by(item_id: user_item.id)
             
-            trade.line_items.find_or_create_by(
+            trade.line_items.create!(
               prices: [price],
               item: user_item,
               quantity: item["quantity"]

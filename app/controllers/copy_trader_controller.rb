@@ -42,9 +42,11 @@ class CopyTraderController < ApplicationController
             trade_url(trade)
           )
         )
+
+        trade.line_items.destroy_all if trade.line_items.any?
                 
         items_list.each do |item|
-          trade.line_items.find_or_create_by(
+          trade.line_items.create!(
             prices: [item["price_object"]],
             item: Item.find(item["item_id"]),
             quantity: item["quantity"]
