@@ -16,12 +16,16 @@ class LowestPriceFetchWorker
       values = response.reject { |k, v| v.nil? }.values.flatten.pluck("cost")
       min_value = values.min
       avg_value = values.count == 0 ? 0 : (values.sum / values.count)
-
-      item.update!(
-        lowest_market_price: min_value.to_i,
-        average_market_price: avg_value,
-        lowest_price_added_on: DateTime.now
-      )
+      
+      begin
+        item.update!(
+          lowest_market_price: min_value.to_i,
+          average_market_price: avg_value,
+          lowest_price_added_on: DateTime.now
+        )
+      rescue ActiveModel::RangeError
+        return
+      end
     end
   end
 end
