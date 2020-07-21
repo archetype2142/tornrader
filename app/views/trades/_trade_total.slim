@@ -26,7 +26,7 @@
               td style="text-align: center;" Total
           tbody
             - @trade.line_items.includes(:item).each do |line_item|
-              - next unless line_item.price
+              - next unless line_item.prices.any?
               tr
                 td style="text-align: left"
                   span.hide-mob = image_tag line_item&.item&.thumbnail_url 
