@@ -25,7 +25,7 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="has-bg-lilac-10">
+  <body class="has-bg-lilac-10" style="background: <%= params[:color]%> !important">
 
     <div id="wrapper">
       <%= render "layouts/navbar" %>
