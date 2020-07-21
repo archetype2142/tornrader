@@ -5,7 +5,6 @@ class Item < ApplicationRecord
   enum item_type: %w[basic user]
 
   belongs_to :category, optional: true
-  belongs_to :line_item, optional: true
 
   def user_price(user)
     user.prices.find_by(item_id: self.id)

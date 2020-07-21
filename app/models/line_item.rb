@@ -1,6 +1,5 @@
 class LineItem < ApplicationRecord
   belongs_to :trade
-  has_one :item
   has_many :prices
 
   before_save :update_total

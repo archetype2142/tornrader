@@ -39,7 +39,6 @@ module Api
             
             trade.line_items.create!(
               prices: [price],
-              item: user_item,
               quantity: item["quantity"]
             ) unless price.nil?
 
@@ -54,7 +53,7 @@ module Api
               ) : nil
             }
           end
-          trade.line_items.includes([:item]).each { |li| li.update_total_manual }
+          trade.line_items.each { |li| li.update_total_manual }
           trade.update_total
 
           trade_messages = user.messages.map{ |m| {name: m.name, message: replace_keys(m.message, user, params, trade)} }

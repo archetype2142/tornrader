@@ -48,7 +48,6 @@ class CopyTraderController < ApplicationController
         items_list.each do |item|
           trade.line_items.create!(
             prices: [item["price_object"]],
-            item: Item.find(item["item_id"]),
             quantity: item["quantity"]
           ) unless item["price"] == "Price not found"
         end
