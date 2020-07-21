@@ -28,8 +28,9 @@ Rails.application.routes.draw do
     resources :items, only: [:index, :update, :create]
     resources :price_lists, only: [:index]
     resources :autoupdater, only: [:index, :create, :update]
-    resources :prices, only: [:destroy]
+    resources :prices, only: [:destroy, :update]
     resources :price_lists_order, only: [:index, :create]
+
     get "auto_update", to: "price_lists_order#auto_update_user_prices", as: "auto_update"
     get "/:id/remove_categories/:category_id", to: "categories#remove_category", as: 'remove_category'
     get "/:id/add_categories/:category_id", to: "categories#add_category", as: 'add_category'

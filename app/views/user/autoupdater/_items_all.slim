@@ -49,7 +49,7 @@
               .column
                 h1.has-text-danger style="text-align: right"
                   - if user_price 
-                    = link_to "<i class='far fa-times-circle'></i>".html_safe, user_price_path(user_price&.id), method: :delete, class: "button is-danger"
+                    = link_to "<i class='far fa-times-circle'></i>".html_safe, user_price_path(id: user_price&.id, query: params[:q]&.to_unsafe_h, per_page: params[:per_page], page: params[:page]), method: :delete, class: "button is-danger"
                   
                 - if global_pricing
                   b Your Amount:
@@ -78,5 +78,9 @@
                   - else
                     p.has-text-danger Price not on list, add profit margin to add to list
             - if user_price&.auto_updated_not?
-              p Currently has a fixed price, add a percentage to update automatically
+              p 
+                | Item has a fixed price, add a percentage to update automatically or (
+                span 
+                  = link_to "add to automatic", user_price_path(id: user_price&.id, query: params[:q]&.to_unsafe_h, per_page: params[:per_page], page: params[:page]), method: :put
+                | )
   = paginate @items
