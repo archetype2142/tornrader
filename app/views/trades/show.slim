@@ -1,1 +1,6 @@
 = render "trades/trade_total"
+
+.container.has-mt-5
+  - if user_signed_in?
+    - if @trade.user == current_user
+      = link_to "Delete", trade_path(@trade), method: :delete, class: "button is-danger"

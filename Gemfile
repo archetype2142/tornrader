@@ -37,8 +37,7 @@ gem 'rack-attack'
 gem 'bullet', group: 'development'
 gem 'sidekiq-failures'
 gem 'webpacker-pwa', group: :development
-gem 'sidekiq-unique-jobs'
-
+gem 'sidekiq-unique-jobs', '7.0.0.beta22'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

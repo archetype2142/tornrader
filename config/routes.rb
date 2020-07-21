@@ -4,7 +4,7 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
   root "homepage#index"
   devise_for :users
-  resources :trades, only: [:index, :show]
+  resources :trades, only: [:index, :show, :destroy]
   resources :settings, only: [:index]
   resources :items, only: [:index]
   resources :trade_settings, only: [:index, :create]

@@ -1,0 +1,32 @@
+.box 
+  .columns.is-mobile style="margin-bottom: 0px;"
+    .column
+      = search_form_for @search, url: trades_path, id: "search_box", class: "closed" do |f|
+        .columns.is-mobile.is-multiline
+          .column.is-half
+            .field
+              = f.label :price_range, "Price range", class: "label"
+              .field.has-addons
+                .control
+                  = f.search_field :total_gteq, class: "input", type: "number", placholder: "minimum amt."
+                .contol
+                  .button.is-static.is-primary - 
+                .control
+                  = f.search_field :total_lteq, class: "input", type: "number", placholder: "max amt."
+          .column.is-half
+            .field
+              = f.label :seller_cont, "Traded with", class: "label"
+              .control
+                = f.search_field :seller_cont, class: "input", placholder: "Username"
+        .columns
+          .column
+            .field
+              .control
+                = f.submit "Filter", class: "button is-primary"
+    .column.is-one-fifth.hide-mob
+      = form_with url: trades_path, method: :get do |f|
+        .field
+          label.label Per page
+          .control
+            .select
+              = select_tag "per_page", options_for_select([10, 15, 20, 30], params[:per_page]), onchange: 'this.form.submit();'

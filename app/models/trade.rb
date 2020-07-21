@@ -3,7 +3,7 @@ class Trade < ApplicationRecord
   friendly_id :slug, use: :slugged
 
   belongs_to :user
-  has_many :line_items
+  has_many :line_items, dependent: :destroy
   has_many :items, through: :line_items
 
   before_create do 
