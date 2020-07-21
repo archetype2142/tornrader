@@ -3,6 +3,7 @@ SitemapGenerator::Sitemap.ping_search_engines('https://torntrader.com/sitemap.xm
 
 SitemapGenerator::Sitemap.create do
   add '/contact'
+  add '/users/sign_up'
   
   User.find_each do |user|
     next unless user.price_list
