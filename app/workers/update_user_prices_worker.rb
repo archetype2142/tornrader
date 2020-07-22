@@ -7,6 +7,15 @@ class UpdateUserPricesWorker < UniqueWorker
     return unless user.subscriptions.active.any?
     categories = user.items.pluck(:category_id).uniq
 
+    User.all.each do |u|
+      dups = u.prices.group(:item_id).having('count("item_id") > 1').count
+
+      dups.each do |key, value|
+        duplicates = u.prices.where(item_id: key)[1..value-1]
+        puts "#{key} = #{duplicates.count}"
+        duplicates.each(&:destroy)
+      end
+    end
     
     if user.enable_global?
       if add_all
