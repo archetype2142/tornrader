@@ -20,7 +20,7 @@ class PwaCopyTraderController < ApplicationController
 
     if !found
       flash = { error: "User not found, ensure you copy the whole block including user's name" }
-      redr = copy_trader_index_path
+      redr = pwa_copy_trader_index_path
     else
       user_items = current_user&.items
       user_prices = current_user&.prices
@@ -28,31 +28,37 @@ class PwaCopyTraderController < ApplicationController
       
       if items_list.empty?
         flash = { error: "Bad copy, try again" }
-        redr = copy_trader_index_path
+        redr = pwa_copy_trader_index_path
       else
         trade = current_user.trades.create!(
           seller: params[:trade_items].split("\n").first
         )
+
 
         trade.update!(
           short_url: url_maker(
             trade_url(trade)
           )
         )
-
+        
+        # total_profit =  items.pluck(:profit).compact.map { |i| i.gsub("$", "").strip.to_i }.sum
         trade.line_items.destroy_all if trade.line_items.any?
-                
+        puts items_list
+
         items_list.each do |item|
-          trade.line_items.create!(
-            prices: [item["price_object"]],
+          next if item["price"] == "Price not found"
+          
+          trade.line_items.find_or_create_by(
+            prices: [current_user.prices.find_by(item_id: item["item_id"].to_i)],
             quantity: item["quantity"]
-          ) unless item["price"] == "Price not found"
+          )
         end
 
         trade.update_total
         flash = { success: "Trade created!" }
         redr = pwa_copy_trader_index_path(trade_id: trade.id)
       end
+
     end
     redirect_to redr, flash: flash
   end
