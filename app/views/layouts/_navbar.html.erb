@@ -1,7 +1,16 @@
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="/">
-      <%= image_tag "logo_black.svg", alt: "TornTrader logo" %>
+      <% if params[:username] %>
+        <% color = User.find_by(username: params[:username]).theme %>
+        <%= image_tag "#{ color == "regular" ? 'logo_black.svg' : 'logo_white.svg' }", alt: "TornTrader logo" %>
+      <% elsif user_signed_in? %>
+        <% color = current_user.theme %>
+        <%= image_tag "#{ color == "regular" ? 'logo_black.svg' : 'logo_white.svg' }", alt: "TornTrader logo" %>
+      <% else %>
+        <%= image_tag 'logo_black.svg', alt: "TornTrader logo" %>
+      <% end %>
+        
    </a>
 
     <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">

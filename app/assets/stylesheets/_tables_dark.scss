@@ -1,0 +1,55 @@
+.table__wrapper {
+  overflow-x: auto;
+}
+
+thead {
+  padding: 50px;
+}
+
+tbody {
+  tr {
+    line-height: 3rem;
+  }
+}
+
+table td:not([align]), table th:not([align]) {
+  text-align: center;
+}
+
+.trade-table {
+  font-weight: 800;
+  padding: 15px;
+  border-radius: 9px;
+  .title {
+    background-color: white;
+  }
+}
+
+.trade-component {
+  td {
+    text-align: left !important;
+  }
+}
+
+td.component-unit-price, td.component-quantity {
+  text-align: left !important;
+}
+.hideextra { white-space: nowrap; overflow: hidden; text-overflow:ellipsis; }
+
+tr.trade-header td{
+  text-align: left;
+}
+.trade-header {
+  font-weight: bolder;
+}
+.component-name {
+  font-weight: 200;
+  font-size: 0.8rem;
+  // display: flex;
+  // justify-content: center;
+}
+.table.trade-table td, .table.trade-table th {
+  padding: 0px !important;
+  line-height: 1rem;
+  // white-space: nowrap;
+}

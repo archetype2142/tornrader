@@ -8,20 +8,20 @@ tbody {
   }
 }
 
-.table .is-striped tbody tr:not(.is-selected):hover {
-  background-color: map-get($torn, "lilac-50");
-  // background-color: blue;
-}
+// .table .is-striped tbody tr:not(.is-selected):hover {
+//   background-color: map-get($torn, "lilac-50");
+//   // background-color: blue;
+// }
 
-.table .is-striped tbody tr:not(.is-selected):hover:nth-child(even) {
-  background-color: map-get($torn, "lilac-50");
-  // background-color: blue;
+// .table .is-striped tbody tr:not(.is-selected):hover:nth-child(even) {
+//   background-color: map-get($torn, "lilac-50");
+//   // background-color: blue;
 
-}
+// }
 
-.table.is-striped tbody tr:not(.is-selected):nth-child(even) {
-  background-color: map-get($torn, "lilac-20");
-}
+// .table.is-striped tbody tr:not(.is-selected):nth-child(even) {
+//   background-color: map-get($torn, "lilac-20");
+// }
 
 .table__wrapper {
   overflow-x: auto;

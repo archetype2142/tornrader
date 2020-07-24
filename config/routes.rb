@@ -25,8 +25,10 @@ Rails.application.routes.draw do
   get ":username/update_prices", to: 'user/price_lists#update_list', as: :update_user_price_list
   
   namespace :user do
+    resources :theme, only: [:create]
     resources :items, only: [:index, :update, :create]
     resources :price_lists, only: [:index]
+    resources :price_list_message, only: :create
     resources :autoupdater, only: [:index, :create, :update]
     resources :prices, only: [:destroy, :update]
     resources :price_lists_order, only: [:index, :create]

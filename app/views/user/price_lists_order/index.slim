@@ -1,9 +1,20 @@
 = stylesheet_link_tag 'sort', media: 'all', 'data-turbolinks-track': 'reload' 
 
 - content_for :title, "Pricelist Order"
-.container
+.container    
   h1.has-pt-24.has-text-centered.title PriceList Settings
   = render 'settings/tabs', locals: { tab_name: "pricelist" }
+  .box
+    h1.title Pricelist Message
+    h2.subtitle A small personalized message to display on the top of your pricelist
+    = form_with model: current_user, url: user_price_list_message_index_path, method: :post do |f|
+      .field
+        .control
+          = f.text_field :message, class: "input"
+      .field
+        .control
+          = f.submit "Save!", class: "button is-primary"
+
   h1.title Edit Pricelist
   h2.subtitle Drag items from the <b class="has-text-primary">All Categories</b> to <b class="has-text-primary">Your Items List</b> to add it to your pricelist. You can also drag categories back to <b class="has-text-primary">All Categories</b> to delete them. You can rearrange the order of you pricelist here as well!
   

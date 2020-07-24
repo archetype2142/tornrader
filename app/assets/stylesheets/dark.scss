@@ -1,21 +1,27 @@
-@import "./colors";
+$torn-white: #fff;
 
 @import "bulma/bulma";
+@import "bulma-prefers-dark/bulma-prefers-dark.sass";
+
 @import "navbar";
 @import "sidebar";
-@import "tables";
+@import "tables_dark";
 @import "modals";
 
 @import "./font";
 @import "./typography";
 @import "./utils";
-@import "./basics";
+// @import "./basics";
 @import "./flexbox";
 
 .hide-mob {
   @include touch {
     display: none;
   }
+}
+
+.component-name {
+  font-weight: bold;
 }
 
 .center-mob {
@@ -29,12 +35,13 @@
   margin-bottom: 0px !important;
 }
 
+
 body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
   overflow-x: hidden;
-  background: $primarybackground !important;
+  // background: $primarybackground !important;
 }
 
 #wrapper {

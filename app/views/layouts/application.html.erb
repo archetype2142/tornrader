@@ -20,12 +20,22 @@
     <meta property="og:description" content="" />
     <meta property="og:url" content="https://torntrader.com" />
     <meta property="og:image" content="<%= asset_url('logo_pink')%>" />
+    
     <%= favicon_link_tag "logo_pink.svg" %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <% if params[:username] %>
+      <% color = User.find_by(username: params[:username]).theme %>
+      <%= stylesheet_link_tag "#{ color == "dark" ? 'dark' : 'application' }", media: 'all', 'data-turbolinks-track': 'reload' %>
+    <% elsif user_signed_in? %>
+      <% color = current_user.theme %>
+      <%= stylesheet_link_tag "#{ color == "dark" ? 'dark' : 'application' }", media: 'all', 'data-turbolinks-track': 'reload' %>
+    <% else %>
+      <%= stylesheet_link_tag "application", media: 'all', 'data-turbolinks-track': 'reload' %>
+    <% end %>
+
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="has-bg-lilac-10" style="background: <%= params[:color]%> !important">
+  <body style="<%= "background: #{params[:color]} !important" if params[:color] %>">
 
     <div id="wrapper">
       <%= render "layouts/navbar" %>

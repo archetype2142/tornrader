@@ -139,37 +139,6 @@
   border: 1px solid;
 }
 
-@each $color in gray, lilac, red, peach, tangerine, yellow, green, blue, brown {
-  @for $i from 1 through 15 {
-    .is-#{"" + $color}-#{$i * 10} {
-      color: map-get($torn, $color + '-#{$i * 10}') !important;
-    }
-
-    .is-#{"" + $color}-pop-#{$i * 10} {
-      color: map-get($torn, $color + '-pop-#{$i * 10}') !important;
-    }
-
-    .has-bg-#{"" + $color}-#{$i * 10} {
-      background-color: map-get($torn, $color + '-#{$i * 10}') !important;
-    }
-
-    // .has-bg-#{"" + $color}-#{$i * 10}-half {
-    //   background-color: rgba(map-get($management, $color + '-#{$i * 10}'), 0.5) !important;
-    // }
-
-    .has-bg-#{"" + $color}-pop-#{$i * 10} {
-      background-color: map-get($torn, $color + '-pop-#{$i * 10}') !important;
-    }
-
-    .has-border-#{"" + $color}-#{$i * 10} {
-      border-color: map-get($torn, $color + '-#{$i * 10}') !important;
-    }
-
-    .has-border-#{"" + $color}-pop-#{$i * 10} {
-      border-color: map-get($torn, $color + '-pop-#{$i * 10}') !important;
-    }
-  }
-}
 
 @-webkit-keyframes fadeIn {
     from { opacity: 0; }

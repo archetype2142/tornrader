@@ -258,8 +258,15 @@ $torn: (
   "blue-pop-150": #0a223a,
 );
 
-$primary: map-get($torn, 'lilac-80');
-$link: map-get($torn, 'blue-80');
+.box { 
+  background: #a72693 !important;
+  color: #eae7af !important;
+}
+.title { color: map-get($torn, 'lilac-10') !important; }
+
+$primarybackground: #160f30;
+$primary: #eae7af;
+$link: #eae7af;
 $info: map-get($torn, 'blue-pop-80');
 $success: map-get($torn, 'green-80');
 $warning: map-get($torn, 'tangerine-80');

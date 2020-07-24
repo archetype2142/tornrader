@@ -13,7 +13,7 @@ class User::PriceListsController < ApplicationController
   end
 
   def show;  end
-
+  
   def update_list
     @user.update!(updated_price_list_at: Time.now)
     flash.now[:success] = "Price List Updated"

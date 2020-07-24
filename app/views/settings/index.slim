@@ -2,7 +2,15 @@
 .container
   h1.has-pt-24.has-text-centered.title Settings
   = render 'settings/tabs', locals: { tab_name: "general" }
-
+  .box
+    h2.has-mb-12.is-size-2.is-size-5-mobile Theme
+    = form_with model: current_user, url: user_theme_index_path, method: :post do |f|
+      .field
+        = f.label :themes, "Color Scheme", class: "label"
+          .control
+            .select
+              = f.select :theme, User.themes.map { |key, value| [key, key] }, class: "input"
+      = f.submit "Save", class: "button is-primary"
   .box
     h2.has-mb-48.is-size-2.is-size-5-mobile Subscriptions
     - if current_user.subscriptions.active.any?

@@ -22,11 +22,13 @@ class User < ApplicationRecord
 
   validates :torn_user_id, presence: true, uniqueness: { case_sensitive: false }, numericality: { only_integer: true }
   validates :amount, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
-
+  validates :message, length: { maximum: 250 }
+  
   enum user_type: %w[general admin]
   enum auto_update: %w[auto_updated_not auto_updated]
   enum pricing_rules: %w[min_value_formula weighted_average]
   enum global_pricing: %w[disable_global enable_global]
+  enum theme: %w[regular dark]
   
   attr_writer :login
 
