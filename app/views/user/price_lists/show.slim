@@ -24,7 +24,7 @@
         = link_to "Reviews", @user.forum_url, class: "has-ml-4 button is-primary"
   - unless @user.message.nil?
     .box
-      h1.subtitle = @user.message
+      h1.subtitle.has-text-centered = @user.message
   div#macy-container
     - cache @user.prices do 
       - @user.positions.order(:number).includes([:category]).all.each do |position|
