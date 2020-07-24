@@ -22,7 +22,7 @@
       = link_to "Trade", "https://www.torn.com/trade.php#step=start&userID=#{@user.torn_user_id}", class: "button has-bg-lilac-30"
       - if @user.forum_url
         = link_to "Reviews", @user.forum_url, class: "has-ml-4 button is-primary"
-  - if @user.message != ""
+  - unless @user.message.nil?
     .box
       h1.subtitle = @user.message
   div#macy-container
