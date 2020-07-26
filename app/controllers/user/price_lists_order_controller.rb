@@ -19,7 +19,13 @@ class User::PriceListsOrderController < ApplicationController
         number: position.to_i,
         category_id: category
       )
-      items = Item.all.where(category_id: category.to_i).pluck(:id).map { |id| {item_id: id, amount: 1} }
+      items = Item.all.where(category_id: category.to_i).pluck(:id).map do |id|
+        {
+          item_id: id, 
+          amount: 1, 
+          auto_update: :auto_updated
+        }
+      end
       user.prices.create!(items)
 
     elsif action == 'reorder'

@@ -13375,7 +13375,7 @@ res = {
          "image": "https://www.torn.com/images/items/1029/large.png"
       },
       "1030": {
-         "name": "Dong :  Thomas",
+         "name": "Dong : Thomas",
          "description": "Thomas is a daft little rascal who likes nothing more than chasing squirrels and eating out of garbage cans. But don't get him too excited, because Thomas suffers from severe breathing difficulties which will eventually kill him.",
          "effect": "",
          "requirement": "",
@@ -13388,7 +13388,7 @@ res = {
          "image": "https://www.torn.com/images/items/1030/large.png"
       },
       "1031": {
-         "name": "Dong :  Greg",
+         "name": "Dong : Greg",
          "description": "Unlike the Taco Bell Chihuahua, Greg doesn't like Mexican food. In fact, he doesn't like Mexicans much either. Greg is extremely racist and suspicious of all foreigners. But he does love snuggles.",
          "effect": "",
          "requirement": "",
@@ -13401,7 +13401,7 @@ res = {
          "image": "https://www.torn.com/images/items/1031/large.png"
       },
       "1032": {
-         "name": "Dong :  Effy",
+         "name": "Dong : Effy",
          "description": "Despite her prim and proper appearance, Effy is the very definition of a basic bitch. When she's not drinking a whole vat of cooking oil because it smells nice, she can be found chasing sticks down ravines and encroaching on the personal space of complete strangers.",
          "effect": "",
          "requirement": "",
@@ -13414,7 +13414,7 @@ res = {
          "image": "https://www.torn.com/images/items/1032/large.png"
       },
       "1033": {
-         "name": "Dong :  Holly",
+         "name": "Dong : Holly",
          "description": "Holly is a mischievous old hound with a thoroughly evil soul. She often breaks out of her home and will lead small children and other dogs out into the middle of a busy road, at which point she will sit back and watch the carnage unfold.",
          "effect": "",
          "requirement": "",
@@ -13427,7 +13427,7 @@ res = {
          "image": "https://www.torn.com/images/items/1033/large.png"
       },
       "1034": {
-         "name": "Dong :  Jeremy",
+         "name": "Dong : Jeremy",
          "description": "Jeremy loves to laugh, but he rarely does, as he is painfully aware of all the suffering going on in the world - something you can see for yourself by looking into his cold, sad eyes. Because of his perpetually morbid outlook, Jeremy is quite fond of chocolate.",
          "effect": "",
          "requirement": "",
