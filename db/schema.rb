@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_23_231302) do
+ActiveRecord::Schema.define(version: 2020_07_26_102204) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 2020_07_23_231302) do
     t.datetime "lowest_price_added_on"
     t.bigint "average_market_price", default: 0
     t.index ["category_id"], name: "index_items_on_category_id"
+    t.index ["name"], name: "index_items_on_name"
   end
 
   create_table "line_items", force: :cascade do |t|
