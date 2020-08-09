@@ -48,7 +48,8 @@ class User::AutoupdaterController < ApplicationController
         pricing_rule: params['user']['pricing_rule'],
         amount: params[:user]['amount']
       )
-    
+
+      current_user.positions.update_all(amount: params[:user]['amount'])
       UpdateUserPricesWorker.perform_async(current_user.id, add_all=false)
 
       flash = { success: "Success! please wait some time for changes to take place, <span class='has-text-danger' style='background: white'><b>refresh page to see new prices, also refresh page before using chrome extension</b></span>"}
@@ -61,7 +62,6 @@ class User::AutoupdaterController < ApplicationController
 
   def update
     query = params[:user][:query].nil? ? nil : eval(params[:user][:query])
-    
     price = @user.prices.find_or_create_by(item_id: params[:user]['item'])
 
     if price.update(

@@ -40,7 +40,29 @@ class UpdateUserPricesWorker < UniqueWorker
           ) unless price.auto_updated_not?
         end
       else
-        user.items.all.each do |item|
+        positions_to_update = user.positions.where("amount > ?", 0)
+        items_updated = []
+        
+        if positions_to_update.any?
+          positions_to_update.each do |p|
+            item_ids = user.items.where(category_id: p.category_id).pluck(:id)
+            prices = user.prices.where(item_id: item_ids)
+            prices.each do |pr|
+              pr.update!(
+                amount: user.pricing_rule == 1 ? 
+                average_price(pr, p.amount).to_i : 
+                calculate_price(pr, p.amount).to_i,
+                price_updated_at: DateTime.now
+              ) unless pr.auto_updated_not?
+              items_updated.push(pr.item)
+            end
+          end
+          prices_to_update = user.items.all - items_updated
+        else
+          prices_to_update = user.items.all
+        end
+
+        prices_to_update.each do |item|
           price = user.prices.find_by(item_id: item.id)
           next unless price
           

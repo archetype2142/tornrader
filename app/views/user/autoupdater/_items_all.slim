@@ -17,8 +17,23 @@
             | All
     .level-right
       - unless category == "all"
+        - position = @user.positions.find_by(category: category)
+        - if position
+          .columns.is-centered-middle.is-flex-column
+            .colmun.has-mr-5
+              = form_with model: position, url: user_category_percent_path(position) do |f|
+                .field
+                  label.label Category Profit %
+                  .control
+                    = f.number_field :amount, class: 'input'
+                    - if params[:q]
+                      = f.hidden_field :query, value: params[:q]
+                      = f.hidden_field :per_page, value: params[:per_page]
+                      = f.hidden_field :page, value: params[:page]
+
         - if @user.categories.uniq.pluck(:name).include?(category.name)
-          = link_to "Remove category from pricelist", user_remove_category_path(current_user, category), class: "button is-primary"
+          .column
+            = link_to "Remove category from pricelist", user_remove_category_path(current_user, category), class: "button is-primary"
         - else
           = link_to "Add category to pricelist", user_add_category_path(current_user, category), class: "button is-success"
       - else 
