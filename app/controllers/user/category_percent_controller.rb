@@ -5,6 +5,8 @@ class User::CategoryPercentController < ApplicationController
   def update
     response = CategoryPercentSetter.execute(params[:id], params[:position]['amount'])
     position = Position.find(params[:id])
+    position.update!(amount: amount)  
+    
     user = position.user
     items = user.items.where(category_id: position.category_id).pluck(:id)
     prices = user.prices.where(item_id: items)

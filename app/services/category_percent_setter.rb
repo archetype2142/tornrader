@@ -8,9 +8,9 @@ class CategoryPercentSetter
         user = position.user
         items = user.items.where(category_id: position.category_id).pluck(:id)
         prices = user.prices.where(item_id: items)
+        
         ActiveRecord::Base.transaction do
           prices.update_all(profit_percentage: amount)
-          position.update!(amount: amount)
         end
       rescue => error
         error 
