@@ -20,18 +20,12 @@ class User::CategoryPercentController < ApplicationController
       ) unless pr.auto_updated_not?
     end
     query = params[:position][:query].nil? ? nil : eval(params[:position][:query])
-    
-    if response == true
-      flash = { success: "successfully updated!"}
-    else
-      flash = { error: response }
-    end
 
     redirect_to user_autoupdater_index_path(
       per_page: params[:position][:per_page],
       page: params[:position][:page],
       q: query
-    ), flash: flash
+    ), flash: { success: "successfully updated!"}
   end
 
   def average_price(price, profit)
