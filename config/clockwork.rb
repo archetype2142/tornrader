@@ -13,7 +13,7 @@ module Clockwork
   
   api_key = User.find_by(username: "archetype2142").torn_api_key
   
-  every 45.minutes, "fifety-minutely" do
+  every 30.minutes, "thirty-minutely" do
     total_items = (1..1065).to_a.each_slice(60).to_a
 
     (0..17).to_a.each_with_index do |item_set, index|
@@ -25,7 +25,7 @@ module Clockwork
     end
   end
 
-  every 1.hour, "hourly" do
+  every 45.minutes, "forty-five-minutely" do
     LowestPointPriceFetchWorker.perform_async(api_key)
     
     User.auto_updated.each do |user|
