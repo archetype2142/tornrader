@@ -1,6 +1,6 @@
 class LowestPriceFetchWorker
   include Sidekiq::Worker
-  sidekiq_options retry: false, backtrace: true, failures: true
+  sidekiq_options retry: 2, backtrace: true, failures: true
 
   def perform(item_list, key)
     item_list.each do |item_id|
