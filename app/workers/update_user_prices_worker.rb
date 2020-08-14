@@ -50,8 +50,8 @@ class UpdateUserPricesWorker < UniqueWorker
             prices.each do |pr|
               pr.update!(
                 amount: user.pricing_rule == 1 ? 
-                average_price(pr, p.amount).to_i : 
-                calculate_price(pr, p.amount).to_i,
+                average_price(pr, pr.profit_percentage).to_i : 
+                calculate_price(pr, pr.profit_percentage).to_i,
                 price_updated_at: DateTime.now
               ) unless pr.auto_updated_not?
               items_updated.push(pr.item)
