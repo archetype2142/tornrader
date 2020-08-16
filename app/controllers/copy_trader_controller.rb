@@ -67,13 +67,13 @@ class CopyTraderController < ApplicationController
   def split_items(items, user, found=false)
     item_list = items.split("\n")
     item_list.shift if found
-    item_list = item_list.map(&:lstrip)
-    puts item_list
+    item_list = item_list.map(&:lstrip).reject { |c| c.empty? }
+    puts "HERE \n #{item_list}"
     
-
     item_list.map do |item| 
       elements = item.partition(" x")
-      puts elements
+      # puts "HERE \n #{item}"
+
       i = Item.find_by(name: elements[0].strip)
       item = user.prices.find_by(item_id: i.id)
       item_name = elements[0].strip 
