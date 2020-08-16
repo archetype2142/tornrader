@@ -52,6 +52,7 @@ class CopyTraderController < ApplicationController
           ) unless item["price"] == "Price not found"
         end
 
+        trade.line_items.map(&:update_total_manual)
         trade.update_total
         flash = { success: "Trade created!" }
         redr = copy_trader_index_path(trade_id: trade.id)
@@ -68,11 +69,9 @@ class CopyTraderController < ApplicationController
     item_list = items.split("\n")
     item_list.shift if found
     item_list = item_list.map(&:lstrip).reject { |c| c.empty? }
-    puts "HERE \n #{item_list}"
     
     item_list.map do |item| 
       elements = item.partition(" x")
-      # puts "HERE \n #{item}"
 
       i = Item.find_by(name: elements[0].strip)
       item = user.prices.find_by(item_id: i.id)
