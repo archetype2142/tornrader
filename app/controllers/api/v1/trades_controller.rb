@@ -53,10 +53,9 @@ module Api
               ) : nil
             }
           end
-          trade.line_items.each { |li| li.update_total_manual }
-          trade.update_total
-
+          trade.line_items.map(&:update_total_manual)
           trade_messages = user.messages.map{ |m| {name: m.name, message: replace_keys(m.message, user, params, trade)} }
+          trade.update_total
           
           total_profit = items.pluck(:profit).compact.sum
 
