@@ -67,7 +67,9 @@ class CopyTraderController < ApplicationController
   def split_items(items, user, found=false)
     item_list = items.split("\n")
     item_list.shift if found
-    item_list = item_list.map { |l| l.rstrip }
+    item_list = item_list.map(&:lstrip)
+    puts item_list
+    
 
     item_list.map do |item| 
       elements = item.partition(" x")
