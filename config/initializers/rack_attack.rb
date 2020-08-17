@@ -28,7 +28,8 @@ class Rack::Attack
       req.path.include?('NonExistence') ||
       req.path.include?('solr') ||
       req.path.include?('.well-known') ||
-      req.path.include?('.git')
+      req.path.include?('.git') ||
+      req.path.include?('webfig')
     end
   end
 end
