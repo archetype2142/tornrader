@@ -7,6 +7,7 @@ gem 'dotenv-rails'
 gem 'sprockets-rails', '2.3.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.3', '>= 6.0.3.2'
+
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
@@ -28,7 +29,7 @@ gem 'slim'
 gem 'sidekiq'
 gem 'whenever', require: false
 gem 'friendly_id'
-gem 'rack-cors'
+gem "rack-cors", ">= 1.0.4"
 gem 'clockwork'
 gem 'kaminari'
 gem 'ransack', github: 'activerecord-hackery/ransack'

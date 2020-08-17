@@ -13,6 +13,7 @@
     "bulma-block-list": "^0.4.0",
     "bulma-calendar": "^6.0.9",
     "bulma-prefers-dark": "^0.1.0-beta.0",
+    "discord.js": "^12.3.1",
     "macy": "^2.5.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
