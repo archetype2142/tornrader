@@ -62,7 +62,7 @@ module Api
           trade_info = {
             trade: {
               trade_url: url_maker(trade_url(trade)),
-              trade_total: display_price(trade.total),
+              trade_total: display_price(trade.reload.total),
               items: items,
               trade_messages: trade_messages,
               total_profit: display_price(total_profit)
