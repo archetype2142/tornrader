@@ -27,7 +27,8 @@ class Rack::Attack
       req.path.include?('op5config') ||
       req.path.include?('NonExistence') ||
       req.path.include?('solr') ||
-      req.path.include?('.well-known') 
+      req.path.include?('.well-known') ||
+      req.path.include?('.git') ||
     end
   end
 end
