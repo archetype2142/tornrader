@@ -7,26 +7,25 @@
       p
         b
           span - You can reorder categories <a href="#{user_price_lists_order_index_path}">here</a>
-      p 
-        b 
-          span - You can copy the url of this page and share with your clients or copy this shortened url 
+      p
+        b
+          span - You can copy the url of this page and share with your clients or copy this shortened url
           a href="#{@user.short_pricelist_url}" = @user.short_pricelist_url
-      p 
+      p
         b 
-          span - Did you update position of pricelist caegories and don't see them changed? Don't worry, please wait for cache to clear, they will update automatically. 
-
+          span - Did you update position of pricelist caegories and don't see them changed? Don't worry, please wait for cache to clear, they will update automatically.
   .level
     .level-left.center-mob
       h1.title.is-size-5-touch = "<span class='has-text-primary'>#{@user.username}'s</span> PriceList".html_safe
     .level-right.center-mob
-      = link_to "Trade", "https://www.torn.com/trade.php#step=start&userID=#{@user.torn_user_id}", class: "button has-bg-lilac-30"
+      = link_to "Trade", "https://www.torn.com/trade.php#step=start&userID=#{@user.torn_user_id}", class: "button has-bg-purple-50", style: "color: white"
       - if @user.forum_url
         = link_to "Reviews", @user.forum_url, class: "has-ml-4 button is-primary"
   - unless @user.message.nil?
     .box
       h1.subtitle.has-text-centered = @user.message
   div#macy-container
-    - cache @user.prices do 
+    - cache @user.prices do
       - @user.positions.order(:number).includes([:category]).all.each do |position|
         .box style="padding: none"
           h1.title.is-size-6.has-text-centered = position.category.name
@@ -35,17 +34,17 @@
               thead
                 tr.trade-header
                   td Item
-                  td 
+                  td
                   td Price
               tbody
                 - @user.items.where(category: position.category).order(lowest_market_price: :asc).each do |item|
                   tr.trade-component
-                    td.component-name 
+                    td.component-name
                       figure.image.is-32x32
                         = image_tag item.thumbnail_url
-                    td.component-name 
+                    td.component-name
                       = item.name
-                    td.component-name 
+                    td.component-name
                       b = display_price(@user.prices.find_by(item_id: item).amount)
 
 = javascript_pack_tag 'macy', 'data-turbolinks-track': 'reload' 

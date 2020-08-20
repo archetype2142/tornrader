@@ -17,7 +17,7 @@
       h2.has-text-success.is-size-5.has-mb-18 Active subscription
       .columns.is-multiline
         .column.is-one-third
-          .box style="box-shadow: 0 3px 5px rgba(51, 51, 51, 0.51);"
+          .box.has-bg-purple-10 style="box-shadow: 0 3px 5px rgba(51, 51, 51, 0.51);"
             h1.title.is-size-4
               |Days Left:  
               = distance_of_time_in_words(current_user.subscriptions.active.first.created_at, current_user.subscriptions.active.first.ends_at)
@@ -40,7 +40,7 @@
       .columns.is-multiline
         - current_user.subscriptions.inactive.limit(10).each do |s|
           .column.is-one-third
-            .box style="box-shadow: 0 3px 5px rgba(51, 51, 51, 0.51);"
+            .box.has-bg-purple-10 style="box-shadow: 0 3px 5px rgba(51, 51, 51, 0.51);"
               h1.title.is-size-4
                 |Duration:  
                 = distance_of_time_in_words(s.created_at, s.ends_at)

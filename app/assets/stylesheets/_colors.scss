@@ -1,6 +1,22 @@
 $torn-white: #fff;
 
 $torn: (
+  "purple-10": #f4dfff,
+  "purple-20": #e9bfff,
+  "purple-30": #df9fff,
+  "purple-40": #d47fff,
+  "purple-50": #c95fff,
+  "purple-60": #bf3fff,
+  "purple-70": #b41fff,
+  "purple-80": #aa00ff,
+  "purple-90": #9400df,
+  "purple-100": #7f00bf,
+  "purple-110": #6a009f,
+  "purple-120": #55007f,
+  "purple-130": #3f005f,
+  "purple-140": #2a003f,
+  "purple-150": #15001f,
+
   "gray-10": #f6f6f6,
   "gray-20": #e8e8e8,
   "gray-30": #dcdcdc,
@@ -255,18 +271,18 @@ $torn: (
   "blue-pop-120": #1c5995,
   "blue-pop-130": #17487a,
   "blue-pop-140": #10365b,
-  "blue-pop-150": #0a223a,
+  "blue-pop-150": #0a223a
 );
 
-$primarybackground: map-get($torn, 'lilac-10');
-$primary: map-get($torn, 'lilac-80');
-$link: map-get($torn, 'blue-80');
+$primarybackground: map-get($torn, 'purple-10');
+$primary: map-get($torn, 'purple-130');
+$link: map-get($torn, 'purple-130');
 $info: map-get($torn, 'blue-pop-80');
 $success: map-get($torn, 'green-80');
 $warning: map-get($torn, 'tangerine-80');
 $danger: map-get($torn, 'red-80');
 
-@each $color in gray, lilac, red, peach, tangerine, yellow, green, blue, brown {
+@each $color in gray, lilac, red, peach, tangerine, yellow, green, blue, brown, purple {
   @for $i from 1 through 15 {
     .is-#{"" + $color}-#{$i * 10} {
       color: map-get($torn, $color + '-#{$i * 10}') !important;
@@ -280,9 +296,9 @@ $danger: map-get($torn, 'red-80');
       background-color: map-get($torn, $color + '-#{$i * 10}') !important;
     }
 
-    // .has-bg-#{"" + $color}-#{$i * 10}-half {
-    //   background-color: rgba(map-get($management, $color + '-#{$i * 10}'), 0.5) !important;
-    // }
+    //.has-bg-#{"" + $color}-#{$i * 10}-half {
+    //  background-color: rgba(map-get($management, $color + '-#{$i * 10}'), 0.5) !important;
+    //}
 
     .has-bg-#{"" + $color}-pop-#{$i * 10} {
       background-color: map-get($torn, $color + '-pop-#{$i * 10}') !important;

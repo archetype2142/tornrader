@@ -29,6 +29,7 @@ class User < ApplicationRecord
   enum pricing_rules: %w[min_value_formula weighted_average]
   enum global_pricing: %w[disable_global enable_global]
   enum theme: %w[regular dark]
+  enum short_url: %w[shortened not_shortened]
   
   attr_writer :login
 
