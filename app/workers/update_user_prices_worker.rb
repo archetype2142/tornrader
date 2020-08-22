@@ -31,6 +31,7 @@ class UpdateUserPricesWorker < UniqueWorker
           rescue ActiveRecord::RecordInvalid
             next
           end
+          puts price.inspect
 
           price.update!(
             amount: user.pricing_rule == 1 ? 

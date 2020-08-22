@@ -4,8 +4,6 @@ module Api
       def index; end
 
       def create
-        puts params[:items]
-
         api_key = request.headers["Authorization"]
         buyer_flip = false
 
@@ -112,6 +110,16 @@ module Api
       def display_price(amount)
         "$ #{ActiveSupport::NumberHelper::number_to_delimited(amount, delimiter: ',')}".html_safe
       end
+    end
+
+    def plushie_set_exists?(items)
+      plushies = ["Sheep Plushie", "Teddy Bear Plushie", "Kitten Plushie",
+      "Jaguar Plushie", "Wolverine Plushie", "Nessie Plushie",
+      "Red Fox Plushie", "Monkey Plushie", "Chamois Plushie",
+      "Panda Plushie", "Lion Plushie", "Camel Plushie"]
+
+      return "set found" if (plushies - items.pluck(:name)).empty?
+      return items
     end
   end
 end
