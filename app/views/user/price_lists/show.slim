@@ -18,9 +18,9 @@
     .level-left.center-mob
       h1.title.is-size-5-touch = "<span class='has-text-primary'>#{@user.username}'s</span> PriceList".html_safe
     .level-right.center-mob
-      = link_to "Trade", "https://www.torn.com/trade.php#step=start&userID=#{@user.torn_user_id}", class: "button has-bg-purple-50", style: "color: white"
+      = link_to "Trade", "https://www.torn.com/trade.php#step=start&userID=#{@user.torn_user_id}", class: "button has-bg-purple-50", style: "color: white", target: "_blank"
       - if @user.forum_url
-        = link_to "Reviews", @user.forum_url, class: "has-ml-4 button is-primary"
+        = link_to "Reviews", @user.forum_url, class: "has-ml-4 button is-primary", target: "_blank"
   - unless @user.message.nil?
     .box
       h1.subtitle.has-text-centered = @user.message
