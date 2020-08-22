@@ -24,6 +24,7 @@ class UpdateUserPricesWorker < UniqueWorker
         end
         
         Item.all.each do |item|
+          next if item.id == 1047 || item.id == 1048
           begin
             price = user.prices.find_or_create_by(item_id: item.id) do |pr|
               pr.auto_updated!
@@ -49,6 +50,7 @@ class UpdateUserPricesWorker < UniqueWorker
             item_ids = user.items.where(category_id: p.category_id).pluck(:id)
             prices = user.prices.where(item_id: item_ids)
             prices.each do |pr|
+              next if pr.item_id == 1047 || pr.item_id == 1048
               pr.update!(
                 amount: user.pricing_rule == 1 ? 
                 average_price(pr, pr.profit_percentage).to_i : 
@@ -77,6 +79,7 @@ class UpdateUserPricesWorker < UniqueWorker
       end
     else
       user.prices.each do |price|
+        next if price.item_id == 1047 || price.item_id == 1048
         price.update!(
           amount: user.pricing_rule == 1 ? average_price(price, price.profit_percentage) : calculate_price(price, price.profit_percentage),
           price_updated_at: DateTime.now
