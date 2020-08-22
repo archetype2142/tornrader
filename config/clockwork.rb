@@ -29,7 +29,10 @@ module Clockwork
     LowestPointPriceFetchWorker.perform_async(api_key)
     
     User.auto_updated.each do |user|
-      UpdateUserPricesWorker.perform_async(user.id)
+      UpdateUserPricesWorker.perform_at(
+        Time.now + 10.seconds, 
+        user.id
+      )
     end
   end
 
