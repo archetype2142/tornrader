@@ -2,14 +2,24 @@
 .container
   h1.has-pt-24.has-text-centered.title Trade Settings
   = render 'settings/tabs', locals: { tab_name: "trade" }
-  .box.has-mb-5
-    = form_with model: current_user, url: trade_settings_path, method: :post do |f|
-      .field
-        label.label Forum Link
-        .control
-          = f.text_field :forum_url, class: 'input'
-      = f.submit "Save", class: "button is-primary"
-
+  .columns
+    .column
+      .box.has-mb-5
+        = form_with model: current_user, url: trade_settings_path, method: :post do |f|
+          .field
+            label.label Forum Link
+            .control
+              = f.text_field :forum_url, class: 'input'
+          = f.submit "Save", class: "button is-primary"
+    .column
+      .box.has-mb-5
+        b Short trade urls
+        p Disabling short urls can speed up the price calculation when using the plugin
+        = form_with model: current_user, url: trade_settings_path, method: :post do |f|
+          label.label 
+            = f.check_box :short_url, {}, "shortened", "shorten_not"
+            |   Shorten
+          = f.submit "Save", class: "button is-primary"
   .box
     h2.has-mb-18.is-size-2.is-size-5-mobile Trade Messages
     p.has-text-primary You can add messages here that you can copy while using the trader's plugin.
