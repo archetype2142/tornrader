@@ -3,7 +3,7 @@
   .level
     .level-left
       h1.title.is-size-4.is-size-4-touch
-        |  Auto Price list  
+        |  Auto Pricelist  
         span.has-text-danger 
           | ( 
           | Press enter to save a value
@@ -11,9 +11,9 @@
     .level-right
       = link_to "Fixed Pricelist", user_items_path, class: "button is-primary has-mr-5"
       - if @user.price_list
-        = link_to "Peview", user_price_list_path(username: @user.username), class: "button is-primary"
+        = link_to "Preview", user_price_list_path(username: @user.username), class: "button is-primary"
       - else
-        = link_to "Create a price list", user_price_lists_path, class: "button is-primary"
+        = link_to "Create a pricelist", user_price_lists_path, class: "button is-primary"
   - if current_user.subscriptions.active.any?
     - if current_user.subscriptions.active.last.auto?
       = render "user/autoupdater/pricelist_form"
@@ -26,6 +26,6 @@
       ul
         li Update prices based on cheapest market price
         li Choose which products to update automaically, update the rest manually
-        li Auto Update and add all items on Torn to your price list with 1 click
+        li Auto Update and add all items on Torn to your pricelist with 1 click
         li Create manual pricing rules
 
