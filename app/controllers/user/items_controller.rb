@@ -43,7 +43,9 @@ class User::ItemsController < ApplicationController
     query = params[:user][:query].nil? ? nil : eval(params[:user][:query])
 
     item = @user.items.find_by(id: params[:user]["item"])
+    item_category = item.category.id
     if item
+      @user.positions.create!(category_id: item_category) unless @user.positions.find_by(category_id: item_category)
       price = @user.prices.find_by(item_id: item.id)
       if params[:user]["price"].to_i > 0
         price.update!(
