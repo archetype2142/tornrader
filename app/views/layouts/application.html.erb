@@ -35,6 +35,11 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <style>
+    .table.is-striped tbody tr:not(.is-selected):nth-child(even) {
+      background-color: <%= params[:table] ? params[:table] : params[:color] %> !important;
+    }
+  </style>
   <body style="<%= "background: #{params[:color]} !important" if params[:color] %>">
     <script data-ad-client="ca-pub-9614592894777956" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <div id="wrapper">
