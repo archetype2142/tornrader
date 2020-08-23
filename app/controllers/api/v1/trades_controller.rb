@@ -48,7 +48,7 @@ module Api
             trade.line_items.create!(
               prices: [price],
               quantity: item["quantity"],
-              frozen_price: price.amount
+              frozen_price: price.amount,
               profit: line_item_profit
             ) unless price.nil?
 
