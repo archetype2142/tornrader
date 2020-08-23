@@ -4,7 +4,7 @@ class User::StatisticsController < ApplicationController
 
   def index
     @all_trades ||= current_user.trades.group_by_day(:created_at).count
-    @all_profit ||= current_user.trades.group_by_day { |u| u.created_at }.map { |k, v| [k, v.map{|t| t.profit}.sum] }.to_h
+    # @all_profit ||= current_user.trades.group_by_day { |u| u.created_at }.map { |k, v| [k, v.map{|t| t.profit}.sum] }.to_h
 
     @all_trades_count ||= current_user.trades.count
     @sellers ||= current_user.trades.all.pluck(:seller)
