@@ -11,26 +11,58 @@
 <% cache "#{current_user}-stats" do %>
   <div class="container has-pt-5">
     <h1 class="title has-text-centered">Trade Statistics</h1>
-    <div class="box">
-      <div class="level">
-        <div class="level-left">
-          <h3 class="subtitle">Top Stats</h3>
-        </div>
-        <div class="level-right">
-          <%= link_to "All trades", trades_path, class: "button is-primary" %>
+    <div class="columns">
+      <div class="column">
+        <div class="box">
+          <div class="level">
+            <div class="level-left">
+              <h3 class="subtitle">Top Stats</h3>
+            </div>
+            <div class="level-right">
+              <%= link_to "All trades", trades_path, class: "button is-primary" %>
+            </div>
+          </div>
+          <ul>
+            <li>
+              <b> Total trades: </b> <%= @all_trades_count %>
+            </li>
+            <li>
+              <b>Total trade quantity: </b> <%= display_price @total %>
+            </li>
+            <li>
+              <b> Top seller: </b> <%= @top_seller %>
+            </li>
+            <li>
+              <b>Total items bought: </b><%= @total_items %>
+            </li>
+          </ul>
         </div>
       </div>
-      <ul>
-        <li>
-          <b> Total trades: </b> <%= @all_trades_count %>
-        </li>
-        <li>
-          <b>Total trade quantity:</b> <%= display_price @total %>
-        </li>
-        <li>
-          <b> Top seller: </b> <%= @top_seller %>
-        </li>
-      </ul>
+      <div class="column">
+        <div class="box">
+          <h3 class="subtitle">Top Sellers</h3>
+          <div class="table-container">
+            <table class="table is-hoverable is-striped is-fullwidth">
+              <thead>
+                <tr style="line-height: 1rem !important;">
+                  <th><abbr title="#">#</abbr></th>
+                  <th><abbr title="Seller">Seller</abbr></th>
+                  <th><abbr title="Trades">Trade Count</abbr></th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @traders_data.each_with_index do |seller, index| %>
+                  <tr style="line-height: 1rem !important;">
+                    <td><%= index + 1 %></td>
+                    <td style="text-align: left"><%= seller[:name] %></td>
+                    <td><%= seller[:count] %></td>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="box">
       <%= line_chart({name: "Trades", data: @all_trades}, { title: 'Daily Trade Volume', theme: 'palette4' } ) %>
