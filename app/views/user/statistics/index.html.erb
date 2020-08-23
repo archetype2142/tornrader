@@ -1,0 +1,19 @@
+<%= javascript_pack_tag 'charts', 'data-turbolinks-track': 'reload' %>
+
+
+<% options = {
+  title: 'Trades',
+  xtitle: 'Sellers',
+  ytitle: '# of Trades',
+  stacked: true
+} %>
+
+<div class="container has-pt-5">
+  <h1 class="title has-text-centered">Trade Statistics</h1>
+  <div class="box">
+    <%= line_chart({name: "Trades", data: @all_trades}, { title: 'Trade volume'} ) %>
+  </div>
+  <div class="box">
+    <%= column_chart(@traders_data, {**options, theme: 'palette4'}) %>
+  </div>
+</div>
