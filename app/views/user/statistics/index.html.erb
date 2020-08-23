@@ -68,15 +68,7 @@
       <%= line_chart({name: "Trades", data: @all_trades}, { title: 'Daily Trade Volume', theme: 'palette4' } ) %>
     </div>
     <div class="box">
-      <% heatmap_series = 17.downto(10).map do |n|
-  {
-    name: "#{n}:00",
-    data: 15.times.map do |i|
-      ["W#{i+1}", rand(90)]
-    end.to_h
-  }
-end %>
-<%= heatmap_chart(heatmap_series) %>
+      <%= line_chart({name: "Profit", data: @all_profit}, { title: 'Daily Trade Profit', theme: 'palette5' } ) %>
     </div>
   </div>
 <% end %>

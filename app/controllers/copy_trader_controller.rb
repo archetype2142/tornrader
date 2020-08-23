@@ -52,11 +52,14 @@ class CopyTraderController < ApplicationController
         end
 
         all_items.each do |item|
-          puts item.inspect
+          line_item_profit = item["price_object"]&.amount ? 
+              (((item["price_object"].item.lowest_market_price - item["price_object"].amount ) * item["quantity"].to_i).abs
+            ) : 0
           trade.line_items.create!(
             prices: [item["price_object"]],
             quantity: item["quantity"],
-            frozen_price: item["price_object"].amount
+            frozen_price: item["price_object"].amount,
+            profit: line_item_profit
           ) unless item["price"] == "Price not found"
         end
 

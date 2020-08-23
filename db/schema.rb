@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_23_191345) do
+ActiveRecord::Schema.define(version: 2020_08_23_213748) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 2020_08_23_191345) do
     t.bigint "total", default: 0
     t.bigint "frozen_price", default: 0
     t.bigint "line_item_price_id"
+    t.bigint "profit", default: 0
     t.index ["line_item_price_id"], name: "index_line_items_on_line_item_price_id"
     t.index ["trade_id"], name: "index_line_items_on_trade_id"
   end
@@ -128,6 +129,7 @@ ActiveRecord::Schema.define(version: 2020_08_23_191345) do
     t.integer "torn_trade_id"
     t.string "seller"
     t.string "short_url"
+    t.bigint "profit", default: 0
     t.index ["slug"], name: "index_trades_on_slug", unique: true
     t.index ["user_id"], name: "index_trades_on_user_id"
   end

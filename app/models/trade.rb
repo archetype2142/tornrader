@@ -12,7 +12,8 @@ class Trade < ApplicationRecord
 
   def update_total
     total_price = self.line_items.pluck(:total).sum
-    self.update!(total: total_price) unless self.total == total_price
+    total_profit = self.line_items.pluck(:profit).sum
+    self.update!(total: total_price, profit: total_profit) unless self.total == total_price
   end
 
   def normalize_friendly_id(value)
