@@ -1,8 +1,8 @@
-<%= javascript_pack_tag 'charts', 'data-turbolinks-track': 'reload' %>
-
+<%= javascript_pack_tag 'charts' %>
+<% content_for :title, "Statistics" %>
 
 <% options = {
-  title: 'Trades',
+  title: 'Top Sellers',
   xtitle: 'Sellers',
   ytitle: '# of Trades',
   stacked: true
@@ -11,7 +11,28 @@
 <div class="container has-pt-5">
   <h1 class="title has-text-centered">Trade Statistics</h1>
   <div class="box">
-    <%= line_chart({name: "Trades", data: @all_trades}, { title: 'Trade volume'} ) %>
+    <div class="level">
+      <div class="level-left">
+        <h3 class="subtitle">Top Stats</h3>
+      </div>
+      <div class="level-right">
+        <%= link_to "All trades", trades_path, class: "button is-primary" %>
+      </div>
+    </div>
+    <ul>
+      <li>
+        <b> Total trades: </b> <%= @all_trades_count %>
+      </li>
+      <li>
+        <b>Total trade quantity:</b> <%= display_price @total %>
+      </li>
+      <li>
+        <b> Top seller: </b> <%= @top_seller %>
+      </li>
+    </ul>
+  </div>
+  <div class="box">
+    <%= line_chart({name: "Trades", data: @all_trades}, { title: 'Daily Trade Volume', theme: 'palette4' } ) %>
   </div>
   <div class="box">
     <%= column_chart(@traders_data, {**options, theme: 'palette4'}) %>

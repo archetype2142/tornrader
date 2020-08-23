@@ -4,9 +4,11 @@ class User::StatisticsController < ApplicationController
 
   def index
     @all_trades = current_user.trades.group_by_day(:created_at).count
-    puts @all_trades.class
-    @total = current_user.trades.count
-    @traders_data ||= Trade.all.pluck(:seller).group_by(&:itself).map do |k, v| 
+    @all_trades_count = current_user.trades.count
+    @sellers = Trade.all.pluck(:seller)
+    @top_seller = @sellers.group_by{|i| i}.max{|x,y| x[1].length <=> y[1].length}[0]
+    @total = current_user.trades.pluck(:total).sum
+    @traders_data ||= @sellers.group_by(&:itself).map do |k, v| 
       next if v == 0
       [k, v.length] 
     end
