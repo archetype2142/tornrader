@@ -90,7 +90,7 @@ module Api
         replacements = [
           ["{trade_total}", display_price(trade&.total).to_s],
           ["{items_count}", trade&.line_items.pluck(:quantity).sum.to_s],
-          ["{trade_url}", trade.short_url ? trade.short_url : url_maker(trade_url(trade)).to_s],
+          ["{trade_url}", user.shortened? ? (trade.short_url ? trade.short_url : url_maker(trade_url(trade)).to_s) : trade_url(trade)],
           ["{seller_name}", params["seller"].to_s],
           ["{trader_name}", user.username.to_s],
           ["{pricelist_link}", user.short_pricelist_url.to_s],
