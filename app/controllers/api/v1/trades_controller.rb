@@ -49,7 +49,7 @@ module Api
               prices: [price],
               quantity: item["quantity"],
               frozen_price: price.amount
-              pofit: line_item_profit
+              profit: line_item_profit
             ) unless price.nil?
 
             {
