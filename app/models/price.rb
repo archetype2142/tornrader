@@ -1,7 +1,9 @@
 class Price < ApplicationRecord
   belongs_to :item
   belongs_to :user, touch: true
-  belongs_to :line_item, optional: true
+  # belongs_to :line_item, optional: true
+  has_many :line_item_prices
+  has_many :line_items, through: :line_item_prices
 
   validates :item_id, uniqueness: { scope: :user_id }
 

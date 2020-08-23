@@ -1,6 +1,7 @@
 class LineItem < ApplicationRecord
   belongs_to :trade
-  has_many :prices
+  has_many :line_item_prices
+  has_many :prices, through: :line_item_prices
 
   before_save :update_total
 

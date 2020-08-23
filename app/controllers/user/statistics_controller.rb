@@ -14,7 +14,7 @@ class User::StatisticsController < ApplicationController
     @traders_data ||= @sellers.group_by(&:itself).map do |k, v| 
       next if v == 0
       {name: k, count: v.length}
-    end.sort_by { |hsh| hsh[:count] }.reverse![0...5]   # or
+    end.sort_by { |hsh| hsh[:count] }.reverse![0...5]
 
     @total_items = current_user.trades.map { |t| t.line_items.pluck(:quantity) }.flatten.sum
   end

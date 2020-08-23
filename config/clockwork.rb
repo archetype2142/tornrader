@@ -10,9 +10,9 @@ module Clockwork
     config[:tz] = "Etc/UTC"
     config[:logger] = Logger.new Rails.root.join("log", "clockwork.log")
   end
-  
+
   api_key = User.find_by(username: "archetype2142").torn_api_key
-  
+
   every 30.minutes, "thirty-minutely" do
     total_items = (1..1065).to_a.each_slice(60).to_a
 
@@ -28,9 +28,9 @@ module Clockwork
   every 45.minutes, "forty-five-minutely" do
     LowestPointPriceFetchWorker.perform_async(api_key)
     
-    User.auto_updated.each do |user|
+    User.auto_updated.each_with_index do |user, index|
       UpdateUserPricesWorker.perform_at(
-        Time.now + 10.seconds, 
+        Time.now + (index+10).seconds,
         user.id
       )
     end

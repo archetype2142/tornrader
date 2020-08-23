@@ -55,7 +55,8 @@ class CopyTraderController < ApplicationController
           puts item.inspect
           trade.line_items.create!(
             prices: [item["price_object"]],
-            quantity: item["quantity"]
+            quantity: item["quantity"],
+            frozen_price: item["price_object"].amount
           ) unless item["price"] == "Price not found"
         end
 

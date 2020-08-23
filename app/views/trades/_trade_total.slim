@@ -32,7 +32,7 @@
                   span.hide-mob = image_tag line_item&.prices.first.item&.thumbnail_url 
                   span = line_item&.prices&.first&.item&.name
                 td.hideextra.component-unit-price
-                  span = display_price(line_item&.prices&.first&.amount)
+                  span = display_price(line_item&.frozen_price)
                   span.times-sign 
                     | × 
                 td.hideextra.component-quantity
