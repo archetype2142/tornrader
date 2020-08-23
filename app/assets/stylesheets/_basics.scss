@@ -24,6 +24,12 @@ a {
 .box.is-hoverable:hover {
   background-color: map-get($torn, 'purple-130');
   color: white;
+
+  
+}
+
+.box.is-hoverable:hover .hover-white {
+  color: map-get($torn, 'purple-10') !important;
 }
 
 .card, .box {

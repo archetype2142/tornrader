@@ -15,7 +15,7 @@
     - @trades.each do |trade|
       .column.is-one-third
         .box.is-hoverable onclick="window.location='#{trade_path(trade)}'"
-          b.has-text-primary = trade.seller
+          b.has-text-primary.hover-white = trade.seller
           p = trade.created_at
           p 
             b Total Items: 
