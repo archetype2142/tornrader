@@ -41,9 +41,15 @@ module Api
             user_item = user_items.find_by(name: item["name"])
             price = user_item.nil? ? nil : user_prices.find_by(item_id: user_item.id)
             
+            line_item_profit = price&.amount ? 
+              (((user_item.lowest_market_price - price.amount ) * item["quantity"].to_i).abs
+            ) : 0
+
             trade.line_items.create!(
               prices: [price],
-              quantity: item["quantity"]
+              quantity: item["quantity"],
+              frozen_price: price.amount,
+              profit: line_item_profit
             ) unless price.nil?
 
             {
@@ -52,15 +58,13 @@ module Api
               price: price&.amount ? display_price(price.amount) : nil,
               quantity: item["quantity"], 
               total: price&.amount ? display_price(price.amount * item["quantity"].to_i) : nil,
-              profit: price&.amount ? 
-                (((user_item.lowest_market_price - price.amount ) * item["quantity"].to_i).abs
-              ) : nil
+              profit: line_item_profit
             }
           end
           trade.line_items.map(&:update_total_manual)
           trade_messages = user.messages.map{ |m| {name: m.name, message: replace_keys(m.message, user, params, trade)} }
           trade.update_total
-          
+
           total_profit = items.pluck(:profit).compact.sum
 
           trade_info = {
@@ -89,7 +93,7 @@ module Api
         replacements = [
           ["{trade_total}", display_price(trade&.total).to_s],
           ["{items_count}", trade&.line_items.pluck(:quantity).sum.to_s],
-          ["{trade_url}", trade.short_url ? trade.short_url : url_maker(trade_url(trade)).to_s],
+          ["{trade_url}", user.shortened? ? (trade.short_url ? trade.short_url : url_maker(trade_url(trade)).to_s) : trade_url(trade)],
           ["{seller_name}", params["seller"].to_s],
           ["{trader_name}", user.username.to_s],
           ["{pricelist_link}", user.short_pricelist_url.to_s],
