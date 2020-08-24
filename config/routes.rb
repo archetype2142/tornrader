@@ -20,6 +20,8 @@ Rails.application.routes.draw do
 
   get "/contact", to: "static_pages/contacts#index"
   get "/subscription", to: "static_pages/subscriptions#index", as: :expired_sub
+  get "/how-it-works", to: "static_pages/howitworks#index"
+  get "/about", to: "static_pages/about#index"
 
   get ":username/prices", to: 'user/price_lists#show', as: :user_price_list
   get ":username/update_prices", to: 'user/price_lists#update_list', as: :update_user_price_list

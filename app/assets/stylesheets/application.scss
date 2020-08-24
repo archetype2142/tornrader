@@ -12,27 +12,15 @@
 @import "./utils";
 @import "./basics";
 @import "./flexbox";
+@import "./homepage";
 
-.filter-homepage {
+.article {
+  margin-top: -5%;
   @include touch {
-    width: 90vw;
-  }
-  @include desktop {
-    width: 60vh;
+    margin-top: -50%;
   }
 }
 
-#stat-box {
-  @include touch {
-    margin-right: 10px;
-  }
-}
-
-#top-title {
-  @include touch {
-    margin-bottom: 0px !important;
-  }
-}
 .hide-mob {
   @include touch {
     display: none;

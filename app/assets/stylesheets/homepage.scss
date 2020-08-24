@@ -1,0 +1,138 @@
+
+.filter-homepage {
+  @include touch {
+    width: 90vw;
+  }
+  @include desktop {
+    width: 100%;
+  }
+}
+
+#stat-box {
+  @include touch {
+    margin-right: 10px;
+  }
+}
+
+#top-title {
+  @include touch {
+    margin-bottom: 0px !important;
+  }
+}
+
+#what {
+  display: inline-block;
+  vertical-align: bottom;
+  height: 100%;
+  width: 100%;
+  min-height: 1px;
+  background-image: asset-url('how.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 10%;
+  min-height: 400px;
+  @include touch {
+    padding: 5%;
+  }
+  color: #fff;
+  h1 {
+    color: #fff;
+  }
+}
+
+#api {
+  display: inline-block;
+  vertical-align: bottom;
+  height: 100%;
+  width: 100%;
+  min-height: 1px;
+  background-image: asset-url('api.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 10%;
+  min-height: 400px;
+  @include touch {
+    padding: 5%;
+  }
+  color: #fff;
+  h1 {
+    color: #fff;
+  }
+}
+
+#win {
+  display: inline-block;
+  vertical-align: bottom;
+  height: 100%;
+  width: 100%;
+  min-height: 1px;
+  background-image: asset-url('win.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 10%;
+  min-height: 400px;
+  @include touch {
+    padding: 5%;
+  }
+  color: #fff;
+  h1 {
+    color: #fff;
+  }
+}
+
+#best {
+  display: inline-block;
+  vertical-align: bottom;
+  height: 100%;
+  width: 100%;
+  min-height: 1px;
+  background-image: asset-url('best.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 10%;
+  min-height: 400px;
+  @include touch {
+    padding: 5%;
+  }
+  color: #fff;
+  h1 {
+    color: #fff;
+  }
+}
+
+.box-text {
+  padding-left: 16px;
+  padding-top: 12px;
+  padding-right: 16px;
+  padding-bottom: 16px;
+
+  h1 {
+    font-size: 18px;
+    line-height: 22px;
+    max-height: 44px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    color: rgb(34, 34, 34);
+    font-weight: 600;
+    white-space: pre-line;
+  }
+  p {
+    font-size: 14px;
+    line-height: 18px;
+    max-height: 54px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    color: rgb(113, 113, 113);
+    font-weight: 400;
+    margin-top: 4px;
+    white-space: pre-line;
+  }
+}

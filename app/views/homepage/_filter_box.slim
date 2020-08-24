@@ -1,7 +1,0 @@
-div.filter-homepage
-  = search_form_for @search, url: items_path, id: "search_box" do |f|
-    .field.has-addons.is-fullwidth
-      .control.is-fullwidth
-        = f.search_field :name_cont, class: "input", placeholder: "Item Name"
-      .control
-        = f.submit "Search", class: "button is-primary"
