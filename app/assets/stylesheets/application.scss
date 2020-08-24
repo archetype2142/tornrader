@@ -22,6 +22,17 @@
   }
 }
 
+#stat-box {
+  @include touch {
+    margin-right: 10px;
+  }
+}
+
+#top-title {
+  @include touch {
+    margin-bottom: 0px !important;
+  }
+}
 .hide-mob {
   @include touch {
     display: none;
