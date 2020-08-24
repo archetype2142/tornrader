@@ -13,6 +13,33 @@
 @import "./basics";
 @import "./flexbox";
 
+#gradient-body {
+  background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(200,95,255,1) 63%, rgba(0,0,0,1) 100%);
+}
+
+.filter-homepage {
+  @include touch {
+    width: 90vw;
+  }
+  @include desktop {
+    width: 60vh;
+  }
+}
+
+#top-section {
+  height: 100vh;
+  // background-image: asset-url('background');
+  // background-blend-mode: multiply;
+  // background-image: linear-gradient(to bottom, rgba(245, 246, 252, 0.52), rgba(117, 19, 93, 0.73)),
+    // url('images/background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 .hide-mob {
   @include touch {
     display: none;

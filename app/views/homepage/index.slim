@@ -1,51 +1,77 @@
 - content_for :title, "High Volume Torn Trading"
-h1.is-size-1.has-mt-12.title.has-text-centered
-  span.has-text-centered 
-    .is-64x64
-      = image_tag "logo_black.svg", alt: "TornTrader logo"
-  | Torn Trader
-.section.has-bg-peach-20 id="what"
-  .container
-    .columns
-      .column.is-two-thirds.is-centered-middle.is-flex-column
-        .box
-          h1.title What is this?
-          p.is-text-primary Torn trader is a tool that works in tandem with the torntrader chrome extension as a means to help large volume traders or new traders alike make their process faster and simpler.
-      .column
-        figure.image.is-5by4
-          = image_tag "main", alt: "how image"
-.section id="how"
-  .container
-    .columns
-      /.column
-        figure.image
-          = image_tag "how"
-      .column.box.has-padding-36.is-centered-middle.is-flex-column
-        h1.title How does it work?
-        p.is-text-primary Using the TORN API, a little magic and good old hardwork, the site provides all the features that a trader can ever need.
-.section.has-bg-peach-20 id="how"
-  .container
-    .columns
-      /.column
-        figure.image
-          = image_tag "how"
-      .column.box.has-padding-36.is-centered-middle.is-flex-column
-        h1.title We are the <strong>BEST</strong>
-        p.is-text-primary Far better than the rest and only getting better everyday. <br /><br /> Thank you to our users for all your bug finds and suggestions
-.section id="links"
-  .container
-    .columns
-      /.column
-        figure.image
-          = image_tag "how"
-      .column.box.has-padding-36.is-centered-middle.is-flex-column
-        h1.title Quick Links
-        h4.is-size-4.title Discord server
-        p.is-text-primary 
-          a.link href="https://discord.gg/yvAeaHq" Discord server
-        h4.is-size-4.title Extension links
-        p.is-text-primary 
-          a.link href="https://chrome.google.com/webstore/detail/torntrader-trading-made-e/hbcmcdephiifipdlakcnlkclacegljep" Chrome link
-        p.is-text-primary 
-          a.link href="https://addons.mozilla.org/en-US/firefox/addon/torntrader-trading-made-easy/" Firefox link
-      
+div id="gradient-body"
+  section id="top-section"
+    .box.has-mt-5 id="stat-box" style="box-shadow: 0 3px 5px rgba(51, 51, 51, 0.51); position: absolute; top: 50px; left: 10px"
+      h2.title Live Stats
+      button.delete id="stat-box-close" aria-label="delete" style="position: absolute; top: 20px; right: 10px"
+
+      p 
+        | Traded amount:   
+        b = display_price(@total_trades_count)
+      p
+        | Traders registered:   
+        b = @traders_count
+      p
+        | Total Trades:  
+        b = @trades_count
+    h1.is-size-1.has-mt-12.title.has-text-centered
+      span.has-text-centered 
+        .is-64x64
+          = image_tag "logo_black.svg", alt: "TornTrader logo"
+      | Torn Trader
+    = render "homepage/filter_box"
+  
+
+  .section.has-bg-peach-20 id="what"
+    .container
+      .columns
+        .column.is-two-thirds.is-centered-middle.is-flex-column
+          .box
+            h1.title What is this?
+            p.is-text-primary Torn trader is a tool that works in tandem with the torntrader chrome extension as a means to help large volume traders or new traders alike make their process faster and simpler.
+        .column
+          figure.image.is-5by4
+            = image_tag "main", alt: "how image"
+  .section id="how"
+    .container
+      .columns
+        /.column
+          figure.image
+            = image_tag "how"
+        .column.box.has-padding-36.is-centered-middle.is-flex-column
+          h1.title How does it work?
+          p.is-text-primary Using the TORN API, a little magic and good old hardwork, the site provides all the features that a trader can ever need.
+  .section.has-bg-peach-20 id="how"
+    .container
+      .columns
+        /.column
+          figure.image
+            = image_tag "how"
+        .column.box.has-padding-36.is-centered-middle.is-flex-column
+          h1.title We are the <strong>BEST</strong>
+          p.is-text-primary Far better than the rest and only getting better everyday. <br /><br /> Thank you to our users for all your bug finds and suggestions
+  .section id="links"
+    .container
+      .columns
+        /.column
+          figure.image
+            = image_tag "how"
+        .column.box.has-padding-36.is-centered-middle.is-flex-column
+          h1.title Quick Links
+          h4.is-size-4.title Discord server
+          p.is-text-primary 
+            a.link href="https://discord.gg/yvAeaHq" Discord server
+          h4.is-size-4.title Extension links
+          p.is-text-primary 
+            a.link href="https://chrome.google.com/webstore/detail/torntrader-trading-made-e/hbcmcdephiifipdlakcnlkclacegljep" Chrome link
+          p.is-text-primary 
+            a.link href="https://addons.mozilla.org/en-US/firefox/addon/torntrader-trading-made-easy/" Firefox link
+        
+javascript:
+  var close = document.getElementById("stat-box-close");
+  var stat_box = document.getElementById("stat-box");
+
+  close.addEventListener('click', (e) => {
+    e.preventDefault();
+    stat_box.style.display = "none";
+  });
