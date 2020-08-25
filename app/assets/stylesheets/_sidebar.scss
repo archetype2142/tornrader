@@ -8,3 +8,61 @@
   position: sticky !important;
   top: 24px;
 }
+
+//Originality coming soon! I have yet to think of some animations, or any other way I could improve the standard upvote/downvote buttons.
+
+:root {
+  --downvote-color: #7193ff;
+  --downvote-shade: #5a75cc;
+  --downvote-tinted: #8da8ff;
+
+  --upvote-color: #ff4500;
+  --upvote-shade: #cc3700;
+  --upvote-tinted: #ff6a32;
+
+  --button-hover: rgba(215, 218, 220, 0.1);
+  
+  --dark-mode-bg-color: #1a1a1b;
+}
+
+.vote_container {
+  padding-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  
+  .arrow_container {
+    width: 1.5rem;
+    // height: 1.5rem;
+    cursor: pointer;
+    // margin: 0.2rem;
+    border-radius: 2px;
+    &:hover {
+      background-color: var(--button-hover);
+    }
+    &:hover > #arrow-down > .cls-1 {
+      fill: var(--downvote-color);
+    }
+    &:hover > #arrow-up > .cls-1 {
+      fill: var(--upvote-color);
+    }
+    &:active {
+      background-color: rgba(215, 218, 220, 0.1);
+    }
+    &:active > #arrow-down > .cls-1 {
+      fill: var(--downvote-color);
+    }
+    &:active > #arrow-up > .cls-1 {
+      fill: var(--upvote-color);
+    }
+  }
+  .number_counter {
+    color: black;
+    font-size: 0.8rem;
+    font-weight: bold;
+    user-select: none;
+  }
+}
+

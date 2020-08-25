@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_23_213748) do
+ActiveRecord::Schema.define(version: 2020_08_24_111856) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -161,6 +161,8 @@ ActiveRecord::Schema.define(version: 2020_08_23_213748) do
     t.integer "theme", default: 0
     t.string "backgroundColor"
     t.integer "short_url", default: 0
+    t.integer "votes"
+    t.integer "trades_count", default: 0
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

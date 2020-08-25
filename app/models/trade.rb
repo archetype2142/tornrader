@@ -2,10 +2,13 @@ class Trade < ApplicationRecord
   extend FriendlyId
   friendly_id :slug, use: :slugged
 
-  belongs_to :user
+  belongs_to :user, counter_cache: true
   has_many :line_items, dependent: :destroy
   has_many :items, through: :line_items
 
+  scope :total_sum, -> {
+    self.all.map{ |t| t.total }.sum
+  }
   before_create do 
     self.slug = SecureRandom.uuid
   end

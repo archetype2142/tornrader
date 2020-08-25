@@ -1,0 +1,115 @@
+<style>
+.main-search {
+  height: 80px; 
+  background: #fff;
+  border: 1px solid rgb(176, 176, 176);
+  /*border-top-color: */
+  border-top-left-radius:8px;
+  border-bottom-left-radius: 8px;
+  padding-left: 5%;
+  padding-top: 18px;
+  line-height: 0.8;
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
+  flex-direction: column;
+  border-right: none;
+  /*box-shadow: 0 6px 13px rgba(51, 51, 51, 0.51);*/
+  /*box-shadow: -6px 5px 5px 1px rgba(51, 51, 51, 0.51);*/
+}
+
+.side-search {
+  height: 80px; 
+  border: 1px solid rgb(176, 176, 176);
+  border-left: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-right: 5%;
+  border-top-right-radius:8px;
+  border-bottom-right-radius:8px;
+  /*box-shadow: 0 6px 13px rgba(51, 51, 51, 0.51);*/
+
+}
+.special-input {
+  outline-width: 0 !important;
+  outline: none !important;
+  border: none !important;
+}
+
+.special-input:focus {
+  outline-color: initial;
+  outline-style: none;
+  outline-width: initial;
+}
+
+._1xq16jy:focus, input:focus {
+  border: none !important;
+  outline: none !important;
+  outline-width: 0 !important;
+}
+
+input:focus, textarea:focus, select:focus{
+  outline: none;
+}
+
+._1xq16jy {
+  display: block;
+  border-top-width: 0px;
+  border-right-width: 0px;
+  border-bottom-width: 0px;
+  border-left-width: 0px;
+  border-top-style: initial;
+  border-right-style: initial;
+  border-bottom-style: initial;
+  border-left-style: initial;
+  border-top-color: initial;
+  border-right-color: initial;
+  border-bottom-color: initial;
+  border-left-color: initial;
+  border-image-source: initial;
+  border-image-slice: initial;
+  border-image-width: initial;
+  border-image-outset: initial;
+  border-image-repeat: initial;
+  margin-top: 0px;
+  padding-top: 0px;
+  width: 100%;
+  background-image: none;
+  background-position-x: initial;
+  background-position-y: initial;
+  background-size: initial;
+  background-repeat-x: initial;
+  background-repeat-y: initial;
+  background-attachment: initial;
+  background-origin: initial;
+  background-clip: initial;
+  background-color: initial;
+  font-size: 14px;
+  line-height: 18px;
+  font-weight: 600;
+  color: rgb(34, 34, 34);
+  text-overflow: ellipsis;
+}
+
+</style>
+
+<div class="filter-homepage has-mb-18">
+  <%= search_form_for @search, url: items_path, id: "search_box" do |f| %>
+  <div class="field has-addons is-fullwidth" style="border-radius: 8px; box-shadow: rgba(0, 0, 0, 0.0784314) 0px 4px 12px;">
+    <div class="control is-fullwidth">
+      <div class="main-search">
+        <span style="color: rgb(34, 34, 34); font-size: 10px; margin-bottom: 0px; font-weight: bold">ITEM NAME</span><br/>
+        <input name="q[name_cont]" id="q_name_cont" class="_1xq16jy" aria-autocomplete="list" aria-expanded="false" autocomplete="off" autocorrect="off" spellcheck="false" role="combobox" name="query" placeholder="What are u looking for?" required="" data-testid="structured-search-input-field-query" value=""></input>
+      </div>
+    </div>
+    <div class="side-search">
+      <div class="control">
+        <button type="submit" name="commit" class="sp-button button" data-disable-with="Search">
+          <i class="fa fa-search has-mr-9"></i> 
+          Search
+        </button>
+      </div>
+    </div>
+  <% end %>
+</div>

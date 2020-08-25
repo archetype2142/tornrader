@@ -16,6 +16,14 @@
           span - Did you update position of pricelist caegories and don't see them changed? Don't worry, please wait for cache to clear, they will update automatically.
   .level
     .level-left.center-mob
+      .vote_container.has-mr-9
+        .arrow_container
+          svg id="arrow-up" data-name="arrow-up" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+            path.cls-1 style="fill: #818384;" d="M14.5,20h-5a.5.5,0,0,1-.5-.5V12H5.37A.5.5,0,0,1,5,11.15l6.64-6.64a.5.5,0,0,1,.7,0L19,11.15a.5.5,0,0,1-.36.85H15v7.5A.5.5,0,0,1,14.5,20Z" 
+          .number_counter 69k
+          .arrow_container
+            svg id="arrow-down" data-name="arrow-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+              path.cls-1 style="fill: #818384;" d="M9.5,4h5a.5.5,0,0,1,.5.5V12h3.63a.5.5,0,0,1,.36.85l-6.64,6.64a.5.5,0,0,1-.7,0L5,12.85A.5.5,0,0,1,5.37,12H9V4.5A.5.5,0,0,1,9.5,4Z"
       h1.title.is-size-5-touch = "<span class='has-text-primary'>#{@user.username}'s</span> PriceList".html_safe
     .level-right.center-mob
       = link_to "Trade", "https://www.torn.com/trade.php#step=start&userID=#{@user.torn_user_id}", class: "button has-bg-purple-50", style: "color: white", target: "_blank"
