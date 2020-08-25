@@ -36,9 +36,13 @@
         </a>
 
         <div class="navbar-dropdown">
-          <%= link_to "Trade Stats", user_statistics_path, class: "navbar-item"%>
+          <% if user_signed_in? %>
+            <%= link_to "Trade Stats", user_statistics_path, class: "navbar-item"%>
+            <% end %>
           <%= link_to "All Items", items_path, class: "navbar-item"%>
           <%= link_to "Contact", contact_path, class: "navbar-item"%>
+          <hr class="navbar-divider"/>
+          <%= link_to "Post an ad!", tornbay_index_path, class: "navbar-item"%>
         </div>
       </div>
     </div>
