@@ -9,7 +9,7 @@
 } %>
 
 <% cache "#{current_user}-stats" do %>
-  <div class="container has-pt-5">
+  <div class="container has-pt-5 has-mb-36">
     <h1 class="title has-text-centered">Trade Statistics</h1>
     <div class="columns">
       <div class="column">
@@ -71,4 +71,6 @@
       <%= line_chart({name: "Profit", data: @all_profit}, { title: 'Daily Trade Profit', theme: 'palette5' } ) %>
     </div>
   </div>
+
+  
 <% end %>
