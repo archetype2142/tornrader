@@ -21,153 +21,153 @@
     </div>
   </h1>
 </section>
-
-<div class="container">
-  <%= render "homepage/filter_box" %>
-</div>
-
-<section class="has-pb-12">
+<% cache 'homepage' do %>
   <div class="container">
-    <a href="/about">
-      <div class="box" id="what" style="box-shadow: rgba(0, 0, 0, 0.0784314) 0px 4px 12px;">
-        <div class="columns">
-          <div class="column is-two-thirds is-flex-column">
-            <h1 class="title"> What is this? </h1>
-            <p class="subtitle" style="color: #fff;"> Torn trader is a tool that works in tandem with the torntrader chrome extension as a means to help large volume traders or new traders alike make their process faster and simpler. </p>
-            <p> Find out more > </p>
+    <%= render "homepage/filter_box" %>
+  </div>
+
+  <section class="has-pb-12">
+    <div class="container">
+      <a href="/about">
+        <div class="box" id="what" style="box-shadow: rgba(0, 0, 0, 0.0784314) 0px 4px 12px;">
+          <div class="columns">
+            <div class="column is-two-thirds is-flex-column">
+              <h1 class="title"> What is this? </h1>
+              <p class="subtitle" style="color: #fff;"> Torn trader is a tool that works in tandem with the torntrader chrome extension as a means to help large volume traders or new traders alike make their process faster and simpler. </p>
+              <p> Find out more > </p>
+            </div>
           </div>
         </div>
+      </a>
+    </div>
+  </section>
+
+  <div class="container has-mt-9 has-pb-18">
+    <div class="columns is-multiline">
+      <div class="column">
+        <a href="/how-it-works">
+          <div class="box" style="padding: 0px; box-shadow: rgba(0, 0, 0, 0.0784314) 0px 4px 12px;">
+            <div id="api" style="border-top-left-radius:9px;border-top-right-radius:9px;"></div>
+            <div class="box-text">
+              <h1> How does it work? </h1>
+              <p> Using the TORN API, a little magic and good old hardwork, the site provides all the features that a trader can ever need.</p>
+              <p class="has-text-primary"> Find out more > </p>
+            </div>
+          </div>
+        </a>
       </div>
-    </a>
-  </div>
-</section>
-
-<div class="container has-mt-9 has-pb-18">
-  <div class="columns is-multiline">
-    <div class="column">
-      <a href="/how-it-works">
-        <div class="box" style="padding: 0px; box-shadow: rgba(0, 0, 0, 0.0784314) 0px 4px 12px;">
-          <div id="api" style="border-top-left-radius:9px;border-top-right-radius:9px;"></div>
-          <div class="box-text">
-            <h1> How does it work? </h1>
-            <p> Using the TORN API, a little magic and good old hardwork, the site provides all the features that a trader can ever need.</p>
-            <p class="has-text-primary"> Find out more > </p>
+      <div class="column hide-mob">
+        <a href="/how-it-works">
+          <div class="box" style="padding: 0px; box-shadow: rgba(0, 0, 0, 0.0784314) 0px 4px 12px;">
+            <div id="win" style="border-top-left-radius:9px;border-top-right-radius:9px;"></div>
+            <div class="box-text">
+              <h1> We are the <strong>best</strong> </h1>
+              <p> Far better than the rest and only getting better everyday. Thank you to our users for all your bug finds and suggestions</p>
+              <p class="has-text-primary"> Find out more > </p>
+            </div>
           </div>
-        </div>
-      </a>
-    </div>
-    <div class="column hide-mob">
-      <a href="/how-it-works">
-        <div class="box" style="padding: 0px; box-shadow: rgba(0, 0, 0, 0.0784314) 0px 4px 12px;">
-          <div id="win" style="border-top-left-radius:9px;border-top-right-radius:9px;"></div>
-          <div class="box-text">
-            <h1> We are the <strong>best</strong> </h1>
-            <p> Far better than the rest and only getting better everyday. Thank you to our users for all your bug finds and suggestions</p>
-            <p class="has-text-primary"> Find out more > </p>
+        </a>
+      </div>
+      <div class="column hide-mob">
+        <a href="/how-it-works">
+          <div class="box" style="padding: 0px; box-shadow: rgba(0, 0, 0, 0.0784314) 0px 4px 12px;">
+            <div id="best" style="border-top-left-radius:9px;border-top-right-radius:9px;"></div>
+            <div class="box-text">
+              <h1> Why are we the <strong>best?</strong> </h1>
+              <p> Far better than the rest and only getting better everyday. Thank you to our users for all your bug finds and suggestions</p>
+              <p class="has-text-primary"> Find out more > </p>
+            </div>
           </div>
-        </div>
-      </a>
-    </div>
-    <div class="column hide-mob">
-      <a href="/how-it-works">
-        <div class="box" style="padding: 0px; box-shadow: rgba(0, 0, 0, 0.0784314) 0px 4px 12px;">
-          <div id="best" style="border-top-left-radius:9px;border-top-right-radius:9px;"></div>
-          <div class="box-text">
-            <h1> Why are we the <strong>best?</strong> </h1>
-            <p> Far better than the rest and only getting better everyday. Thank you to our users for all your bug finds and suggestions</p>
-            <p class="has-text-primary"> Find out more > </p>
-          </div>
-        </div>
-      </a>
+        </a>
+      </div>
     </div>
   </div>
-</div>
-</div>
-<div style="background: black; padding-top: 10%; padding-bottom: 10%;">
-  <div class="container">
-    <h1 class="title" style="color: #fff">Got the plugin?</h1>
-    <div class="tile is-ancestor">
-      <div class="tile is-vertical is-8">
-        <div class="tile">
-          <div class="tile is-parent is-vertical">
-            <article class="tile is-child notification is-primary">
-              <p class="title">What are u waiting for?</p>
-              <p class="subtitle">Up your trade game with the new torntrader plugin!</p>
-              <a class="text">Chrome</a> <br/>
-              <a class="text">Firefox</a>
-            </article>
+  </div>
+  <div style="background: black; padding-top: 10%; padding-bottom: 10%;">
+    <div class="container">
+      <h1 class="title" style="color: #fff">Got the plugin?</h1>
+      <div class="tile is-ancestor">
+        <div class="tile is-vertical is-8">
+          <div class="tile">
+            <div class="tile is-parent is-vertical">
+              <article class="tile is-child notification is-primary">
+                <p class="title">What are u waiting for?</p>
+                <p class="subtitle">Up your trade game with the new torntrader plugin!</p>
+                <a class="text">Chrome</a> <br/>
+                <a class="text">Firefox</a>
+              </article>
+            </div>
+            <div class="tile is-parent">
+              <article class="tile is-child notification is-info">
+                <p class="title">Numbers Speak</p>
+                <p class="subtitle">Going off the charts!</p>
+                <p> Traded amount:   
+                  <b> <%= display_price(@total_trades_count) %> </b>
+                </p>
+                <p> Traders registered:   
+                  <b> <%= @traders_count %> </b>
+                </p>
+                <p> Total Trades:  
+                  <b> <%= @trades_count %> </b>
+                </p>
+              </article>
+            </div>
           </div>
           <div class="tile is-parent">
-            <article class="tile is-child notification is-info">
-              <p class="title">Numbers Speak</p>
-              <p class="subtitle">Going off the charts!</p>
-              <p> Traded amount:   
-                <b> <%= display_price(@total_trades_count) %> </b>
-              </p>
-              <p> Traders registered:   
-                <b> <%= @traders_count %> </b>
-              </p>
-              <p> Total Trades:  
-                <b> <%= @trades_count %> </b>
-              </p>
+            <article class="tile is-child notification is-danger">
+              <p class="title">Thanks to you guys!</p>
+              <p class="subtitle">We're constantly updating Torntrader, so don't forget to join discord and help us make it better :D</p>
+              <div class="content">
+                <a href=""> Discord </a>
+              </div>
             </article>
           </div>
         </div>
         <div class="tile is-parent">
-          <article class="tile is-child notification is-danger">
-            <p class="title">Thanks to you guys!</p>
-            <p class="subtitle">We're constantly updating Torntrader, so don't forget to join discord and help us make it better :D</p>
+          <article class="tile is-child notification is-warning">
             <div class="content">
-              <a href=""> Discord </a>
+              <p class="title">It's Free</p>
+              <p class="subtitle">...and will always be</p>
+              <div class="content">
+                It requires no money to get started, in real life or in-game, and will always be! 
+              </div>
             </div>
           </article>
         </div>
       </div>
-      <div class="tile is-parent">
-        <article class="tile is-child notification is-warning">
-          <div class="content">
-            <p class="title">It's Free</p>
-            <p class="subtitle">...and will always be</p>
-            <div class="content">
-              It requires no money to get started, in real life or in-game, and will always be! 
-            </div>
-          </div>
-        </article>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="container" style="padding-top: 5%; padding-bottom: 10%;">
-  <div class="columns">
-    <div class="column">
-      <h1 class="title"> <b style="color: black">Comptetition?</b> <br/>We have plenty, and would recommend you check them out too before you settle for <span class="has-text-primary">TornTrader</span>.</h1>
-      <h3 class="subtitle"> </h3>
-    </div>
-    <div class="column">
-      When there is competition, the end users win!
-      <div class="content">
-        <ul>
-          <li>
-            TornTrader took a lot of inspiration from <span class="has-text-primary">Arsonwarehouse</span>
-          </li> 
-          <li>
-            <span class="has-text-primary">TornExchange</span> has an amazing community of traders and ads for different people
-          </li>
-          <li>
-            <span class="has-text-primary">TornTools</span> is an epic plugin that has pretty much all you'll ever need!
-          </li>
-        </ul>
-      </div>
     </div>
   </div>
 
-  <script>
-    var close = document.getElementById("stat-box-close");
-    var stat_box = document.getElementById("stat-box");
+  <div class="container" style="padding-top: 5%; padding-bottom: 10%;">
+    <div class="columns">
+      <div class="column">
+        <h1 class="title"> <b style="color: black">Comptetition?</b> <br/>We have plenty, and would recommend you check them out too before you settle for <span class="has-text-primary">TornTrader</span>.</h1>
+        <h3 class="subtitle"> </h3>
+      </div>
+      <div class="column">
+        When there is competition, the end users win!
+        <div class="content">
+          <ul>
+            <li>
+              TornTrader took a lot of inspiration from <span class="has-text-primary">Arsonwarehouse</span>
+            </li> 
+            <li>
+              <span class="has-text-primary">TornExchange</span> has an amazing community of traders and ads for different people
+            </li>
+            <li>
+              <span class="has-text-primary">TornTools</span> is an epic plugin that has pretty much all you'll ever need!
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+<% end %>
+<script>
+  var close = document.getElementById("stat-box-close");
+  var stat_box = document.getElementById("stat-box");
 
-    close.addEventListener('click', (e) => {
-      e.preventDefault();
-      stat_box.style.display = "none";
-    });
-  </script>
+  close.addEventListener('click', (e) => {
+    e.preventDefault();
+    stat_box.style.display = "none";
+  });
+</script>
