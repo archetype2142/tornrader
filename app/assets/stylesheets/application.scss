@@ -13,7 +13,12 @@
 @import "./basics";
 @import "./flexbox";
 @import "./homepage";
-  
+
+.mt-mob-5 {
+  @include touch {
+    margin-top: 5%;
+  }
+}
 .sp-button {
   height: 50px;
   width: 150px;
