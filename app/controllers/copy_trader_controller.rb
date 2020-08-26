@@ -123,7 +123,7 @@ class CopyTraderController < ApplicationController
     plushies ||= ["Sheep Plushie", "Teddy Bear Plushie", "Kitten Plushie",
     "Jaguar Plushie", "Wolverine Plushie", "Nessie Plushie",
     "Red Fox Plushie", "Monkey Plushie", "Chamois Plushie",
-    "Panda Plushie", "Lion Plushie", "Camel Plushie"]
+    "Panda Plushie", "Lion Plushie", "Camel Plushie", "Stingray Plushie"]
     new_items = items
     if (plushies - new_items.pluck("name")).empty?
       found_plushies = []
