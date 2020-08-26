@@ -1,0 +1,67 @@
+html {
+    margin: 0;
+    padding: 0;
+}
+body {
+    text-align:center ;
+    font-family: 'Handlee', areil;
+    font-size: 13pt;
+    background-color: #fff;
+    padding: 10px;
+    margin: 0;
+}
+h1 {
+    font-size: 15pt;
+    color: #20bcd5;
+    text-align: center;
+    padding: 18px 0 18px 0;
+    margin: 0 0 10px 0;
+}
+
+p {
+    padding: 0;
+    margin: 0;
+}
+
+
+.section {
+    background-color: #fff;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+}
+
+#header img {
+    img-align:center ;
+    display: block;
+    width: 200px;
+    height: 150px;
+    margin: auto;
+}
+
+#header p {
+    font-size: 25pt;
+    color:#fff;
+    padding-top: 5px;
+    margin: 0;
+    font-weight: bold;
+    text-align: center;
+}
+.quote {
+    font-size: 12pt;
+    text-align: right;
+    margin-top: 10px;
+}
+
+.selected {
+    background-color: #f36f48;
+    font-weight: bold;
+    color: white;
+}
+
+.copyright {
+    font-size: 8pt;
+    text-align: right;
+    padding-bottom: 10px;
+    color: grey;
+}
