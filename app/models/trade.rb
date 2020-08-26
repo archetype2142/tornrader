@@ -9,6 +9,7 @@ class Trade < ApplicationRecord
   scope :total_sum, -> {
     self.all.map{ |t| t.total }.sum
   }
+  
   before_create do 
     self.slug = SecureRandom.uuid
   end
