@@ -5,17 +5,17 @@ class User < ApplicationRecord
          :rememberable
   validates :torn_user_id, uniqueness: true
 
-  has_many :prices
+  has_many :prices, dependent: :destroy
   has_many :items, through: :prices
 
   has_many :positions
   has_many :categories, through: :positions
 
-  has_many :messages
+  has_many :messages, dependent: :destroy
   accepts_nested_attributes_for :prices
 
   has_many :trades
-  has_many :subscriptions
+  has_many :subscriptions, dependent: :destroy
   
   validate :validate_torn_user_id
   validate :has_five_messages_atmost
