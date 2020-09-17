@@ -21,7 +21,7 @@ class User < ApplicationRecord
   validate :has_five_messages_atmost
 
   validates :torn_user_id, presence: true, uniqueness: { case_sensitive: false }, numericality: { only_integer: true }
-  validates :amount, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+  validates :amount, numericality: { greater_than_or_equal_to: 0 }
   validates :message, length: { maximum: 250 }
   
   enum user_type: %w[general admin]

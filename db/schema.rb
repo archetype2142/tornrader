@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_24_111856) do
+ActiveRecord::Schema.define(version: 2020_09_17_205813) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -85,7 +85,7 @@ ActiveRecord::Schema.define(version: 2020_08_24_111856) do
     t.bigint "user_id"
     t.bigint "category_id"
     t.integer "auto_update", default: 0
-    t.integer "amount", default: 0
+    t.float "amount", default: 0.0
     t.index ["category_id"], name: "index_positions_on_category_id"
     t.index ["user_id"], name: "index_positions_on_user_id"
   end
@@ -99,7 +99,7 @@ ActiveRecord::Schema.define(version: 2020_08_24_111856) do
     t.integer "auto_update", default: 0
     t.integer "pricing_rule", default: 0
     t.datetime "price_updated_at"
-    t.integer "profit_percentage", default: 1
+    t.float "profit_percentage", default: 1.0
     t.bigint "category_id"
     t.bigint "line_item_id"
     t.bigint "line_item_price_id"
@@ -154,7 +154,7 @@ ActiveRecord::Schema.define(version: 2020_08_24_111856) do
     t.datetime "trader_api_token_update_at"
     t.integer "auto_update", default: 0
     t.integer "pricing_rule", default: 0
-    t.integer "amount", default: 0
+    t.float "amount", default: 0.0
     t.integer "global_pricing", default: 0
     t.string "short_pricelist_url"
     t.string "message"

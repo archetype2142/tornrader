@@ -25,7 +25,7 @@
                 .field
                   label.label Category Profit %
                   .control
-                    = f.number_field :amount, class: 'input'
+                    = f.number_field :amount, class: 'input', step: "0.01"
                     - if params[:q]
                       = f.hidden_field :query, value: params[:q]
                       = f.hidden_field :per_page, value: params[:per_page]

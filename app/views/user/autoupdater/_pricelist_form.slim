@@ -21,7 +21,7 @@
           label.label = f.label :amount, "Profit (0-100)"
           .field.has-addons
             .control
-              = f.number_field :amount, class: "input", value: current_user.amount
+              = f.number_field :amount, class: "input", step: "0.01", value: current_user.amount
             .control
               a.button.is-static id="switch"
                 = current_user.pricing_rule == 1 ? '$' : '%' 

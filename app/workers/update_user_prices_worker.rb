@@ -32,7 +32,6 @@ class UpdateUserPricesWorker < UniqueWorker
           rescue ActiveRecord::RecordInvalid
             next
           end
-          puts price.inspect
 
           price.update!(
             amount: user.pricing_rule == 1 ? 
@@ -42,15 +41,16 @@ class UpdateUserPricesWorker < UniqueWorker
           ) unless price.auto_updated_not?
         end
       else
-        positions_to_update = user.positions.where("amount > ?", 0)
+        positions_to_update = user.positions.where("amount != ?", user.amount)
         items_updated = []
-        
+
         if positions_to_update.any?
           positions_to_update.each do |p|
             item_ids = user.items.where(category_id: p.category_id).pluck(:id)
             prices = user.prices.where(item_id: item_ids)
             prices.each do |pr|
               next if pr.item_id == 1047 || pr.item_id == 1048
+
               pr.update!(
                 amount: user.pricing_rule == 1 ? 
                 average_price(pr, pr.profit_percentage).to_i : 
@@ -68,7 +68,7 @@ class UpdateUserPricesWorker < UniqueWorker
         prices_to_update.each do |item|
           price = user.prices.find_by(item_id: item.id)
           next unless price
-          
+                    
           price.update!(
             amount: user.pricing_rule == 1 ? 
             average_price(price, user.amount).to_i : 
