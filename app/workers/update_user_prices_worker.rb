@@ -34,9 +34,7 @@ class UpdateUserPricesWorker < UniqueWorker
           end
 
           price.update!(
-            amount: user.pricing_rule == 1 ? 
-            average_price(price, user.amount).to_i : 
-            calculate_price(price, user.amount).to_i,
+            amount: if user.pricing_rule == 1 then average_price(price, price.profit_percentage).to_i elsif user.pricing_rule == 0 then calculate_price(price, price.profit_percentage).to_i else market_value_price(price, price.profit_percentage).to_i end,
             price_updated_at: DateTime.now
           ) unless price.auto_updated_not?
         end
@@ -52,9 +50,7 @@ class UpdateUserPricesWorker < UniqueWorker
               next if pr.item_id == 1047 || pr.item_id == 1048
 
               pr.update!(
-                amount: user.pricing_rule == 1 ? 
-                average_price(pr, pr.profit_percentage).to_i : 
-                calculate_price(pr, pr.profit_percentage).to_i,
+                amount: if user.pricing_rule == 1 then average_price(price, price.profit_percentage).to_i elsif user.pricing_rule == 0 then calculate_price(price, price.profit_percentage).to_i else market_value_price(price, price.profit_percentage).to_i end,
                 price_updated_at: DateTime.now
               ) unless pr.auto_updated_not?
               items_updated.push(pr.item)
@@ -70,9 +66,7 @@ class UpdateUserPricesWorker < UniqueWorker
           next unless price
                     
           price.update!(
-            amount: user.pricing_rule == 1 ? 
-            average_price(price, user.amount).to_i : 
-            calculate_price(price, user.amount).to_i,
+            amount: if user.pricing_rule == 1 then average_price(price, price.profit_percentage).to_i elsif user.pricing_rule == 0 then calculate_price(price, price.profit_percentage).to_i else market_value_price(price, price.profit_percentage).to_i end,
             price_updated_at: DateTime.now
           ) unless price.auto_updated_not?
         end
@@ -81,7 +75,7 @@ class UpdateUserPricesWorker < UniqueWorker
       user.prices.each do |price|
         next if price.item_id == 1047 || price.item_id == 1048
         price.update!(
-          amount: user.pricing_rule == 1 ? average_price(price, price.profit_percentage) : calculate_price(price, price.profit_percentage),
+          amount: if user.pricing_rule == 1 then average_price(price, price.profit_percentage).to_i elsif user.pricing_rule == 0 then calculate_price(price, price.profit_percentage).to_i else market_value_price(price, price.profit_percentage).to_i end,
           price_updated_at: DateTime.now
         ) unless (price.auto_updated_not? || !categories.include?(price.item.category.id))
       end
@@ -103,6 +97,19 @@ class UpdateUserPricesWorker < UniqueWorker
       return (amount == 0 ? 1 : amount)
     else
       amount = (item.average_market_price.to_f * (1.0-profit.to_f/100.0)).floor
+      return (amount == 0 ? 1 : amount)
+    end
+  end
+
+  def market_value_price(price, profit)
+
+    item = price.item
+
+
+    if item.base_price == 0 && item.lowest_market_price == 0
+      (10*(Point.last.price.to_f)*(1.0-profit.to_f/100.0)).floor
+    else
+      amount = (item.base_price.to_f * (1.0-profit.to_f/100.0)).floor
       return (amount == 0 ? 1 : amount)
     end
   end

@@ -80,7 +80,7 @@
                   b Profit margin:
                   .field.has-addons
                     .control
-                      = f.number_field :profit_percentage, value: user_price&.profit_percentage, class: 'input'
+                      = f.number_field :profit_percentage, value: user_price&.profit_percentage, class: 'input', step: "0.01"
                     .control
                       a.button.is-static.switch %
                   - if user_price

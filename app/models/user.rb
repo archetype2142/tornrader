@@ -26,7 +26,7 @@ class User < ApplicationRecord
   
   enum user_type: %w[general admin]
   enum auto_update: %w[auto_updated_not auto_updated]
-  enum pricing_rules: %w[min_value_formula weighted_average]
+  enum pricing_rules: %w[min_value_formula weighted_average market_value]
   enum global_pricing: %w[disable_global enable_global]
   enum theme: %w[regular dark]
   enum short_url: %w[shortened shorten_not]
