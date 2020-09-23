@@ -102,9 +102,7 @@ class UpdateUserPricesWorker < UniqueWorker
   end
 
   def market_value_price(price, profit)
-
     item = price.item
-
 
     if item.base_price == 0 && item.lowest_market_price == 0
       (10*(Point.last.price.to_f)*(1.0-profit.to_f/100.0)).floor

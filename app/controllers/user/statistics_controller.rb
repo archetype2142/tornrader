@@ -9,9 +9,9 @@ class User::StatisticsController < ApplicationController
     @all_trades_count ||= current_user.trades_count
     @sellers ||= current_user.trades.all.pluck(:seller)
 
-    @top_seller ||= @sellers.group_by{|i| i}.max{|x,y| x[1].length <=> y[1].length}[0]
+    @top_seller ||= @sellers&.group_by{|i| i}&.max{|x,y| x[1].length <=> y[1].length}&.dig(0)
     
-    @total ||= current_user.trades.pluck(:total).sum
+    @total ||= current_user&.trades&.pluck(:total)&.sum
     
     @traders_data ||= @sellers.group_by(&:itself).map do |k, v| 
       next if v == 0

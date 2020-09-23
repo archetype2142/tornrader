@@ -1,4 +1,5 @@
 class User::PriceListsController < ApplicationController
+  impressionist actions: [:show]
   before_action :authenticate_user!, except: :show
   before_action :set_user, only: [:index, :show, :update_list]
 
@@ -12,7 +13,9 @@ class User::PriceListsController < ApplicationController
     redirect_to user_items_path, flash: { success: "Price List Successfully Created!" }
   end
 
-  def show;  end
+  def show
+    impressionist(@user) # 2nd argument is optional
+  end
   
   def update_list
     @user.update!(updated_price_list_at: Time.now)

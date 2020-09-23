@@ -65,10 +65,10 @@
       </div>
     </div>
     <div class="box">
-      <%= line_chart({name: "Trades", data: @all_trades}, { title: 'Daily Trade Volume', theme: 'palette4' } ) %>
+      <%= line_chart({name: "Trades", data: @all_trades}, { title: 'Daily Trade Volume', theme: 'palette4' } ) unless @all_trades %>
     </div>
     <div class="box">
-      <%= line_chart({name: "Profit", data: @all_profit}, { title: 'Daily Trade Profit', theme: 'palette5' } ) %>
+      <%= line_chart({name: "Profit", data: @all_profit}, { title: 'Daily Trade Profit', theme: 'palette5' } ) unless @all_profit %>
     </div>
   </div>
 

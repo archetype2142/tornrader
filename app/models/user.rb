@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  is_impressionable counter_cache: true, column_name: :list_view, unique: :session_hash
   devise :database_authenticatable, :registerable,
          :rememberable
   validates :torn_user_id, uniqueness: true

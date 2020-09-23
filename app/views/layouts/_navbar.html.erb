@@ -55,6 +55,7 @@
             <% end %>
           <% end %>
           <% if user_signed_in? %>
+            <li class="navbar-item"><b>List Views = <%= current_user.list_view %> </b></li>
             <div class="navbar-item has-dropdown is-hoverable has-mr-4">
               <a class="navbar-link">
                 <%= current_user.username %>
