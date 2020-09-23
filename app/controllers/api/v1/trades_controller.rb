@@ -37,12 +37,13 @@ module Api
             plushie_checked = plushie_set_exists?(flowers_checked)
             all_items = plushie_checked
           end
+
           items = all_items.map do |item|
             user_item = user_items.find_by(name: item["name"])
             price = user_item.nil? ? nil : user_prices.find_by(item_id: user_item.id)
             
             line_item_profit = price&.amount ? 
-              (((user_item.lowest_market_price - price.amount ) * item["quantity"].to_i).abs
+              (((user_item.base_price - price.amount ) * item["quantity"].to_i).abs
             ) : 0
 
             trade.line_items.create!(
