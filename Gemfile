@@ -41,7 +41,7 @@ gem 'webpacker-pwa', group: :development
 gem 'sidekiq-unique-jobs', '7.0.0.beta22'
 gem 'groupdate' # optional
 gem 'apexcharts'
-gem 'impressionist'
+gem 'impressionist', github: 'archetype2142/impressionist'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

@@ -7,6 +7,15 @@ GIT
       activesupport (>= 5.2.1)
       i18n
 
+GIT
+  remote: https://github.com/archetype2142/impressionist.git
+  revision: 14d1c1187b1d2f1bb6b1edce75e537fa98401651
+  specs:
+    impressionist (2.0.0)
+      friendly_id
+      nokogiri (~> 1)
+      rails (>= 3.2.15)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -117,8 +126,6 @@ GEM
       activesupport (>= 5)
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
-    impressionist (2.0.0)
-      nokogiri (~> 1)
     jbuilder (2.10.0)
       activesupport (>= 5.0.0)
     kaminari (1.2.1)
@@ -294,7 +301,7 @@ DEPENDENCIES
   dotenv-rails
   friendly_id
   groupdate
-  impressionist
+  impressionist!
   jbuilder (~> 2.7)
   kaminari
   listen (~> 3.2)
