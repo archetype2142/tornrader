@@ -24,13 +24,13 @@ SwitchUser.setup do |config|
   # if it returns true, the request will continue,
   # else the request will be refused and returns "Permission Denied"
   # if you switch from "admin" to user, the current_user param is "admin"
-  config.controller_guard = ->(current_user, request) { }
+  config.controller_guard = ->(current_user, request) { Rails.env.production? && current_user.admin? }
 
   # view_guard is a block,
   # if it returns true, the switch user select box will be shown,
   # else the select box will not be shown
   # if you switch from admin to "user", the current_user param is "user"
-  config.view_guard = ->(current_user, request)  { }
+  config.view_guard = ->(current_user, request)  { Rails.env.production? && current_user.admin? }
 
   # redirect_path is a block, it returns which page will be redirected
   # after switching a user.
