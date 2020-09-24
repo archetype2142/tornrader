@@ -27,6 +27,9 @@ Rails.application.routes.draw do
   get ":username/prices", to: 'user/price_lists#show', as: :user_price_list
   get ":username/update_prices", to: 'user/price_lists#update_list', as: :update_user_price_list
   
+  get 'switch_user', to: 'switch_user#set_current_user'
+  get 'switch_user/remember_user', to: 'switch_user#remember_user'
+  
   namespace :user do
     resources :theme, only: [:create]
     resources :items, only: [:index, :update, :create]
