@@ -18,19 +18,19 @@ SwitchUser.setup do |config|
   # available_users_names is a hash,
   # keys in this hash should match a key in the available_users hash
   # value is the column name which will be displayed in select box
-  config.available_users_names = { user: :email }
+  config.available_users_names = { user: :username }
 
   # controller_guard is a block,
   # if it returns true, the request will continue,
   # else the request will be refused and returns "Permission Denied"
   # if you switch from "admin" to user, the current_user param is "admin"
-  config.controller_guard = ->(current_user, request) { Rails.env.development? }
+  config.controller_guard = ->(current_user, request) { }
 
   # view_guard is a block,
   # if it returns true, the switch user select box will be shown,
   # else the select box will not be shown
   # if you switch from admin to "user", the current_user param is "user"
-  config.view_guard = ->(current_user, request)  { Rails.env.development? }
+  config.view_guard = ->(current_user, request)  { }
 
   # redirect_path is a block, it returns which page will be redirected
   # after switching a user.
