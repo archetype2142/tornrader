@@ -20,10 +20,12 @@ module Clockwork
     LowestPointPriceFetchWorker.perform_async(api_key)
     
     User.auto_updated.pluck(:id).each_slice(batch_size).each_with_index do |user_batch, index|
-      UpdateUserPricesWorker.perform_at(
-        Time.now + (index * per_batch_time).minute,
-        user_batch
-      )
+      user_batch.each do |user_id|
+        UpdateUserPricesWorker.perform_at(
+          Time.now + (index * per_batch_time).minute,
+          user_id
+        )
+      end
     end
     GC.start
   end
