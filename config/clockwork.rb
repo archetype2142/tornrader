@@ -6,7 +6,8 @@ require_relative "../config/environment"
 require "clockwork"
 
 module Clockwork
-  infrequent_prices = Item.all.where(base_price: 0).pluck(:torn_id)
+  infrequent_prices = Item.all.where(base_price: 0).pluck(:torn_id).map(&:to_i)
+
   api_key = User.find_by(username: "archetype2142").torn_api_key
   per_batch_time = 1.5
   batch_size = 5
