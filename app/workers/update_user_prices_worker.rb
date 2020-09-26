@@ -50,7 +50,7 @@ class UpdateUserPricesWorker < UniqueWorker
               next if pr.item_id == 1047 || pr.item_id == 1048
 
               pr.update!(
-                amount: if user.pricing_rule == 1 then average_price(price, price.profit_percentage).to_i elsif user.pricing_rule == 0 then calculate_price(price, price.profit_percentage).to_i else market_value_price(price, price.profit_percentage).to_i end,
+                amount: if user.pricing_rule == 1 then average_price(pr, pr.profit_percentage).to_i elsif user.pricing_rule == 0 then calculate_price(pr, pr.profit_percentage).to_i else market_value_price(pr, pr.profit_percentage).to_i end,
                 price_updated_at: DateTime.now
               ) unless pr.auto_updated_not?
               items_updated.push(pr.item)
