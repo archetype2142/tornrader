@@ -28,10 +28,10 @@ module Clockwork
   every 45.minutes, "forty-five-minutely" do
     LowestPointPriceFetchWorker.perform_async(api_key)
     
-    User.auto_updated.each_with_index do |user, index|
+    User.auto_updated.pluck(:id).each_with_index do |user_id, index|
       UpdateUserPricesWorker.perform_at(
         Time.now + (index+10).seconds,
-        user.id
+        user_id
       )
     end
   end
