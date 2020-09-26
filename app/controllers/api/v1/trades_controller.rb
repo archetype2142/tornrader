@@ -43,7 +43,7 @@ module Api
             price = user_item.nil? ? nil : user_prices.find_by(item_id: user_item.id)
             
             line_item_profit = price&.amount ? 
-              (((user_item.base_price - price.amount ) * item["quantity"].to_i).abs
+              (((user_item&.base_price - price&.amount ) * item["quantity"].to_i).abs
             ) : 0
 
             trade.line_items.create!(
