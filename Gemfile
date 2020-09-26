@@ -44,6 +44,7 @@ gem 'apexcharts'
 gem 'impressionist', github: 'archetype2142/impressionist'
 gem "sentry-raven"
 gem "switch_user"
+gem 'tunemygc'
 
 
 # Use Active Storage variant
