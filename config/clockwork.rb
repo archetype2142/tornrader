@@ -39,7 +39,7 @@ module Clockwork
         Time.now + (index+1).minute,
         total_items[item_set], 
         api_key
-      )
+      ) unless total_items[item_set].nil?
     end
     GC.start
   end
