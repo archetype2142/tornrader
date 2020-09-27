@@ -1,8 +1,8 @@
 class TradesController < ApplicationController
   before_action :authenticate_user!, except: :show
   before_action :set_trade, only: [:show, :destroy]
-  before_action :confirm_subscription
-
+  before_action :confirm_activity
+  
   def index
     @search = current_user.trades.ransack(params[:q])
 

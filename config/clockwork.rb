@@ -59,4 +59,10 @@ module Clockwork
       )
     end
   end
+
+  every 1.week, "weekly" do
+    User.all.pluck(:id).each do |user_id|
+      UserActivityWorker.perform_async(user_id)
+    end
+  end
 end

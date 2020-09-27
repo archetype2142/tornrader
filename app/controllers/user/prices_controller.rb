@@ -1,5 +1,4 @@
 class User::PricesController < ApplicationController
-  before_action :authenticate_user!
 
   def destroy
     query = params[:query].nil? ? nil : params[:query]

@@ -1,5 +1,8 @@
 class SubscriptionsController < ApplicationController
   before_action :authenticate_user!
+  skip_before_action :confirm_activity
+  skip_before_action :confirm_subscription
+  
   def create
     user = User.find(params[:user_id])
     s = user.subscriptions.new(

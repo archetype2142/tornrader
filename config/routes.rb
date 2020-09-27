@@ -21,6 +21,10 @@ Rails.application.routes.draw do
 
   get "/contact", to: "static_pages/contacts#index"
   get "/subscription", to: "static_pages/subscriptions#index", as: :expired_sub
+  
+  get "/inactive", to: "static_pages/activity#index", as: :expired_activity
+  get "/reactivate", to: "static_pages/activity#reactivate", as: :reactivate
+
   get "/how-it-works", to: "static_pages/howitworks#index"
   get "/about", to: "static_pages/about#index"
 

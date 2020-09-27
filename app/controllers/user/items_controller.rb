@@ -1,5 +1,4 @@
 class User::ItemsController < ApplicationController
-  before_action :confirm_subscription
   before_action :authenticate_user!
   before_action :set_user, only: [:index, :create]
 

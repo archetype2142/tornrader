@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import './App.css';
 import logo from 'images/logo.svg';
+require("@rails/ujs").start()
 
 var deferredPrompt; 
 

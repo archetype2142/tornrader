@@ -31,6 +31,7 @@ class User < ApplicationRecord
   enum global_pricing: %w[disable_global enable_global]
   enum theme: %w[regular dark]
   enum short_url: %w[shortened shorten_not]
+  enum account_status: %w[active inactive]
   
   attr_writer :login
 

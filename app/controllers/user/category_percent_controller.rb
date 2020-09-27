@@ -1,5 +1,6 @@
 class User::CategoryPercentController < ApplicationController
   before_action :confirm_subscription
+  before_action :confirm_activity
   before_action :authenticate_user!
 
   def update

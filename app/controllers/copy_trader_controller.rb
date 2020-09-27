@@ -1,6 +1,5 @@
 class CopyTraderController < ApplicationController
   before_action :authenticate_user!
-  before_action :confirm_subscription
 
   def index
     if params[:trade_id]

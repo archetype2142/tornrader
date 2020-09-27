@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :confirm_activity
+  before_action :confirm_subscription
 
   protected
 
@@ -17,6 +19,14 @@ class ApplicationController < ActionController::Base
     if user_signed_in?
       if !current_user.subscriptions.active.any?
         redirect_to expired_sub_path
+      end
+    end
+  end
+
+  def confirm_activity
+    if user_signed_in?
+      if current_user.inactive?
+        redirect_to expired_activity_path
       end
     end
   end

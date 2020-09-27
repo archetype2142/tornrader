@@ -1,6 +1,5 @@
 class User::StatisticsController < ApplicationController
   before_action :confirm_subscription
-  before_action :authenticate_user!
 
   def index
     @all_trades ||= current_user.trades.group_by_day(:created_at).count

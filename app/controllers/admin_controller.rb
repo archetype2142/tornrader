@@ -1,5 +1,7 @@
 class AdminController < ApplicationController
   before_action :authenticate_user!
+  skip_before_action :confirm_activity
+  skip_before_action :confirm_subscription
   before_action :ensure_admin
 
   def index

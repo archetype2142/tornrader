@@ -1,0 +1,11 @@
+- content_for :title, "Inactive notice" 
+.container 
+  h1.has-mt-24.title ⚠️ You haven't made any trades in over 1 week!
+  p Your account is deactivated 
+  p You can see your old subscriptions <a href="/settings">here</a>
+  p.has-mt-5
+    b 
+      span.has-text-danger Note: 
+      b If you had a automatic pricelist, it will stay where it was, but won't update till you re-activate
+  = link_to "Re-Activate!", reactivate_path, class: "button is-primary"
+  
