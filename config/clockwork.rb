@@ -17,7 +17,7 @@ module Clockwork
     config[:logger] = Logger.new Rails.root.join("log", "clockwork.log")
   end
 
-  every 25.minutes, "twenty-five-minutely" do
+  every 22.minutes, "twenty-five-minutely" do
     LowestPointPriceFetchWorker.perform_async(api_key)
     
     User.auto_updated.pluck(:id).each_slice(batch_size).each_with_index do |user_batch, index|
