@@ -20,7 +20,7 @@ module Clockwork
   every 22.minutes, "twenty-five-minutely" do
     LowestPointPriceFetchWorker.perform_async(api_key)
     
-    User.auto_updated.pluck(:id).each_slice(batch_size).each_with_index do |user_batch, index|
+    User.active.auto_updated.pluck(:id).each_slice(batch_size).each_with_index do |user_batch, index|
       user_batch.each do |user_id|
         UpdateUserPricesWorker.perform_at(
           Time.now + (index * per_batch_time).minute,
