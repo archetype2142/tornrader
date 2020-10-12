@@ -18,7 +18,7 @@
   .columns.is-multiline
     - @prices.each do |i|
       .column.is-one-third
-        .box.is-hoverable onclick="window.open('https://torntrader.com/#{i.user.username}/prices')"
+        .box.is-hoverable onclick="window.open('https://torntrader.com/#{i.user.username}/prices?marketplace=true')"
           .columns
             .column
               = @item_names.select { |id, _| id == i.item_id }.flatten[1]

@@ -95,12 +95,12 @@ input:focus, textarea:focus, select:focus{
 </style>
 
 <div class="filter-homepage has-mb-18">
-  <%= search_form_for @search, url: items_path, id: "search_box" do |f| %>
+  <%= search_form_for @search, url: marketplace_index_path, id: "search_box" do |f| %>
   <div class="field has-addons is-fullwidth" style="border-radius: 8px; box-shadow: rgba(0, 0, 0, 0.0784314) 0px 4px 12px;">
     <div class="control is-fullwidth">
       <div class="main-search">
         <span style="color: rgb(34, 34, 34); font-size: 10px; margin-bottom: 0px; font-weight: bold">ITEM NAME</span><br/>
-        <input name="q[name_cont]" id="q_name_cont" class="_1xq16jy" aria-autocomplete="list" aria-expanded="false" autocomplete="off" autocorrect="off" spellcheck="false" role="combobox" name="query" placeholder="What are u looking for?" required="" data-testid="structured-search-input-field-query" value=""></input>
+        <input name="q[name_cont]" id="q_name_cont" class="_1xq16jy" aria-autocomplete="list" aria-expanded="false" autocomplete="off" autocorrect="off" spellcheck="false" role="combobox" name="query" placeholder="What are u looking for? Find best price for your trades" required="" data-testid="structured-search-input-field-query" value=""></input>
       </div>
     </div>
     <div class="side-search">
