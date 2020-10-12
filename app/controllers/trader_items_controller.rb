@@ -6,7 +6,7 @@ class TraderItemsController < ApplicationController
     if params[:q] 
       @search = Item.basic.ransack(params[:q])
     else
-      @search = Item.first
+      @search = Item.where(id: 0).ransack(params[:q])
     end
 
     items ||= @search.result.pluck(:id)
