@@ -1,8 +1,13 @@
 class TraderItemsController < ApplicationController
 
   def index
+
     active_users ||= User.active
-    @search = Item.basic.ransack(params[:q])
+    if params[:q] 
+      @search = Item.basic.ransack(params[:q])
+    else
+      @search = Item.first
+    end
 
     items ||= @search.result.pluck(:id)
     @item_names ||= Item.where(id: items).pluck(:id, :name)
