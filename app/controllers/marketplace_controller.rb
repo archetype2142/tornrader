@@ -3,7 +3,7 @@ class MarketplaceController < ApplicationController
     if params[:q]
       order = params[:q][:s] ? params[:q][:s].split[1].to_sym : :asc
     else
-      order = :desc
+      order = :asc
     end
     active_users ||= User.active
     if params[:q] 
