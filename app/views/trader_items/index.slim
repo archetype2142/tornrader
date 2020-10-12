@@ -20,16 +20,14 @@
         .box.is-hoverable onclick="window.open('https://torntrader.com/#{i.user.username}/prices')"
           .columns
             .column
-              = i.user.username
+              = @item_names.select { |id, _| id == i.item_id }.flatten[1]
             .column.is-two-thirds
-              h4.is-size-4 = @item_names.select { |id, _| id == i.item_id }.flatten[1]
-              p 
-                b 
-                  |Market price: 
-                  = display_price(i.item.average_market_price)
+              h4.is-size-4 = i.user.username
               p
                 b 
                   |Trader's Price: 
-                  = display_price(i.amount)              
-              /p = i.description
+                  = display_price(i.amount)
+              p  
+                |Market price: 
+                = display_price(i.item.average_market_price)
   = paginate @prices

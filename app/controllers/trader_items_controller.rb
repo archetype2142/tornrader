@@ -1,7 +1,12 @@
 class TraderItemsController < ApplicationController
 
   def index
-    order = params[:q][:s]&.split[1]&.to_sym || :desc
+    if params[:q]
+      order = params[:q][:s] ? params[:q][:s].split[1].to_sym : :asc
+    else
+      order = :asc
+    end
+
     
     active_users ||= User.active
     if params[:q] 
