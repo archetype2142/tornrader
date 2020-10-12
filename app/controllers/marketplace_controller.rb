@@ -1,5 +1,4 @@
-class TraderItemsController < ApplicationController
-
+class MarketplaceController < ApplicationController
   def index
     if params[:q]
       order = params[:q][:s] ? params[:q][:s].split[1].to_sym : :asc

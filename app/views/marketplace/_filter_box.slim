@@ -1,7 +1,7 @@
 .box 
   .columns.is-mobile style="margin-bottom: 0px;"
     .column
-      = search_form_for @search, url: trader_items_path, id: "search_box", class: "closed" do |f|
+      = search_form_for @search, url: marketplace_index_path, id: "search_box", class: "closed" do |f|
         .columns.is-mobile.is-multiline
           .column.is-half
             .field
@@ -20,7 +20,7 @@
               .control
                 = f.submit "Filter", class: "button is-primary"
     .column.is-one-fifth.hide-mob
-      = form_with url: items_path, method: :get do |f|
+      = form_with url: marketplace_index_path, method: :get do |f|
         .field
           label.label Per page
           .control
