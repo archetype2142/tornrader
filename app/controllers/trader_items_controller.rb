@@ -4,13 +4,16 @@ class TraderItemsController < ApplicationController
     if params[:q]
       order = params[:q][:s] ? params[:q][:s].split[1].to_sym : :asc
     else
-      order = :asc
+      order = :desc
     end
-
-    
     active_users ||= User.active
     if params[:q] 
-      @search = Item.basic.ransack(params[:q])
+      @search =
+          if params[:q][:name_cont]&.blank? && params[:q][:category_id_eq]&.blank? 
+            Item.where(id: 0).ransack(params[:q])
+          else
+            Item.basic.ransack(params[:q])
+          end
     else
       @search = Item.where(id: 0).ransack(params[:q])
     end
@@ -31,5 +34,6 @@ class TraderItemsController < ApplicationController
       )
     .page(params[:page])
     .per(params[:per_page])
+
   end
 end
