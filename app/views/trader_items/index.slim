@@ -2,7 +2,9 @@
 .container.has-mt-24
   = render 'trader_items/filter_box'
   p Found items: 
-  span = @item_names
+  - @item_names_only.each do |item|
+    = "#{item}, "
+
   .level
     .level-left
       span
@@ -10,31 +12,24 @@
     .level-right
       span
         b Sort by: 
-        = sort_link(@search, :lowest_market_price) 
+        = sort_link(@search, :amount) 
 
   .columns.is-multiline
     - @prices.each do |i|
       .column.is-one-third
-        .box.is-hoverable onclick="window.open('https://www.torn.com/imarket.php#/p=shop&step=shop&type=&searchname=#{i.user}')"
+        .box.is-hoverable onclick="window.open('https://torntrader.com/#{i.user.username}/prices')"
           .columns
-            .column.is-one-fifth
-              = i.user.username
             .column
+              = i.user.username
+            .column.is-two-thirds
               h4.is-size-4 = @item_names.select { |id, _| id == i.item_id }.flatten[1]
               p 
                 b 
-                  |Lowest Market price: 
-                  /= display_price(i.lowest_market_price)
-                /- if i.lowest_price_added_on
-                  p  
-                    |  updated: (  
-                    = distance_of_time_in_words(i.lowest_price_added_on, Time.now)
-                    |  ago )
-                /- else 
-                  p.has-text-danger  Item not on market
+                  |Market price: 
+                  = display_price(i.item.average_market_price)
               p
                 b 
-                  |Market Value: 
+                  |Trader's Price: 
                   = display_price(i.amount)              
               /p = i.description
   = paginate @prices
