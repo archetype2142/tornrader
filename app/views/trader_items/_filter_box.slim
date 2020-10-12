@@ -1,0 +1,28 @@
+.box 
+  .columns.is-mobile style="margin-bottom: 0px;"
+    .column
+      = search_form_for @search, url: trader_items_path, id: "search_box", class: "closed" do |f|
+        .columns.is-mobile.is-multiline
+          .column.is-half
+            .field
+              = f.label :name_cont, "Name", class: "label"
+              .control
+                = f.search_field :name_cont, class: "input"
+          .column.is-half
+            .field
+              = f.label :category_id_eq, "Category", class: "label"
+              .control
+                .select
+                  = f.select :category_id_eq, Category.all.map { |c| [c.name, c.id] }, include_blank: true
+        .columns
+          .column
+            .field
+              .control
+                = f.submit "Filter", class: "button is-primary"
+    .column.is-one-fifth.hide-mob
+      = form_with url: items_path, method: :get do |f|
+        .field
+          label.label Per page
+          .control
+            .select
+              = select_tag "per_page", options_for_select([10, 15, 20, 30], params[:per_page]), onchange: 'this.form.submit();'
