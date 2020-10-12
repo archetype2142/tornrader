@@ -1,9 +1,9 @@
 class MarketplaceController < ApplicationController
   def index
     if params[:q]
-      order = params[:q][:s] ? params[:q][:s].split[1].to_sym : :asc
+      order = params[:q][:s] ? params[:q][:s].split[1].to_sym : :desc
     else
-      order = :asc
+      order = :desc
     end
     active_users ||= User.active
     if params[:q] 
