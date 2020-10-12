@@ -1,6 +1,7 @@
 - content_for :title, "Marketplace"
 .container.has-mt-24
   h1.title Torntrader Marketplace
+  h2.subtitle Find it, Sell it!
   = render 'marketplace/filter_box'
   p Found items: 
   - @item_names_only.each do |item|
