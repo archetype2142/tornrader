@@ -47,6 +47,12 @@
       </div>
     </div>
 
+    <% unless user_signed_in? %>
+      <div class="navbar-item"> 
+        <%= link_to "Find Best Prices Now!", marketplace_index_path, class: "button is-primary" %></b>
+      </div>
+    <% end %>
+
     <div class="navbar-end">
       <div class="navbar-item">
           <% if user_signed_in? %>
@@ -66,7 +72,7 @@
             </div>
             <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "button is-danger" %>
           <% else %>
-            <%= link_to "Sign Up", new_user_registration_path,class: "button is-primary" %>
+            <%= link_to "Sign Up", new_user_registration_path, class: "button is-primary" %>
             <%= link_to "Log In", new_user_session_path , class: "button is-light" %>
           <% end %>
         </div>
