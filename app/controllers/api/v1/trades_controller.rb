@@ -63,10 +63,10 @@ module Api
             }
           end
           trade.line_items.map(&:update_total_manual)
-          trade_messages = user.messages.map{ |m| {name: m.name, message: replace_keys(m.message, user, params, trade)} }
           trade.update_total
-
           total_profit = items.pluck(:profit).compact.sum
+
+          trade_messages = user.messages.map{ |m| {name: m.name, message: replace_keys(m.message, user, params, trade)} }
 
           trade_info = {
             trade: {
@@ -92,14 +92,14 @@ module Api
 
       def replace_keys(message, user, params, trade)
         replacements = [
-          ["{trade_total}", display_price(trade&.total).to_s],
+          ["{trade_total}", display_price(trade&.reload&.total).to_s],
           ["{items_count}", trade&.line_items.pluck(:quantity).sum.to_s],
           ["{trade_url}", user.shortened? ? (trade.short_url ? trade.short_url : url_maker(trade_url(trade)).to_s) : trade_url(trade)],
           ["{seller_name}", params["seller"].to_s],
           ["{trader_name}", user.username.to_s],
           ["{pricelist_link}", user.short_pricelist_url.to_s],
           ["{forum_url}", user.forum_url.to_s],
-          ["{price_without_delimiter}", trade&.total.to_s]
+          ["{price_without_delimiter}", trade&.reload&.total.to_s]
         ]
         
         replacements.inject(message) { |str, (k,v)| str.gsub(k,v) }
