@@ -13,6 +13,9 @@ module TornTrader
     config.load_defaults 6.0
     config.active_record.default_timezone = 'London'
     config.filter_parameters << :password
+    config.action_dispatch.default_headers = {
+      'X-Frame-Options' => 'ALLOWALL'
+    }
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
