@@ -35,6 +35,8 @@
   div#macy-container
     - cache @user.prices do
       - @user.positions.order(:number).includes([:category]).all.each do |position|
+        - user_items = @user.items.where(category: position.category)
+        - next unless user_items.any?
         .box style="padding: none"
           h1.title.is-size-6.has-text-centered = position.category.name
           .table__wrapper
@@ -45,7 +47,7 @@
                   td
                   td Price
               tbody
-                - @user.items.where(category: position.category).order(lowest_market_price: :asc).each do |item|
+                - user_items.order(lowest_market_price: :asc).each do |item|
                   tr.trade-component
                     td.component-name
                       figure.image.is-32x32
