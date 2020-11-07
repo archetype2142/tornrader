@@ -45,6 +45,7 @@ Rails.application.routes.draw do
     resources :price_lists_order, only: [:index, :create]
     resources :category_percent, only: :update
     resources :statistics, only: [:index]
+    resources :embed_lists, only: :show
     
     get "auto_update", to: "price_lists_order#auto_update_user_prices", as: "auto_update"
     get "/:id/remove_categories/:category_id", to: "categories#remove_category", as: 'remove_category'

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+    <title>TornTrader | <%= yield(:title) %></title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Trading App for high volume traders on Torn, with our handy chrome extension, trading is a breeze!">
+    
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@torntrader">
+    <meta name="twitter:creator" content="@torntrader">
+    <meta name="twitter:title" content="TornTrader | High Volume Torn Trading">
+    <meta name="twitter:description" content="High volume trading solution for Torn">
+    <meta name="twitter:image" content="<%= asset_url('logo_pink')%>">
+
+    <meta property="og:title" content="TornTrader | High Volume Torn Trading" />
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="" />
+    <meta property="og:url" content="https://torntrader.com" />
+    <meta property="og:image" content="<%= asset_url('logo_pink')%>" />
+    <script data-ad-client="ca-pub-9614592894777956" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+    <%= favicon_link_tag "logo_pink.svg" %>
+    <% if params[:username] %>
+      <% color = User.find_by(username: params[:username]).theme %>
+      <%= stylesheet_link_tag "#{ color == "dark" ? 'dark' : 'application' }", media: 'all', 'data-turbolinks-track': 'reload' %>
+    <% elsif user_signed_in? %>
+      <% color = current_user.theme %>
+      <%= stylesheet_link_tag "#{ color == "dark" ? 'dark' : 'application' }", media: 'all', 'data-turbolinks-track': 'reload' %>
+    <% else %>
+      <%= stylesheet_link_tag "application", media: 'all', 'data-turbolinks-track': 'reload' %>
+    <% end %>
+
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <style>
+    .table.is-striped tbody tr:not(.is-selected):nth-child(even) {
+      background-color: <%= params[:table] ? params[:table] : params[:color] %> !important;
+    }
+  </style>
+  <body style="<%= "background: #{params[:color]} !important" if params[:color] %>">
+    <!-- <script data-ad-client="ca-pub-9614592894777956" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> -->
+    <div id="wrapper">
+      <%= yield %>    
+    </div>
+  </body>
+</html>
