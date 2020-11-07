@@ -28,7 +28,6 @@ var user_items = new Sortable(user, {
 async function sendRearrangeReq(list, userID, token) {
   const response = await fetch("https://torntrader.com/user/price_lists_order", {
     method: 'POST',
-    mode: 'same-origin',
     headers: {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
