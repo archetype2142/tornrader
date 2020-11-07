@@ -25,10 +25,15 @@
             svg id="arrow-down" data-name="arrow-down" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
               path.cls-1 style="fill: #818384;" d="M9.5,4h5a.5.5,0,0,1,.5.5V12h3.63a.5.5,0,0,1,.36.85l-6.64,6.64a.5.5,0,0,1-.7,0L5,12.85A.5.5,0,0,1,5.37,12H9V4.5A.5.5,0,0,1,9.5,4Z"
       h1.title.is-size-5-touch = "<span class='has-text-primary'>#{@user.username}'s</span> PriceList".html_safe
-    .level-right.center-mob
+    .level-right.center-mob style="flex-direction: column;"
       = link_to "Trade", "https://www.torn.com/trade.php#step=start&userID=#{@user.torn_user_id}", class: "button has-bg-purple-50", style: "color: white", target: "_blank"
       - if @user.forum_url
         = link_to "Reviews", @user.forum_url, class: "has-ml-4 button is-primary", target: "_blank"
+                    |  ago )
+      p
+       | Updated: 
+       b
+        = distance_of_time_in_words(@user.prices.first.updated_at, Time.now)
   - unless @user.message.nil?
     .box
       h1.subtitle.has-text-centered = @user.message
