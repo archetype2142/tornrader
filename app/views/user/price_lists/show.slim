@@ -30,7 +30,7 @@
       - if @user.forum_url
         = link_to "Reviews", @user.forum_url, class: "has-ml-4 button is-primary", target: "_blank"
                     |  ago )
-      p
+      /p
        | Updated: 
        b
         = distance_of_time_in_words(@user.prices.find(@user.prices.pluck(:id).sample).updated_at, Time.now)
