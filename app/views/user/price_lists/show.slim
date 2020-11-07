@@ -33,7 +33,7 @@
       p
        | Updated: 
        b
-        = distance_of_time_in_words(@user.prices.first.updated_at, Time.now)
+        = distance_of_time_in_words(@user.prices.find(@user.prices.pluck(:id).sample).updated_at, Time.now)
   - unless @user.message.nil?
     .box
       h1.subtitle.has-text-centered = @user.message
