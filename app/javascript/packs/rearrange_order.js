@@ -29,7 +29,6 @@ async function sendRearrangeReq(list, userID, token) {
   const response = await fetch("https://torntrader.com/user/price_lists_order", {
     method: 'POST',
     mode: 'same-origin',
-    credentials: 'same-origin',
     headers: {
       'Content-Type': 'application/json',
       'Accept': 'application/json',
