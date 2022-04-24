@@ -6,8 +6,7 @@ class User::PriceListsController < ApplicationController
   def index
     @user.update!(
       price_list: true, 
-      updated_price_list_at: DateTime.now,
-      short_pricelist_url: url_maker(user_price_list_url(current_user.username))
+      updated_price_list_at: DateTime.now
     )
 
     redirect_to user_items_path, flash: { success: "Price List Successfully Created!" }
